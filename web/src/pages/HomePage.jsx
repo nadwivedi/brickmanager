@@ -1,27 +1,33 @@
 import { Link } from 'react-router-dom';
 import {
-  AlertTriangle, ArrowRight, BarChart3, Boxes, Building2, CheckCircle2, ChevronDown, ClipboardList, FileText, Hammer,
-  HandCoins, HardHat, Landmark, Layers, LogIn, Sparkles, TrendingUp, Truck, Users,
+  AlertTriangle, ArrowRight, BarChart3, Boxes, Building2, CalendarRange, Calculator, CheckCircle2, ChevronDown,
+  ClipboardList, Clock, Cog, Factory, FileText, Flame, Gauge, Hammer, HandCoins, HardHat, IndianRupee, Landmark,
+  Layers, LogIn, MapPin, Network, ShieldCheck, Smartphone, Sparkles, TrendingUp, Truck, UserRound, Users,
 } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import JsonLd from '../components/JsonLd';
+import PricingCard from '../components/PricingCard';
 import { BrickPattern, Footer, Navbar, SectionHeading } from '../components/PublicSite';
-import { CONTACT_PAGE, FEATURES_PAGE } from '../lib/publicNav';
+import {
+  APP_PAGE, BHATTA_PAGE, BILLING_PAGE, CONTACT_PAGE, EXPENSE_PAGE, FEATURES_PAGE, FLY_ASH_PAGE, INVENTORY_PAGE,
+  PAYMENT_PAGE, PLANT_PAGE, PRICE_PAGE, PRODUCTION_PAGE, REPORTS_PAGE,
+} from '../lib/publicNav';
+import { PLANS } from '../lib/plans';
 import { appLink, site } from '../lib/site';
 import usePageMeta from '../hooks/usePageMeta';
 
-export const TITLE = `Brick Kiln Management Software - ${site.name}`;
-export const DESCRIPTION = `${site.name} is brick kiln management software for Indian brick bhattas and plants. Track production, brick stock, sales, GST billing, party dues and expenses online.`;
+export const TITLE = `Brick Kiln Management Software | ${site.name} Bhatta Software`;
+export const DESCRIPTION = `${site.name} is brick kiln management software for Indian bhattas & plants. Track production, stock, GST billing, dues & expenses online. Request a demo!`;
 
 const FEATURES = [
-  { icon: Hammer, title: 'Production tracking', text: 'Record daily output by plant, brick type and shift, along with the raw material used and any damaged bricks.' },
-  { icon: Boxes, title: 'Raw material stock', text: 'Cement, fly ash, sand and more. Stock moves with every purchase and production entry.' },
-  { icon: FileText, title: 'Sales & invoices', text: 'Create invoices in seconds, with transport and trip charges worked in.' },
-  { icon: Users, title: 'Party ledgers', text: 'One ledger per customer and vendor shows exactly who owes what, and since when.' },
-  { icon: Landmark, title: 'Expenses, cash & bank', text: 'Log every expense and keep a live balance for each cash and bank account.' },
-  { icon: HardHat, title: 'Labour & vehicles', text: 'Keep your workers and delivery vehicles on record, right next to the work they do.' },
-  { icon: BarChart3, title: 'Reports & profit', text: 'Profit & loss and ledger reports, ready whenever you or your accountant need them.' },
-  { icon: AlertTriangle, title: 'Low stock alerts', text: 'Get warned before a raw material runs out and production has to stop.' },
+  { icon: Hammer, title: 'Production Tracking', to: PRODUCTION_PAGE, text: 'Record daily output by plant, brick type and shift, along with the raw material used and any damaged bricks.' },
+  { icon: Boxes, title: 'Raw Material Stock', to: INVENTORY_PAGE, text: 'Cement, fly ash, sand and more. Stock moves with every purchase and production entry, so you always see your balance.' },
+  { icon: FileText, title: 'Sales and Invoices', to: BILLING_PAGE, text: 'Create GST invoices in seconds, with transport and trip charges worked in.' },
+  { icon: Users, title: 'Party Ledgers and Dues', to: PAYMENT_PAGE, text: 'One ledger per customer and vendor shows exactly who owes what, and since when.' },
+  { icon: Landmark, title: 'Expenses, Cash and Bank', to: EXPENSE_PAGE, text: 'Log every expense and keep a live balance for each cash and bank account.' },
+  { icon: HardHat, title: 'Labour and Vehicles', text: 'Keep your workers and delivery vehicles on record, right next to the work they do.' },
+  { icon: BarChart3, title: 'Reports and Profit', to: REPORTS_PAGE, text: 'Profit and loss and ledger reports, ready whenever you or your accountant need them.' },
+  { icon: AlertTriangle, title: 'Low Stock Alerts', text: 'Get warned before a raw material runs out and production has to stop.' },
 ];
 
 const BENEFITS = [
@@ -29,14 +35,58 @@ const BENEFITS = [
   'Know your brick and material stock at any moment',
   'Collect dues on time with clear party ledgers',
   'Run several plants from a single login',
-  'Works on phone, tablet and desktop',
-  "Your business data stays private to your account",
+  'Works on phone, tablet, and desktop',
+  'Your business data stays private to your account',
 ];
 
 const STEPS = [
-  { icon: Building2, title: 'Set up your plant', text: 'Add your plants, brick types, raw materials and parties once.' },
-  { icon: ClipboardList, title: 'Record the day', text: 'Enter production, sales, purchases and expenses as they happen.' },
-  { icon: TrendingUp, title: 'See the full picture', text: 'Stock, dues and profit are worked out for you, always up to date.' },
+  { icon: Building2, title: 'Set up your plant', text: 'Add your plants, brick types, raw materials, and parties once.' },
+  { icon: ClipboardList, title: 'Record the day', text: 'Enter production, sales, purchases, and expenses as they happen.' },
+  { icon: TrendingUp, title: 'See the full picture', text: 'Stock, dues, and profit are worked out for you, always up to date.' },
+];
+
+const INDIA_POINTS = [
+  { icon: MapPin, title: 'Made for Indian kiln operations', text: 'From coal and fly ash purchase to delivery charges, you can manage every record of a real brick kiln with a clean workflow in our software. Not a generic factory template.' },
+  { icon: IndianRupee, title: 'GST-ready invoice', text: 'You can generate a GST-compliant invoice in just a few seconds. In addition, you can keep your accounts clear and GST-ready whenever you want, without any chasing.' },
+  { icon: Smartphone, title: 'Run on every device', text: 'You do not require any special hardware for our online brick kiln management software. There is no need to have a munshi at your plant to record everything.' },
+];
+
+const PLANT_TYPES = [
+  { icon: Flame, title: 'Traditional bhatta and fixed chimney kilns', text: 'Simple daily entries and party-wise credit records.', link: { to: BHATTA_PAGE, label: 'bhatta software' } },
+  { icon: Layers, title: 'Fly ash brick plants', text: 'Track raw material mix, stock and production.', link: { to: FLY_ASH_PAGE, label: 'fly ash brick management software' } },
+  { icon: Cog, title: 'Mechanised and semi-mechanised plants', text: 'Shift-wise production, labour and vehicle records.', link: { to: PLANT_PAGE, label: 'brick plant management software' } },
+  { icon: Factory, title: 'Single or multiple plants', text: 'Our brick kiln software for multiple plants lets you manage every bhatta from one login, with full visibility across all of them.' },
+  { icon: CalendarRange, title: 'Seasonal and cycle-based operations', text: 'Records stay organised through the season and the off-season.' },
+];
+
+const USERS = [
+  { icon: UserRound, label: 'Brick kiln owner' },
+  { icon: ClipboardList, label: 'Plant manager and munshi' },
+  { icon: Calculator, label: 'Accountant, CA team' },
+  { icon: Network, label: 'Multi-plant supervisor' },
+  { icon: Truck, label: 'Delivery partner and family business' },
+];
+
+const REASONS = [
+  { icon: Clock, title: 'Save hours every week', text: 'No manual register entries or end-of-month reconciliation.' },
+  { icon: HandCoins, title: 'Collect dues faster', text: 'Clear party ledgers show exactly who to follow up with.' },
+  { icon: AlertTriangle, title: 'Never stop production for stock', text: 'Low stock alerts warn you before raw material runs out.' },
+  { icon: TrendingUp, title: 'Know your real profit', text: 'Profit and loss is ready whenever you or your accountant need it.' },
+  { icon: Building2, title: 'Run multiple plants calmly', text: 'One login, full visibility across every bhatta.' },
+  { icon: Flame, title: 'Built only for brick kilns', text: 'Our brick kiln management system is based on a real bhatta workflow and made for the Indian market.' },
+  { icon: Sparkles, title: 'Easy to use', text: 'No IT skills needed. The dashboard is simple and clean, and we train your team to get started.' },
+  { icon: Gauge, title: 'Real-time reports', text: 'Filter and generate reports whenever you want, with up-to-date data.' },
+  { icon: ShieldCheck, title: 'Secure and private', text: 'Your data stays private to your account, and you can back up and restore it.' },
+  {
+    icon: Smartphone,
+    title: 'Online, any device',
+    text: (
+      <>
+        Nothing to install and no IT team required. Your whole team can use it from a browser, and our{' '}
+        <Link to={APP_PAGE} className="font-semibold text-orange-700 hover:underline">mobile app</Link> is available for Android and iOS.
+      </>
+    ),
+  },
 ];
 
 const FAQS = [
@@ -151,11 +201,12 @@ export default function HomePage() {
               </span>
               <h1 className="mt-[1.35rem] text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:mt-[0.9rem] lg:text-[2.6rem]">
                 <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Brick Kiln Management Software</span>{' '}
-                to run your plant smarter
+                for Indian Bhattas, No Paperwork
               </h1>
               <p className="mx-auto mt-[1.35rem] max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0 lg:mt-[0.9rem] lg:text-base">
-                {site.name} tracks production, raw material stock, GST billing, dues and expenses for your brick kiln
-                or bhatta, so you always know what was made, what was sold and who still has to pay.
+                {site.name} tracks production, raw material stock, GST billing, dues, and expenses for your brick kiln
+                or bhatta, so you always know what was made, what was sold, and who still has to pay. Use online brick
+                kiln management software anywhere, anytime.
               </p>
               <div className="mt-[1.8rem] flex flex-col justify-center gap-[0.675rem] sm:flex-row lg:mt-[1.125rem] lg:justify-start">
                 <a href={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
@@ -180,16 +231,18 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Features"
-              title="Everything your plant tracks, in one place"
-              text="From the first batch of the morning to the last truck out, every entry lands in the right register automatically."
+              title="Everything Your Plant Tracks, in One Place"
+              text="From the first batch of the morning to the last truck out, every entry lands in the right register automatically. That’s what makes this brick kiln management system different from a notebook."
             />
             <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {FEATURES.map(({ icon: Icon, title, text }) => (
+              {FEATURES.map(({ icon: Icon, title, text, to }) => (
                 <div key={title} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60 transition group-hover:from-orange-600 group-hover:to-orange-500 group-hover:text-white">
                     <Icon size={22} />
                   </span>
-                  <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
+                  <h3 className="mt-5 font-bold text-slate-900">
+                    {to ? <Link to={to} className="transition hover:text-orange-700 hover:underline">{title}</Link> : title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
@@ -207,9 +260,10 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Why {site.name}</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Less paperwork. More control.</h2>
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Less Paperwork. More Control</h2>
               <p className="mt-4 text-slate-600">
-                Most brick plants run on registers, phone calls and memory. {site.name} turns that into clear numbers you can trust.
+                Most brick plants run on registers, phone calls, and memory. {site.name}, a complete brick kiln business
+                software, turns that into clear numbers you can trust.
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {BENEFITS.map(b => (
@@ -219,30 +273,150 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-            <ol className="space-y-4">
-              {STEPS.map(({ icon: Icon, title, text }, i) => (
-                <li key={title} className="flex gap-4 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900">How It Works</h2>
+              <ol className="mt-5 space-y-4">
+                {STEPS.map(({ icon: Icon, title, text }, i) => (
+                  <li key={title} className="flex gap-4 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20">
+                      <Icon size={22} />
+                    </span>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-primary-700">Step {i + 1}</p>
+                      <h3 className="font-bold text-slate-900">{title}</h3>
+                      <p className="mt-1 text-sm text-slate-600">{text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* Built for India */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Made for India"
+              title="Built for Brick Plants in India"
+              text={`${site.name} is a brick kiln software in India, specially designed around how an Indian bhatta actually works. Every Indian brick plant works in its own way. Customers buy on credit, deliveries go out regularly, GST invoices are required, dues are collected across weeks and many more. Hence, our software is specially designed for the Indian market.`}
+            />
+            <div className="mt-14 grid gap-5 md:grid-cols-3">
+              {INDIA_POINTS.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50/70 to-white p-6 shadow-sm">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 text-white shadow-md shadow-orange-200">
                     <Icon size={22} />
                   </span>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-primary-700">Step {i + 1}</p>
-                    <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm text-slate-600">{text}</p>
-                  </div>
+                  <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                Request a Demo <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Plant types */}
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Plant types"
+              title="Software for Every Type of Brick Plant"
+              text="Every plant is set up differently, with different firing methods, scales and ways of selling. Whether you run a traditional bhatta or a modern mechanised unit, this is software for brick kiln owners of every kind."
+            />
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {PLANT_TYPES.map(({ icon: Icon, title, text, link }) => (
+                <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20">
+                    <Icon size={20} />
+                  </span>
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {text}
+                    {link && (
+                      <>
+                        {' '}See our{' '}
+                        <Link to={link.to} className="font-semibold text-orange-700 hover:underline">{link.label}</Link>.
+                      </>
+                    )}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section id="pricing" className="scroll-mt-20 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading eyebrow="Our Pricing Plans" title="Simple Plans for Every Size of Brick Plant/Bhatta" />
+            <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+              {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
+            </div>
+            <div className="mt-10 text-center">
+              <Link to={PRICE_PAGE} className="btn-secondary px-6 py-3">
+                Know More About Plan <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Who uses it */}
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Who it's for"
+              title={`Who Uses ${site.name}`}
+              text="As a leading brick kiln software company in India, we offer our software to everyone. It is built for real roles, not job titles. You can use our software as:"
+            />
+            <ul className="mt-12 flex flex-wrap justify-center gap-4">
+              {USERS.map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white px-5 py-4 font-semibold text-slate-800 shadow-sm">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60">
+                    <Icon size={20} />
+                  </span>
+                  {label}
                 </li>
               ))}
-            </ol>
+            </ul>
+          </div>
+        </section>
+
+        {/* Why choose */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Benefits"
+              title={`Why Brick Plants Choose ${site.name}`}
+              text="By choosing software to manage your brick kiln, you can transform your plant into a digital one that is easy to track. Here is the reason why you should ask for brick kiln record-keeping software and what benefits you get:"
+            />
+            <div className="mt-14 grid gap-4 md:grid-cols-2">
+              {REASONS.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100">
+                    <Icon size={20} />
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-slate-900">{title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            <SectionHeading eyebrow="FAQs" title="Brick Kiln Management Software FAQs" />
+            <SectionHeading eyebrow="FAQs" title="Frequently Asked Questions" />
             <div className="mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
-                <details key={q} className="group rounded-2xl border-l-4 border-orange-200 bg-white transition open:border-orange-500 open:shadow-md">
+                <details key={q} className="group rounded-2xl border-l-4 border-orange-200 bg-slate-50 transition open:border-orange-500 open:bg-white open:shadow-md">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
                     <h3 className="text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
@@ -255,7 +429,7 @@ export default function HomePage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 sm:px-6">
+        <section className="px-4 pt-20 sm:px-6 sm:pt-24">
           <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
