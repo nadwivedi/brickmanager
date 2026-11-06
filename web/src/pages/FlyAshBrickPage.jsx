@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  AlertTriangle, ArrowRight, BarChart3, Boxes, ChevronDown, ChevronRight, Clock, FileText, Gauge, Grid3x3, Layers,
-  ShieldAlert, Users,
+  AlertTriangle, ArrowRight, BarChart3, Boxes, Building2, Calculator, ChevronDown, ChevronRight, ClipboardList, Clock,
+  Factory, FileText, Gauge, Grid3x3, Layers, Network, Package, Settings, ShieldAlert, ShoppingCart, Smartphone,
+  TrendingUp, UserRound, Users, Wallet,
 } from 'lucide-react';
 import JsonLd from '../components/JsonLd';
+import PricingCard from '../components/PricingCard';
 import WhatsAppButton, { WhatsAppIcon } from '../components/WhatsAppButton';
 import { BrickPattern, Footer, Navbar, SectionHeading } from '../components/PublicSite';
 import usePageMeta from '../hooks/usePageMeta';
@@ -14,8 +16,8 @@ import {
 } from '../lib/publicNav';
 import { site, whatsappLink } from '../lib/site';
 
-export const TITLE = `Fly Ash Brick Management Software | ${site.name}`;
-export const DESCRIPTION = 'Fly ash brick management software: track fly ash, cement and sand per batch, check bricks per bag of cement, damaged bricks, stock, sales and dues.';
+export const TITLE = 'Fly Ash Brick Management Software | Brick Manager';
+export const DESCRIPTION = 'Track every batch, cement bag, and brick with Brick Manager, fly ash brick software for production, stock, GST billing and profit. Request a free demo.';
 
 // The materials of a typical fly ash brick mix; owners add their own in the app
 const MIX = ['Fly ash', 'Cement', 'Sand / stone dust', 'Lime', 'Gypsum'];
@@ -33,10 +35,61 @@ const FEATURES = [
   { icon: Boxes, title: 'Material used per batch', text: 'Fly ash, cement, sand and lime used in each batch come out of stock automatically.' },
   { icon: ShieldAlert, title: 'Damaged bricks', text: 'Broken bricks are recorded per batch and shown as a percentage, so a bad batch stands out.' },
   { icon: AlertTriangle, title: 'Low stock alerts', text: 'Set a minimum for fly ash and cement and get warned before the machines have to stop.' },
-  { icon: Layers, title: 'Ready brick stock', text: 'Good bricks join stock for their brick type, and every sale takes them out.' },
+  { icon: Layers, title: 'Ready brick stock', text: 'Good bricks join stock by brick type, and every sale removes them. This fly ash brick stock management keeps your yard accurate at all times.' },
   { icon: FileText, title: 'GST invoices', text: 'Bills with GST, discounts, transport and trip charges for every load.' },
   { icon: Users, title: 'Party ledgers & reminders', text: 'Who owes what, with balance-due reminders sent on WhatsApp.' },
   { icon: BarChart3, title: 'Profit & cost per brick', text: 'Profit & loss for any period, with the real cost of each brick.' },
+];
+
+// "One platform, every part of your business"
+const PLATFORM = [
+  { icon: Package, label: 'Inventory' },
+  { icon: ShoppingCart, label: 'Sales' },
+  { icon: Wallet, label: 'Accounting' },
+  { icon: Factory, label: 'Production' },
+  { icon: Gauge, label: 'Cement control' },
+  { icon: Building2, label: 'Multi-plant' },
+  { icon: Smartphone, label: 'Anywhere access' },
+];
+
+const NEEDS = [
+  { title: 'Improved Material Tracking', text: 'Track fly ash, cement, sand, lime and gypsum usage per production batch.' },
+  { title: 'Proper Production Records', text: 'Daily, shift-wise and batch-wise production records.' },
+  { title: 'Controlled Inventory', text: 'Accurately monitor raw materials and finished bricks, automatically updating inventory.' },
+  { title: 'Cement Consumption Monitoring', text: 'Determine the number of bricks per cement bag and compare the performance of the batch with the historical average.' },
+  { title: 'Simplified Business Transactions', text: 'Processing of purchases, sales, GST invoices and outstanding payments to customers.' },
+  { title: 'Cost and Profit Visibility', text: 'Analyse costs, profit and loss, and manufacturing cost per brick.' },
+];
+
+const REASONS = [
+  { icon: Factory, title: 'Production Tracking', text: 'View brick production by batch, brick type, shift and all the other important information.' },
+  { icon: ClipboardList, title: 'Monitoring Materials', text: 'Document materials used, such as cement, fly ash, sand, lime and others in the production process.' },
+  { icon: Boxes, title: 'Raw Material Stock Control', text: 'Keep track of raw material stocks and finished brick stocks.' },
+  { icon: Gauge, title: 'Cement Consumption Analysis', text: 'Determine the bricks per bag of cement and compare with the historical records.' },
+  { icon: FileText, title: 'Billing & Payments', text: 'Generate GST invoices, customer ledgers, and track outstanding debts.' },
+  { icon: BarChart3, title: 'Cost Management', text: 'Monitor cost, profit, and the actual cost of the brick produced.' },
+  { icon: Smartphone, title: 'Flexible Access', text: 'Access the fly ash brick software via mobile devices, tablets and desktops.' },
+];
+
+const GET_STEPS = [
+  { title: 'Request a Demo', text: 'Take advantage of the Request a Demo option to explore BrickManager production, inventory and more.' },
+  { title: 'Choose Plan', text: 'Choose your packages according to your business needs.' },
+  { title: 'Set Up Your Plant', text: 'Add your manufacturing plant, brick types, raw materials, customers and vendors.' },
+  { title: 'Begin Recording Operations', text: 'Start keeping business records for production, purchases, sales and expenses.' },
+];
+
+const START_STEPS = [
+  { icon: Settings, title: 'Set up your plant', text: 'Add your plants, create brick types with the materials each one uses, add raw materials with their units, and enter your customers and vendors.' },
+  { icon: ClipboardList, title: 'Record daily activity', text: 'Enter production by plate or direct count, record the materials used in each batch, log damaged bricks and shift output, and add your sales, purchases and expenses.' },
+  { icon: TrendingUp, title: 'Review your business', text: 'Check raw material and ready brick stock, see customer and vendor dues, view profit and loss, and know the real cost of each brick.' },
+];
+
+const USERS = [
+  { icon: UserRound, title: 'Fly Ash Brick Plant Owners', text: 'Manage production, inventory, sales and expenses from one platform.' },
+  { icon: Factory, title: 'Production Managers', text: 'Keep batch-wise and shift-wise production records and keep a check on damaged bricks.' },
+  { icon: Boxes, title: 'Inventory Managers', text: 'Manage fly ash brick plant raw material tracking and control cement, fly ash, sand and other materials.' },
+  { icon: Calculator, title: 'Accounts/Sales Teams', text: 'Create GST invoices, keep party ledgers, monitor customer payments.' },
+  { icon: Network, title: 'Multi-Plant Operators', text: 'Control records and oversee operations from multiple manufacturing plants with a single sign-in.' },
 ];
 
 const FAQS = [
@@ -158,8 +211,9 @@ export default function FlyAshBrickPage() {
                   <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Control Every Batch</span>
                 </h1>
                 <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
-                  Track the fly ash, cement and sand in every batch, see how many bricks each bag of cement gives you,
-                  and catch wasteful batches the same day. {site.name} also runs your stock, sales, dues and expenses.
+                  Track the fly ash, cement and sand used in every batch, see how many bricks each bag of cement gives
+                  you, and catch wasteful batches the same day. {site.name} is fly ash brick software that also runs your
+                  stock, sales, dues and expenses in one place.
                 </p>
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
                   <a href="#cement" onClick={jumpTo('cement')} className="btn-primary px-7 py-3.5 text-base">
@@ -173,16 +227,36 @@ export default function FlyAshBrickPage() {
           </div>
         </section>
 
-        {/* The mix */}
+        {/* Built for every plant */}
         <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="For every plant"
+              title="Fly Ash Brick Software Built for Every Plant"
+              text={`Whether you run one fly ash brick unit or several plants across locations, ${site.name} is fly ash brick business software that grows with you. It is made for brick manufacturers, factory owners, plant managers and local retailers across India.`}
+            />
+            <p className="mt-10 text-center text-sm font-semibold text-slate-700">One platform, every part of your business:</p>
+            <ul className="mx-auto mt-5 flex max-w-4xl flex-wrap justify-center gap-3">
+              {PLATFORM.map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-center gap-2.5 rounded-full bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 ring-1 ring-slate-200">
+                  <Icon size={17} className="text-orange-700" /> {label}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* The mix */}
+        <section className="py-16 sm:py-20">
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Your mix, batch by batch</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Track Every Material in Your Fly Ash Mix</h2>
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Fly Ash Brick Plant Raw Material Tracking, Batch by Batch</h2>
               <p className="mt-4 leading-relaxed text-slate-600">
-                A fly ash brick is only as cheap as its mix. Add the materials you use with their own units, such as
-                tonnes of fly ash or bags of cement, and record what each batch used. Stock goes down with every batch
-                and up with every purchase, so you always know how many days of material are left.
+                A fly ash brick is only as cheap as its mix. This fly ash brick plant raw material tracking lets you add
+                the materials you use with their own units, such as tonnes of fly ash or bags of cement, and record what
+                each batch used. Stock goes down with every batch and up with every purchase, so you always know how many
+                days of material are left.
               </p>
               <Link to={INVENTORY_PAGE} className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">
                 Raw material inventory <ChevronRight size={16} />
@@ -190,10 +264,103 @@ export default function FlyAshBrickPage() {
             </div>
             <ul className="flex flex-wrap gap-3">
               {MIX.map(m => (
-                <li key={m} className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 ring-1 ring-slate-200">{m}</li>
+                <li key={m} className="rounded-2xl bg-white px-5 py-4 font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200">{m}</li>
               ))}
               <li className="rounded-2xl border border-dashed border-orange-300 px-5 py-4 font-semibold text-orange-700">+ your own materials</li>
             </ul>
+          </div>
+        </section>
+
+        {/* Pricing + related */}
+        <section id="pricing" className="scroll-mt-20 bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading eyebrow="Pricing" title="Fly Ash Brick Software Plans" text="Every feature, the mobile app and desktop software in both plans." />
+            <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+              {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
+            </div>
+            <nav aria-label="Related pages" className="mt-10 flex flex-wrap justify-center gap-2">
+              {[
+                { to: PRICE_PAGE, label: 'Compare plans' },
+                { to: FACTORY_PAGE, label: 'Bricks factory management' },
+                { to: PRODUCTION_PAGE, label: 'Production management' },
+                { to: COST_GUIDE_PAGE, label: 'How to calculate cost per brick' },
+              ].map(l => (
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                  {l.label} <ChevronRight size={14} />
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading eyebrow="Features" title="Everything a Fly Ash Brick Plant Needs in One Software" />
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {FEATURES.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-500 text-white shadow-md">
+                    <Icon size={20} />
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-slate-900">{title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why dedicated software */}
+        <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">The need</p>
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Why Do Manufacturers Need Dedicated Fly Ash Brick Manufacturing Software?</h2>
+              <p className="mt-5 leading-relaxed text-slate-600">
+                There are many materials, production batches, inventory records and business transactions in the
+                process of making fly ash brick. Keeping track of the costs of production and recording these activities
+                by hand can be challenging. A dedicated fly ash brick manufacturing software, specially developed for fly
+                ash brick manufacturing, helps manufacturers organise these activities. Let&apos;s look at why it is helpful:
+              </p>
+            </div>
+            <ol className="space-y-4">
+              {NEEDS.map(({ title, text }, i) => (
+                <li key={title} className="flex gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-orange-200 text-sm font-bold text-orange-700">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-slate-900">{title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Why choose */}
+        <section className="py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow={`Why ${site.name}`}
+              title={`Why Choose ${site.name} for Fly Ash Bricks Business?`}
+              text={`Instead of using registers and spreadsheets to manage the day-to-day manufacturing processes, ${site.name} offers a convenient solution to do so. Our fly ash brick manufacturing software helps to manage production, raw material inventory, sales, billing and expenses all in one place for brick manufacturers.`}
+            />
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {REASONS.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-600/20">
+                    <Icon size={20} />
+                  </span>
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -204,11 +371,12 @@ export default function FlyAshBrickPage() {
             <div className="relative grid items-center gap-10 lg:grid-cols-2">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Cement check</p>
-                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Know Your Bricks per Bag of Cement</h2>
+                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Know Your Bricks Per Bag of Cement</h2>
                 <p className="mt-4 leading-relaxed text-slate-600">
-                  Cement is the most expensive part of a fly ash brick. The moment a batch is entered, {site.name} works
-                  out how many bricks each bag of cement gave and compares it with your own averages for that brick type.
-                  A batch that used more cement than usual is flagged while the shift is still fresh in everyone&apos;s mind.
+                  Cement is the most expensive part of a fly ash brick. The moment a batch is entered, this fly ash brick
+                  production software works out how many bricks each bag of cement produces and compares it with your own
+                  averages for that brick type. A batch that used more cement than usual is flagged while the shift is
+                  still fresh in everyone&apos;s mind.
                 </p>
               </div>
               <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-orange-100">
@@ -230,56 +398,78 @@ export default function FlyAshBrickPage() {
           </div>
         </section>
 
-        {/* Features */}
+        {/* How to get it */}
         <section className="bg-white py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHeading eyebrow="Features" title="Everything a Fly Ash Brick Plant Needs" />
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {FEATURES.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-500 text-white shadow-md">
-                    <Icon size={20} />
-                  </span>
-                  <div>
-                    <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
-                  </div>
-                </article>
+            <SectionHeading
+              eyebrow="Getting it"
+              title="How to Get Your Fly Ash Brick Management Software with Us?"
+              text={`${site.name} is easy to get started with. You can register for an account or request a demo to learn how the software meets your manufacturing needs.`}
+            />
+            <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {GET_STEPS.map(({ title, text }, i) => (
+                <li key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-700 text-sm font-bold text-white">{i + 1}</span>
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                </li>
               ))}
+            </ol>
+            <div className="mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                Request a Demo <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Pricing + related */}
+        {/* 3 steps */}
         <section className="py-16 sm:py-20">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-slate-900">Fly Ash Brick Software Plans</h2>
-            <p className="mx-auto mt-3 max-w-xl text-slate-600">Every feature, the mobile app and desktop software in both plans.</p>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              {PLANS.map(p => (
-                <div key={p.name} className="rounded-2xl bg-white px-8 py-5 shadow-sm ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple plants' : 'One plant'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/year</span></p>
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Workflow"
+              title="Get Started in 3 Simple Steps"
+              text={`${site.name} is easy to use and follows a simple three-step process to help manufacturers transition from manual plant record-keeping to digital plant management.`}
+            />
+            <ol className="mt-12 grid gap-6 md:grid-cols-3">
+              {START_STEPS.map(({ icon: Icon, title, text }, i) => (
+                <li key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-orange-700 shadow-md ring-4 ring-orange-100">
+                      <Icon size={22} />
+                    </span>
+                    <p className="text-xs font-bold uppercase tracking-wider text-orange-700">Step {i + 1}</p>
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Who should use */}
+        <section className="bg-white py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Who it's for"
+              title={`Who Should Use ${site.name}?`}
+              text={`${site.name} is aimed at helping companies engaged in the production of fly ash bricks and their users who are in charge of managing the daily processes of the business. As a fly ash brick plant management software, it is suitable for:`}
+            />
+            <div className="mt-12 flex flex-wrap justify-center gap-4">
+              {USERS.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="w-full rounded-2xl border border-slate-200 bg-gradient-to-b from-amber-50/50 to-white p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]">
+                  <Icon size={28} className="text-orange-700" />
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
-            <nav aria-label="Related pages" className="mt-8 flex flex-wrap justify-center gap-2">
-              {[
-                { to: PRICE_PAGE, label: 'Compare plans' },
-                { to: FACTORY_PAGE, label: 'Bricks factory management' },
-                { to: PRODUCTION_PAGE, label: 'Production management' },
-                { to: COST_GUIDE_PAGE, label: 'How to calculate cost per brick' },
-              ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
-                  {l.label} <ChevronRight size={14} />
-                </Link>
-              ))}
-            </nav>
           </div>
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-16 sm:py-20">
+        <section id="faq" className="scroll-mt-20 py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Fly Ash Brick Management Software FAQs" />
             <div className="mt-10 space-y-3">
