@@ -1,29 +1,30 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  AlertTriangle, ArrowRight, BarChart3, BookOpen, Building2, CalendarDays, Check, ChevronDown,
-  ChevronRight, CircleCheck, Clock, Factory, Gauge, Hammer, HardHat, Layers, LineChart, NotebookPen, Package,
-  Search, ShieldAlert, Sparkles, TriangleAlert, Wallet,
+  AlertTriangle, ArrowRight, BarChart3, BookOpen, Boxes, Building2, CalendarDays, ChevronDown, ChevronRight,
+  CircleCheck, ClipboardList, Factory, FileText, Gauge, Hammer, HandCoins, HardHat, Layers, LineChart, NotebookPen,
+  Package, Search, ShieldAlert, Smartphone, Sparkles, TriangleAlert, Truck, Users, Wallet,
 } from 'lucide-react';
 import JsonLd from '../components/JsonLd';
+import PricingCard from '../components/PricingCard';
 import WhatsAppButton, { WhatsAppIcon } from '../components/WhatsAppButton';
 import { BrickPattern, Footer, Navbar, SectionHeading } from '../components/PublicSite';
 import usePageMeta from '../hooks/usePageMeta';
 import { PLANS } from '../lib/plans';
 import {
-  CONTACT_PAGE, INVENTORY_PAGE, MANUFACTURING_PAGE, PLANT_PAGE, PRICE_PAGE, PRODUCTION_PAGE, scrollToSection,
+  BILLING_PAGE, CONTACT_PAGE, INVENTORY_PAGE, MANUFACTURING_PAGE, PLANT_PAGE, PRICE_PAGE, PRODUCTION_PAGE,
 } from '../lib/publicNav';
 import { site, whatsappLink } from '../lib/site';
 
-export const TITLE = `Brick Kiln Production Management Software | ${site.name}`;
-export const DESCRIPTION = `Brick kiln production management software by ${site.name}. Record daily production by shift, track damaged bricks, check cement use and see output trends.`;
+export const TITLE = 'Brick Kiln Production Management Software | Brick Manager';
+export const DESCRIPTION = `Record every batch by shift & brick type, count damaged bricks, check cement per bag. Brick production software for India from ₹${PLANS[0].price}/year. Book a demo!`;
 
 // The parts of a production entry, as they appear in the software.
 const ENTRY_FIELDS = [
   { icon: CalendarDays, title: 'Date and shift', text: 'Record when the bricks were made: morning, evening, night or a full day.' },
   { icon: Building2, title: 'Plant', text: 'If you run more than one kiln, choose which one the batch belongs to.' },
   { icon: Layers, title: 'Brick type', text: 'Pick the brick type. Its current stock is shown right beside it.' },
-  { icon: Hammer, title: 'Count by plates or bricks', text: 'Enter the number of plates and bricks per plate and the total is worked out, or type the brick count directly.' },
+  { icon: Hammer, title: 'Count by plates or bricks', text: 'Enter the number of plates and bricks per plate, and the total is calculated, or type the brick count directly.' },
   { icon: TriangleAlert, title: 'Damaged or broken', text: 'Record bricks lost in the batch. Only good bricks are added to stock.' },
   { icon: Package, title: 'Raw materials used', text: 'Add cement and other materials used. You see how much is left and get a warning if you enter more than you have.' },
   { icon: NotebookPen, title: 'Notes', text: 'Write anything worth remembering about the batch.' },
@@ -56,10 +57,36 @@ const REVIEW_TOOLS = [
 ];
 
 const WHY = [
-  { title: 'Wastage becomes visible', text: 'When damaged bricks are counted with every batch, you can see how much production is being lost and act on it.' },
-  { title: 'Cement is accounted for', text: 'Cement is often a kiln\'s biggest raw material cost. Checking bricks per bag on every batch makes unusual use stand out.' },
-  { title: 'Stock you can sell against', text: 'Good bricks go straight into stock, so sales are planned on what is really available.' },
-  { title: 'A record that lasts', text: 'Production history stays searchable for years, instead of fading in old registers.' },
+  { title: 'See Your Wastage', text: 'When damaged bricks are counted with every batch, you can see how much production is being lost and act on it.' },
+  { title: 'Track Cement Use', text: 'Cement is often a kiln\'s biggest raw material cost. Checking bricks per bag on every batch makes unusual use stand out.' },
+  { title: 'Sellable Stock', text: 'Good bricks go straight into stock, so sales are planned on what is really available.' },
+  { title: 'Lasting Records', text: 'Production history stays searchable for years, instead of fading in old registers.' },
+];
+
+const FEATURES = [
+  { icon: Package, title: 'Raw material inventory', text: 'Track cement, fly ash, sand and lime batch by batch, with low stock alerts.' },
+  { icon: Layers, title: 'Ready brick stock', text: 'Good bricks join stock by type; damaged bricks are recorded per batch.' },
+  { icon: HardHat, title: 'Labour records', text: 'Store worker pay rates and record wages as expenses.' },
+  { icon: Building2, title: 'Multi-plant control', text: 'Separate stock and ledgers per kiln, one dashboard for all.' },
+  { icon: FileText, title: 'GST invoices', text: 'GST bills with discounts, transport and trip charges.' },
+  { icon: Users, title: 'Party ledgers & reminders', text: 'Track dues with balance reminders on WhatsApp.' },
+  { icon: Wallet, title: 'Expenses & profit per brick', text: 'Record costs and see profit with the real cost per brick.' },
+  { icon: Smartphone, title: 'Mobile and desktop', text: 'Use it on phone, tablet or computer.' },
+];
+
+const BILLING = [
+  { icon: FileText, title: 'GST Billing', text: 'Generate invoices by brick type, brick quantities, brick rates, brick discounts, and applicable GST with brick kiln billing software with GST.' },
+  { icon: Truck, title: 'Transport Charges', text: 'Add transport charges and trip charges directly on the customer invoice with transport charges invoice software.' },
+  { icon: HandCoins, title: 'Payment Records', text: 'Register all, part and pending payments and keep updated customer ledgers.' },
+  { icon: Boxes, title: 'Connected Records', text: 'All sales, inventory and financial transactions are handled with one brick factory accounting software program.' },
+  { icon: ClipboardList, title: 'Invoice Management', text: 'With the brick kiln invoice software, create organised sales invoices and keep a record of transactions.' },
+];
+
+const START_STEPS = [
+  { title: 'Get a Demo Account', text: `Contact us at ${site.phone} to get your demo account and explore all the features.` },
+  { title: 'Choose Your Plan', text: `Pick ${PLANS.map(p => `${p.featured ? 'Multiple Plants' : 'One Plant'} (₹${p.price}/year)`).join(' or ')} as per your business needs.` },
+  { title: 'Set Up Your Business', text: 'Add manufacturing plants, brick types, customers and vendors.' },
+  { title: 'Start Recording', text: 'Record production, purchases, sales, payments and expenses using the brick kiln billing system.' },
 ];
 
 const FAQS = [
@@ -152,11 +179,6 @@ export default function BrickKilnProductionPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const jumpTo = (id) => (e) => {
-    e.preventDefault();
-    scrollToSection(id);
-  };
-
   return (
     <div className="min-h-[100dvh] bg-gradient-to-b from-orange-50/60 via-white to-slate-50 text-slate-900">
       <JsonLd data={STRUCTURED_DATA} />
@@ -182,15 +204,13 @@ export default function BrickKilnProductionPage() {
                   <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Every Batch</span>
                 </h1>
                 <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
-                  Know exactly what your kiln produces. {site.name} records each batch by shift and brick type, counts
-                  damaged bricks, tracks the cement and materials used, and adds only good bricks to your stock.
+                  Know exactly what your kiln produces. {site.name} is brick production management software that
+                  records each batch by shift and brick type, counts damaged bricks, tracks the cement and materials
+                  used, and adds only good bricks to your stock.
                 </p>
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#production-entry" onClick={jumpTo('production-entry')} className="btn-primary px-7 py-3.5 text-base">
-                    See How It Works <ArrowRight size={18} />
-                  </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
-                    Contact Us
+                  <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                    Book a Free Demo <ArrowRight size={18} />
                   </Link>
                 </div>
               </div>
@@ -204,8 +224,8 @@ export default function BrickKilnProductionPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Why it matters"
-              title="Why Your Kiln Needs Production Management Software"
-              text="Production is where a brick kiln makes or loses money. Small gaps in counting add up over a season."
+              title="Why Your Kiln Needs Brick Production Management Software"
+              text="Production is where a brick kiln makes or loses money. Small gaps in counting add up over a season, which is why brick production software is important for brick software and kiln owners."
             />
             <div className="mt-14 grid gap-5 md:grid-cols-2">
               {WHY.map(({ title, text }, i) => (
@@ -221,13 +241,61 @@ export default function BrickKilnProductionPage() {
           </div>
         </section>
 
+        {/* Features */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Features"
+              title="Everything Your Brick Kiln Needs, in One Software"
+              text="Our brick kiln production management system is ideal for all kiln business owners. It goes beyond production. Here are all the features available in our software."
+            />
+            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {FEATURES.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-600/20">
+                    <Icon size={20} />
+                  </span>
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing + related */}
+        <section id="pricing" className="scroll-mt-20 bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Pricing"
+              title="Brick Kiln Production Software Packages"
+              text="Explore our all-in-one brick production software for factory, plants, and projects."
+            />
+            <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+              {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
+            </div>
+            <nav aria-label="Related pages" className="mt-10 flex flex-wrap justify-center gap-2">
+              {[
+                { to: PRICE_PAGE, label: 'Compare plans' },
+                { to: INVENTORY_PAGE, label: 'Brick kiln inventory management' },
+                { to: PLANT_PAGE, label: 'Brick plant management software' },
+                { to: MANUFACTURING_PAGE, label: 'Bricks manufacturing software' },
+              ].map(l => (
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                  {l.label} <ChevronRight size={14} />
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </section>
+
         {/* Anatomy of an entry */}
         <section id="production-entry" className="scroll-mt-20 py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Daily production"
-              title="What You Record in Every Production Entry"
-              text="One short form per batch captures everything you need to know about it."
+              title="What You Record Daily in Our Brick Production Software"
+              text={`${site.name} works as daily brick production record software. Your supervisor fills in one short form per batch, and brick production entry takes a minute.`}
             />
             <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {ENTRY_FIELDS.map(({ icon: Icon, title, text }, i) => (
@@ -251,11 +319,12 @@ export default function BrickKilnProductionPage() {
             <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
               <div>
                 <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-orange-700"><Gauge size={16} /> Cement check</p>
-                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Catch Unusual Cement Use on Every Batch</h2>
+                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Easy Cement Consumption Monitoring in Brick Production Software</h2>
                 <p className="mt-4 leading-relaxed text-slate-600">
-                  For each production entry, {site.name} works out how many bricks were made per bag of cement and
-                  compares it with your own average from the last year, or from all time for a newer business. The production screen also shows your 30-day,
-                  1-year and lifetime averages, so you can see the trend at a glance.
+                  For each brick production entry, {site.name} brick kiln production software works out how many bricks
+                  were made per bag of cement and compares it with your own average from the last year, or from all time
+                  for a newer business. The production screen also shows your 30-day, 1-year and lifetime averages, so
+                  you can see the trend at a glance.
                 </p>
               </div>
               <ul className="space-y-3">
@@ -278,8 +347,8 @@ export default function BrickKilnProductionPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Production reports"
-              title="Your Production Numbers, Always Ready"
-              text="The production screen keeps four numbers in front of you, and more detail is a click away."
+              title="Brick Production Tracking Software with Reports Ready Every Day"
+              text="The production screen keeps four numbers in front of you, and more detail is a click away. This is brick production tracking software built for daily use, not month-end guesswork."
             />
             <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {NUMBERS.map(({ icon: Icon, label, text }) => (
@@ -304,61 +373,55 @@ export default function BrickKilnProductionPage() {
           </div>
         </section>
 
-        {/* Labour + multi-kiln */}
+        {/* Billing */}
         <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-2">
-            <div className="rounded-3xl bg-slate-50 p-7 ring-1 ring-slate-200 sm:p-9">
-              <HardHat size={30} className="text-orange-700" />
-              <h2 className="mt-4 text-2xl font-bold text-slate-900">Labour at Your Kiln</h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                Keep every worker on record with their pay type and rate: per 1,000 bricks, daily wage or monthly.
-                Labour payments are recorded as expenses under the built-in Labour category, so they count in your
-                profit & loss.
-              </p>
-              <p className="mt-4 flex items-start gap-2 rounded-xl bg-white p-3 text-xs text-slate-500 ring-1 ring-slate-200">
-                <Wallet size={15} className="mt-0.5 shrink-0" /> Labour is not attached to individual production entries.
-              </p>
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Billing"
+              title={`Why Choose ${site.name} for Brick Kiln Billing?`}
+              text={`${site.name} makes it easy to manage billing, sales and payments for brick kiln businesses.`}
+            />
+            <div className="mt-14 flex flex-wrap justify-center gap-4">
+              {BILLING.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="flex w-full gap-4 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5 md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-700 text-white"><Icon size={20} /></span>
+                  <div>
+                    <h3 className="font-bold text-slate-900">{title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="rounded-3xl bg-gradient-to-br from-orange-50 to-amber-50/60 p-7 ring-1 ring-orange-200 sm:p-9">
-              <Building2 size={30} className="text-orange-700" />
-              <h2 className="mt-4 text-2xl font-bold text-slate-900">Production Across Several Kilns</h2>
-              <ul className="mt-4 space-y-2.5">
-                {['Every entry belongs to a plant', 'Brick stock kept separately for each kiln', 'Dashboard production for one kiln or all', 'Brick ledgers plant by plant'].map(t => (
-                  <li key={t} className="flex items-start gap-2.5 text-sm font-medium text-slate-700">
-                    <Check size={16} className="mt-0.5 shrink-0 text-emerald-600" strokeWidth={3} /> {t}
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-8 text-center">
+              <Link to={BILLING_PAGE} className="inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800 hover:underline">
+                Brick kiln billing software <ChevronRight size={16} />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Pricing + related */}
+        {/* Get started */}
         <section className="py-20 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <Clock size={32} className="mx-auto text-orange-700" />
-            <h2 className="mt-3 text-3xl font-bold text-slate-900">Production Management Included in Every Plan</h2>
-            <p className="mx-auto mt-3 max-w-xl text-slate-600">There is no extra charge for production features.</p>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              {PLANS.map(p => (
-                <div key={p.name} className="rounded-2xl bg-white px-8 py-5 shadow-sm ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/year</span></p>
-                </div>
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Getting started"
+              title={`How to Get Started with ${site.name} Brick Kiln Billing Software`}
+              text={`Here are the steps you can use to get up and running with ${site.name} for billing, from first look to live records.`}
+            />
+            <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {START_STEPS.map(({ title, text }, i) => (
+                <li key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                  <span className="text-4xl font-extrabold leading-none text-orange-200">0{i + 1}</span>
+                  <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                </li>
               ))}
+            </ol>
+            <div className="mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                Book a Free Demo <ArrowRight size={18} />
+              </Link>
             </div>
-            <nav aria-label="Related pages" className="mt-8 flex flex-wrap justify-center gap-2">
-              {[
-                { to: PRICE_PAGE, label: 'Compare plans' },
-                { to: INVENTORY_PAGE, label: 'Brick kiln inventory management' },
-                { to: PLANT_PAGE, label: 'Brick plant management software' },
-                { to: MANUFACTURING_PAGE, label: 'Bricks manufacturing software' },
-              ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
-                  {l.label} <ChevronRight size={14} />
-                </Link>
-              ))}
-            </nav>
           </div>
         </section>
 
