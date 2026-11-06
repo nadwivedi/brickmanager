@@ -10,11 +10,11 @@ import WhatsAppButton, { WhatsAppIcon } from '../components/WhatsAppButton';
 import { BrickPattern, Footer, Navbar, SectionHeading } from '../components/PublicSite';
 import usePageMeta from '../hooks/usePageMeta';
 import { PLANS } from '../lib/plans';
-import { BHATTA_PAGE, CONTACT_PAGE, MANUFACTURING_PAGE, PRICE_PAGE, scrollToSection } from '../lib/publicNav';
+import { BHATTA_PAGE, CONTACT_PAGE, MANUFACTURING_PAGE, PRICE_PAGE } from '../lib/publicNav';
 import { site, whatsappLink } from '../lib/site';
 
-export const TITLE = `Bricks Manufacturing Software for Brick Businesses | ${site.name}`;
-export const DESCRIPTION = `Bricks manufacturing software by ${site.name}: record production, track raw material and brick stock, make GST invoices and review reports in one place.`;
+export const TITLE = 'Brick Manufacturing Software India | Brick Manager';
+export const DESCRIPTION = `${site.name} is brick manufacturing software for production, stock, GST billing, expenses and reports. Plans from ₹${PLANS[0].price}/year. Request a free demo.`;
 
 const CHALLENGES = [
   { title: 'Records scattered everywhere', text: 'Production in one notebook, purchases in another, sales on loose bills and payments in someone\'s memory. Finding one number means searching through all of them.' },
@@ -114,19 +114,19 @@ const WORKFLOW = [
 ];
 
 const AUDIENCE = [
-  { icon: Factory, title: 'Brick manufacturers', text: 'Businesses that produce bricks and want production, stock and sales records in one system.' },
-  { icon: Building2, title: 'Brick factories', text: 'Brick factory management software for sites with regular production and a steady flow of purchases and sales.' },
-  { icon: Hammer, title: 'Brick production businesses', text: 'Units of any size that need a dependable record of what they produce and what it costs.' },
-  { icon: Store, title: 'Owners going digital', text: 'Owners who want to move from paper registers to organised digital records without a complicated system.' },
+  { icon: Factory, title: 'Brick Manufacturers', text: 'Businesses that produce bricks and want production, stock and sales records in one system.' },
+  { icon: Building2, title: 'Brick Factories', text: 'Brick factory management software for sites with regular production and a steady flow of purchases and sales.' },
+  { icon: Hammer, title: 'Brick Production Businesses', text: 'Units of any size that need a dependable record of what they produce and what it costs.' },
+  { icon: Store, title: 'Owners Going Digital', text: 'Owners who want to move from paper registers to organised digital records without a complicated system.' },
 ];
 
 const REASONS = [
-  { title: 'Focused on brick businesses', text: 'Plants, brick types, raw materials, cement use, vehicles and trip charges are part of the software, not add-ons you have to set up yourself.' },
-  { title: 'The core of an ERP, without the complexity', text: 'Owners searching for brick manufacturing ERP software usually need production, inventory, sales, purchases and accounts working together. BrickManager covers those areas in one place.' },
-  { title: 'Made for brick manufacturing in India', text: 'Amounts in rupees, GST on invoices, mobile-number login and reports that follow the financial year.' },
-  { title: 'Grows from one plant to several', text: 'Start with a single plant and add more later. Production, stock and sales can then be viewed plant by plant.' },
-  { title: 'Clear yearly pricing', text: `${PLANS.map(p => `₹${p.price}/year`).join(' or ')}, depending on whether you run one plant or several.` },
-  { title: 'Works on the devices you already have', text: 'A mobile app, desktop software and the browser, all working from one account.' },
+  { title: 'Built for brick businesses', text: 'Plants, brick types, raw materials, cement use, vehicles and trip charges are part of the software, not add-ons you have to set up yourself.' },
+  { title: 'ERP core, no complexity', text: 'Owners searching for brick manufacturing ERP software usually need production, inventory, sales, purchases and accounts working together. BrickManager covers those areas in one place.' },
+  { title: 'Made for India', text: 'Amounts in rupees, GST on invoices, mobile-number login and reports that follow the financial year. Built as brick manufacturing software India businesses can run from day one.' },
+  { title: 'One plant to several', text: 'Start with a single plant and add more later. Production, stock and sales can then be viewed plant by plant. No re-setup is needed for multiple plants.' },
+  { title: 'Clear yearly pricing', text: `${PLANS.map(p => `₹${p.price}/year`).join(' or ')}, depending on whether you run one plant or several. One annual fee covers the full software without any hidden charges.` },
+  { title: 'Run on your devices', text: 'A mobile app, desktop software and the browser, all working from one account. Check your records anytime. Data is always synced; access from any location.' },
 ];
 
 const FAQS = [
@@ -251,11 +251,6 @@ export default function BricksManufacturingPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const exploreFeatures = (e) => {
-    e.preventDefault();
-    scrollToSection('features');
-  };
-
   return (
     <div className="min-h-[100dvh] bg-gradient-to-b from-amber-50/50 via-white to-slate-50 text-slate-900">
       <JsonLd data={STRUCTURED_DATA} />
@@ -278,20 +273,20 @@ export default function BricksManufacturingPage() {
                   <Sparkles size={14} /> Brick manufacturing software in India
                 </span>
                 <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
-                  Bricks Manufacturing Software to{' '}
-                  <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Simplify Your Business</span>
+                  Brick Manufacturing Software to{' '}
+                  <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Simplify Your Brick Business</span>
                 </h1>
                 <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
                   {site.name} gives brick manufacturers one organised place for daily operations. Record production,
-                  keep raw material and finished-brick stock accurate, follow every sale and payment, and keep expenses
+                  keep raw material and finished brick stock accurate, follow every sale and payment, and keep expenses
                   and reports together instead of across registers and loose bills.
                 </p>
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#features" onClick={exploreFeatures} className="btn-primary px-7 py-3.5 text-base">
-                    Explore Features <ArrowRight size={18} />
-                  </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
-                    Contact Us
+                  <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                    Request a Free Demo <ArrowRight size={18} />
+                  </Link>
+                  <Link to={PRICE_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                    See Pricing
                   </Link>
                 </div>
               </div>
@@ -305,11 +300,12 @@ export default function BricksManufacturingPage() {
           <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
               <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">The challenge</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Why Bricks Manufacturing Software Is Important</h2>
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Why Brick Manufacturing Software Matters</h2>
               <p className="mt-5 leading-relaxed text-slate-600">
-                A brick manufacturing business handles raw material, production, stock, customers, vendors and money
-                every single day. When all of it is managed by hand, small gaps add up into lost stock, missed payments
-                and unclear profit. These are the problems manufacturers run into most often.
+                A brick business handles raw material, production, stock, customers, vendors and money every single
+                day. When it is all managed by hand, small gaps add up into lost stock, missed payments and unclear
+                profit. Good brick manufacturing management software closes those gaps before they cost you. These are
+                the problems manufacturers meet most often.
               </p>
             </div>
             <ol className="space-y-4">
@@ -350,8 +346,8 @@ export default function BricksManufacturingPage() {
                 <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Benefits</p>
                 <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Benefits for Brick Manufacturers</h2>
                 <p className="mt-4 text-slate-600">
-                  Good brick manufacturing business software is not just about storing data. Organised digital records
-                  change how a business is run day to day.
+                  Good brick manufacturing business software is about more than storing data. It changes how the
+                  business runs day to day.
                 </p>
               </div>
               <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
@@ -403,7 +399,7 @@ export default function BricksManufacturingPage() {
             <SectionHeading
               eyebrow="Who it's for"
               title="Who Can Use This Software?"
-              text="If your business makes and sells bricks, and you want your operations organised digitally, it is built for you."
+              text="From a single bhatta to a multi-plant operation, this is software for brick manufacturing businesses of every size."
             />
             <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {AUDIENCE.map(({ icon: Icon, title, text }) => (
