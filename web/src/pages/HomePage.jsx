@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
-  AlertTriangle, ArrowRight, BarChart3, Boxes, Building2, CheckCircle2, ClipboardList, FileText, Hammer,
+  AlertTriangle, ArrowRight, BarChart3, Boxes, Building2, CheckCircle2, ChevronDown, ClipboardList, FileText, Hammer,
   HandCoins, HardHat, Landmark, Layers, LogIn, Sparkles, TrendingUp, Truck, Users,
 } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
+import JsonLd from '../components/JsonLd';
 import { BrickPattern, Footer, Navbar, SectionHeading } from '../components/PublicSite';
 import { CONTACT_PAGE, FEATURES_PAGE } from '../lib/publicNav';
 import { appLink, site } from '../lib/site';
@@ -37,6 +38,40 @@ const STEPS = [
   { icon: ClipboardList, title: 'Record the day', text: 'Enter production, sales, purchases and expenses as they happen.' },
   { icon: TrendingUp, title: 'See the full picture', text: 'Stock, dues and profit are worked out for you, always up to date.' },
 ];
+
+const FAQS = [
+  {
+    q: 'Is your software for kiln an online system?',
+    a: 'Yes, BrickManager is online brick kiln management software. You can log in from anywhere without requiring any installation. You just need an ID and password to log in from any device, including a phone, desktop, or tablet.',
+  },
+  {
+    q: 'Is your brick business software ideal for Indian kilns?',
+    a: 'Yes, BrickManager is built for Indian kilns. You can use it daily with GST invoicing and Indian-specific records.',
+  },
+  {
+    q: 'Is my data safe with your online brick kiln management software?',
+    a: 'Yes, your data is completely safe with us. We use advanced security protocols to keep your account private.',
+  },
+  {
+    q: 'Can I manage more than one plant with your brick kiln management software in India?',
+    a: 'Yes, BrickManager is brick kiln software for multiple plants. You can manage every bhatta from a single secure login. A multi-plant package is required for this feature.',
+  },
+  {
+    q: 'Can it replace my registers and sheets?',
+    a: 'Yes, BrickManager is one of the leading brick kiln software solutions in India, helping you completely replace registers and Excel sheets. You can manage production, stock, collections, and expenses, all under one dashboard.',
+  },
+  {
+    q: 'How can I start with your brick kiln software?',
+    a: 'To get started with BrickManager, simply request a demo. After the demo, you can choose a package based on your requirements, add your plant type and parties, and start recording entries the same day.',
+  },
+];
+
+// Matches the visible FAQs word for word.
+const STRUCTURED_DATA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
 
 // Illustrative preview of the dashboard, so visitors can picture the product.
 function HeroPreview() {
@@ -102,6 +137,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-[100dvh] bg-gradient-to-b from-orange-50/60 via-white to-slate-50 text-slate-900">
+      <JsonLd data={STRUCTURED_DATA} />
       <Navbar />
 
       <main>
@@ -197,6 +233,24 @@ export default function HomePage() {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section id="faq" className="scroll-mt-20 py-20 sm:py-24">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <SectionHeading eyebrow="FAQs" title="Brick Kiln Management Software FAQs" />
+            <div className="mt-12 space-y-3">
+              {FAQS.map(({ q, a }) => (
+                <details key={q} className="group rounded-2xl border-l-4 border-orange-200 bg-white transition open:border-orange-500 open:shadow-md">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-base">{q}</h3>
+                    <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
+                  </summary>
+                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 
