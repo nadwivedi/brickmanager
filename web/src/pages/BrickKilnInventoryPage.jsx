@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  AlertTriangle, ArrowDownToLine, ArrowRight, ArrowUpFromLine, BellRing, BookOpen, Boxes, Building2, Check,
-  CheckCircle2, ChevronDown, ChevronRight, ClipboardCheck, Eye, FileText, Hammer, Layers, Minus, PackageCheck,
-  PackageSearch, Plus, Ruler, ShoppingCart, SlidersHorizontal, TriangleAlert, Warehouse,
+  AlertTriangle, ArrowDownToLine, ArrowRight, ArrowUpFromLine, BarChart3, BellRing, BookOpen, Boxes, Building2,
+  Calculator, Check, CheckCircle2, ChevronDown, ChevronRight, ClipboardCheck, Eye, FileText, Globe, HardHat, Hammer,
+  Layers, Link2, Minus, PackageCheck, PackageSearch, Plus, RefreshCw, Ruler, ShoppingCart, SlidersHorizontal, Smartphone,
+  Target, TriangleAlert, Users, Warehouse, Workflow,
 } from 'lucide-react';
 import JsonLd from '../components/JsonLd';
+import PricingCard from '../components/PricingCard';
 import WhatsAppButton, { WhatsAppIcon } from '../components/WhatsAppButton';
 import { BrickPattern, Footer, Navbar, SectionHeading } from '../components/PublicSite';
 import usePageMeta from '../hooks/usePageMeta';
@@ -16,7 +18,7 @@ import {
 import { site, whatsappLink } from '../lib/site';
 
 export const TITLE = `Brick Kiln Inventory Management Software | ${site.name}`;
-export const DESCRIPTION = `Brick kiln inventory management software by ${site.name}. Track brick and raw material stock, get low stock alerts, adjust stock and see every movement.`;
+export const DESCRIPTION = `Track brick and raw material stock automatically with ${site.name}. Low stock alerts, ledgers, GST invoices. From ₹7,999/year in India. Book a free demo!`;
 
 const STOCK_KINDS = [
   {
@@ -39,7 +41,7 @@ const STOCK_KINDS = [
     points: [
       'Cement, fly ash, sand, coal or any material you add',
       'Each material counted in its own unit, such as bags or tonnes',
-      'Purchases add stock and production use takes it away',
+      'Purchases add stock, and production use takes it away',
       'A minimum level for each material, with low stock alerts',
     ],
   },
@@ -49,7 +51,7 @@ const STOCK_KINDS = [
 const MOVEMENTS = [
   { icon: ShoppingCart, event: 'Purchase from a vendor', effect: 'Raw material stock goes up', dir: 'in' },
   { icon: Hammer, event: 'Production entry', effect: 'Good bricks go up, raw materials used go down', dir: 'both' },
-  { icon: FileText, event: 'Sale invoice', effect: 'Brick stock goes down', dir: 'out' },
+  { icon: FileText, event: 'Sales invoice', effect: 'Brick stock goes down', dir: 'out' },
   { icon: SlidersHorizontal, event: 'Stock adjustment', effect: 'Raw material stock goes up or down, with a reason recorded', dir: 'both' },
   { icon: PackageCheck, event: 'Opening stock', effect: 'Your starting stock is set when you begin', dir: 'in' },
 ];
@@ -71,6 +73,42 @@ const BENEFITS = [
   { icon: BellRing, title: 'Order before you run out', text: 'Low stock alerts give you time to buy cement or coal before production stops.' },
   { icon: PackageSearch, title: 'Find where stock went', text: 'Ledgers and adjustment reasons explain every change, which makes losses easier to spot.' },
   { icon: ClipboardCheck, title: 'Sell what you really have', text: 'Available brick stock reflects production, damage and sales, so you never promise bricks you do not have.' },
+];
+
+const FEATURES = [
+  { icon: Layers, title: 'Stock bricks by type', text: 'Track stock by type, like red brick, fly ash brick, half brick, and more.' },
+  { icon: PackageCheck, title: 'Auto stock in', text: 'Your good bricks are automatically stocked in with the batch number, making them easy to track.' },
+  { icon: ArrowUpFromLine, title: 'Auto stock out', text: 'On sale, stock is automatically stocked out with the invoice updated.' },
+  { icon: TriangleAlert, title: 'Damaged brick tracking', text: 'Track broken brick records per batch and see what percentage of your bricks has been damaged.' },
+  { icon: Ruler, title: 'Raw material with unit', text: 'Track every raw material, like cement, fly ash, sand, coal and other materials, in bags and other units.' },
+  { icon: BellRing, title: 'Low stock alerts', text: 'Get a stock alert for each material separately, so you can stock up on time.' },
+  { icon: Workflow, title: 'Connected records', text: 'Production, sales, purchase, labour and GST invoices all feed into the same ledger and stock.' },
+  { icon: FileText, title: 'GST invoice', text: 'Get GST-compliant bills and invoices always ready in one click.' },
+  { icon: BarChart3, title: 'Reporting', text: 'Get reports like production, sales, raw material and more in just a few clicks.' },
+  { icon: Smartphone, title: 'Multi-plant and mobile', text: 'Separate stock for each kiln, one dashboard for all, on phone, tablet or computer.' },
+];
+
+const AUDIENCE = [
+  { icon: Building2, label: 'Plant owners' },
+  { icon: Warehouse, label: 'Inventory managers' },
+  { icon: HardHat, label: 'Production supervisors' },
+  { icon: Calculator, label: 'Accountant team' },
+  { icon: Users, label: 'Multi-plant operations' },
+];
+
+const START_STEPS = [
+  { title: 'Request a demo', text: `Contact us on ${site.phone} and let us know that you want a demo account to try the stock, ledger and other features for a trial.` },
+  { title: 'Choose your plan', text: 'Once you get comfortable with our software, choose your plan, for one plant or multiple plants, according to your kiln business.' },
+  { title: 'Set up your kiln', text: 'Set up your plant with brick types, raw materials, opening stock, customers, vendors and more, so it gets easier to use.' },
+  { title: 'Start recording', text: 'Once everything is set up, start recording right away. Enter your production, purchases and sales every time, so your accounts are always up to date.' },
+];
+
+const WHY_US = [
+  { icon: RefreshCw, title: 'Auto stock update', text: 'Every entry related to production, purchase, sale and more is adjusted automatically. It reduces manual work.' },
+  { icon: Layers, title: 'Multiple inventory entry', text: 'Manage multiple inventories, like finished bricks and raw materials, so you can check them separately.' },
+  { icon: Link2, title: 'Connected to accounts', text: 'Inventory is connected with billing and accounts, so you can comply with GST rules in parallel.' },
+  { icon: Target, title: 'Accurate', text: 'Set up your account with the opening stock and the rest is managed by the software accurately, with no chance of error.' },
+  { icon: Globe, title: 'Access anywhere', text: 'It is online, so you can use it any time, anywhere. It does not require any installation or hardware support.' },
 ];
 
 const FAQS = [
@@ -207,9 +245,9 @@ export default function BrickKilnInventoryPage() {
                   <span className="bg-gradient-to-r from-sky-600 to-primary-700 bg-clip-text text-transparent">That Keeps Count</span>
                 </h1>
                 <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
-                  {site.name} tracks every brick in your yard and every bag of raw material in your store. Stock updates
-                  itself from production, purchases and sales, low stock is flagged early, and a ledger explains
-                  every change.
+                  {site.name} tracks every brick in your yard and every bag of raw material in your store. As brick kiln
+                  inventory management software, it updates stock from production, purchases and sales, flags low
+                  stock early, and keeps a ledger that explains every change.
                 </p>
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
                   <a href="#stock-movement" onClick={jumpTo('stock-movement')} className="btn-primary px-7 py-3.5 text-base">
@@ -225,13 +263,56 @@ export default function BrickKilnInventoryPage() {
           </div>
         </section>
 
+        {/* Features */}
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading eyebrow="Features" title="Brick and Raw Material Inventory in One Place" />
+            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {FEATURES.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-sky-600 to-primary-700 text-white shadow-md shadow-sky-600/20">
+                    <Icon size={20} />
+                  </span>
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing + related */}
+        <section id="pricing" className="scroll-mt-20 py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Pricing"
+              title="Available Brick Kiln Inventory Software Plans"
+              text="Explore our available brick kiln inventory software packages and choose as per your projects."
+            />
+            <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+              {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
+            </div>
+            <nav aria-label="Related pages" className="mt-10 flex flex-wrap justify-center gap-2">
+              {[
+                { to: PRICE_PAGE, label: 'Compare plans' },
+                { to: PRODUCTION_PAGE, label: 'Brick kiln production management' },
+                { to: ONLINE_PAGE, label: 'Online brick kiln management' },
+              ].map(l => (
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                  {l.label} <ChevronRight size={14} />
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </section>
+
         {/* Two kinds of stock */}
         <section className="bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Two kinds of stock"
               title="Brick and Raw Material Inventory in One Place"
-              text="A brick kiln manages two very different inventories. BrickManager keeps both side by side."
+              text="A brick kiln manages two very different inventories. This brick inventory management software keeps both side by side."
             />
             <div className="mt-14 grid gap-6 md:grid-cols-2">
               {STOCK_KINDS.map(({ icon: Icon, title, tone, iconTone, points }) => (
@@ -256,8 +337,8 @@ export default function BrickKilnInventoryPage() {
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Automatic updates"
-              title="How Stock Moves Without Extra Work"
-              text="You record the day's normal activity. The inventory follows on its own."
+              title="How Stock Moves Without Extra Work in Brick Inventory Software India"
+              text="You record the day's normal activity. This brick kiln stock management software follows on its own."
             />
             <ul className="mt-12 divide-y divide-slate-100 overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
               {MOVEMENTS.map(({ icon: Icon, event, effect, dir }) => (
@@ -279,7 +360,7 @@ export default function BrickKilnInventoryPage() {
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
               <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-sky-700"><BookOpen size={16} /> Stock ledgers</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">A Ledger That Explains Every Number</h2>
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">A Ledger Built Into Your Brick Stock Management Software</h2>
               <p className="mt-4 leading-relaxed text-slate-600">
                 Every raw material has a stock ledger, and every brick type has a brick ledger. Each one shows the
                 opening stock, everything that came in and went out, and the balance after each entry, for any date
@@ -335,6 +416,85 @@ export default function BrickKilnInventoryPage() {
           </div>
         </section>
 
+        {/* Benefits */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading eyebrow="Benefits" title="Why Brick Kiln Inventory Management Pays Off" />
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {BENEFITS.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-2xl border-t-4 border-sky-500 bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                  <Icon size={26} className="text-sky-700" />
+                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Who it is for */}
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Who it is for"
+              title={`How Can You Use ${site.name} Brick Inventory Software in India?`}
+              text="Brick inventory software in India is ideal for anyone dealing in the brick business. This brick stock management system works for:"
+            />
+            <ul className="mt-12 flex flex-wrap justify-center gap-3">
+              {AUDIENCE.map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-center gap-2.5 rounded-full bg-sky-50 px-5 py-3 text-sm font-semibold text-slate-800 ring-1 ring-sky-200">
+                  <Icon size={18} className="text-sky-700" /> {label}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* How to get it */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow="Getting started"
+              title="How to Get Your Brick Inventory Software in India"
+              text={`At ${site.name}, we provide a very easy process to get software for brick stock management with us.`}
+            />
+            <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {START_STEPS.map(({ title, text }, i) => (
+                <li key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                  <span className="text-4xl font-extrabold leading-none text-sky-200">0{i + 1}</span>
+                  <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                Book a Free Demo <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Why choose us */}
+        <section className="bg-white py-20 sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <SectionHeading
+              eyebrow={`Why ${site.name}`}
+              title={`Why Choose ${site.name} for Inventory Management?`}
+              text="There are so many brick kiln inventory management systems, but this is what makes us stand out."
+            />
+            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {WHY_US.map(({ icon: Icon, title, text }) => (
+                <div key={title} className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                  <Icon size={24} className="text-sky-700" />
+                  <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Alerts + adjustments */}
         <section className="py-20 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 lg:grid-cols-5">
@@ -370,54 +530,6 @@ export default function BrickKilnInventoryPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Benefits */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHeading eyebrow="Benefits" title="Why Brick Kiln Inventory Management Pays Off" />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {BENEFITS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border-t-4 border-sky-500 bg-slate-50 p-6">
-                  <Icon size={26} className="text-sky-700" />
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-slate-600">
-              <span className="flex items-center gap-2"><Ruler size={16} className="text-sky-700" /> Your own units per material</span>
-              <span className="flex items-center gap-2"><Building2 size={16} className="text-sky-700" /> Plant-wise brick stock</span>
-              <span className="flex items-center gap-2"><Warehouse size={16} className="text-sky-700" /> Opening stock to start</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing + related */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-slate-900">Inventory Management Included in Every Plan</h2>
-            <p className="mx-auto mt-3 max-w-xl text-slate-600">Brick and raw material stock come with both plans at no extra cost.</p>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              {PLANS.map(p => (
-                <div key={p.name} className="rounded-2xl bg-white px-8 py-5 shadow-sm ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/year</span></p>
-                </div>
-              ))}
-            </div>
-            <nav aria-label="Related pages" className="mt-8 flex flex-wrap justify-center gap-2">
-              {[
-                { to: PRICE_PAGE, label: 'Compare plans' },
-                { to: PRODUCTION_PAGE, label: 'Brick kiln production management' },
-                { to: ONLINE_PAGE, label: 'Online brick kiln management' },
-              ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
-                  {l.label} <ChevronRight size={14} />
-                </Link>
-              ))}
-            </nav>
           </div>
         </section>
 
