@@ -13,7 +13,7 @@ import { PLANS } from '../lib/plans';
 import { CONTACT_PAGE, PRICE_PAGE, scrollToSection } from '../lib/publicNav';
 import { site, whatsappLink } from '../lib/site';
 
-export const TITLE = `Bhatta Software - Best Brick Bhatta Management Software | ${site.name}`;
+export const TITLE = 'Bhatta Software for Brick Kiln Owners | Brick Manager';
 export const DESCRIPTION = `${site.name} is the bhatta software that makes brick kiln work easy. Manage production, stock, labour, sales, dues and accounts of your bhatta from one app. Plans from ₹7,999/year.`;
 
 const PROBLEMS = [
