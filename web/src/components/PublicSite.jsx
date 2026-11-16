@@ -95,7 +95,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-1 md:flex">
           {NAV.map(n => (
-            <Link key={n.to} to={n.to} onClick={open(n.to)} className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 lg:px-4">
+            <Link key={n.to} to={n.to} onClick={open(n.to)} className="rounded-lg px-3 py-2 text-[13px] sm:text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 lg:px-4">
               {n.label}
             </Link>
           ))}
@@ -135,9 +135,9 @@ export function Navbar() {
 export function SectionHeading({ eyebrow, title, text }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">{eyebrow}</p>
-      <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">{title}</h2>
-      {text && <p className="mt-4 text-slate-600">{text}</p>}
+      <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">{eyebrow}</p>
+      <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">{title}</h2>
+      {text && <p className="mt-3 sm:mt-4 text-slate-600">{text}</p>}
     </div>
   );
 }
@@ -169,11 +169,11 @@ function PolicyModal({ policy, onClose }) {
   return (
     <Modal title={policy.title} subtitle={site.name} onClose={onClose} maxWidth="max-w-lg"
       footer={<button type="button" onClick={onClose} className="btn-primary">Close</button>}>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {policy.sections.map(([heading, text]) => (
           <div key={heading}>
             <h3 className="font-semibold text-slate-900">{heading}</h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+            <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
           </div>
         ))}
       </div>
@@ -195,7 +195,7 @@ function InstagramIcon({ size = 18 }) {
 const footerLinkCls = 'group inline-flex items-center gap-1.5 text-sm text-slate-600 transition hover:text-orange-700';
 
 function FooterHeading({ children }) {
-  return <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">{children}</h3>;
+  return <h3 className="text-[13px] sm:text-sm font-bold uppercase tracking-wider text-slate-900">{children}</h3>;
 }
 
 export function Footer() {
@@ -213,21 +213,21 @@ export function Footer() {
     <footer className="relative bg-gradient-to-b from-white via-orange-50/40 to-slate-50">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-slate-300/60 via-slate-400 to-slate-300/60" />
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+      <div className="mx-auto grid max-w-6xl gap-4 sm:gap-10 px-4 py-8 sm:py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-4">
           <Logo name={site.name} subtitle="Brick Manufacturing Management" />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-600">
+          <p className="mt-4 sm:mt-5 max-w-sm text-[13px] sm:text-sm leading-relaxed text-slate-600">
             Software that helps brick manufacturers track production, stock, sales, dues and expenses, all in one place.
           </p>
           <a
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-700/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5b]"
+            className="mt-5 sm:mt-6 inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-[13px] sm:text-sm font-semibold text-white shadow-md shadow-emerald-700/20 transition hover:-translate-y-0.5 hover:bg-[#1ebe5b]"
           >
             <WhatsAppIcon size={18} /> Chat on WhatsApp
           </a>
-          <div className="mt-5 flex items-center gap-3">
+          <div className="mt-4 sm:mt-5 flex items-center gap-3">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Follow us</span>
             <a
               href={site.instagram}
@@ -241,10 +241,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:col-span-1 lg:col-span-5 lg:flex lg:justify-between lg:gap-6 lg:whitespace-nowrap">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 md:col-span-1 lg:col-span-5 lg:flex lg:justify-between lg:gap-6 lg:whitespace-nowrap">
           <div>
             <FooterHeading>Quick Links</FooterHeading>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 sm:mt-5 space-y-3">
               {NAV.map(n => (
                 <li key={n.to}><Link to={n.to} onClick={backToTop(n.to)} className={footerLinkCls}>{arrow}{n.label}</Link></li>
               ))}
@@ -254,7 +254,7 @@ export function Footer() {
           {/* Page names can be long, so this column wraps instead of pushing the others aside */}
           <div className="lg:w-60 lg:whitespace-normal">
             <FooterHeading>Brick Kiln Software</FooterHeading>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 sm:mt-5 space-y-3">
               {[
                 { to: BHATTA_PAGE, label: 'Bhatta Software' },
                 { to: MANUFACTURING_PAGE, label: 'Bricks Manufacturing Software' },
@@ -285,9 +285,9 @@ export function Footer() {
 
         <div className="lg:col-span-3">
           <FooterHeading>Contact Us</FooterHeading>
-          <ul className="mt-5 space-y-4">
+          <ul className="mt-4 sm:mt-5 space-y-3 sm:space-y-4">
             {contacts.map(({ icon: Icon, value, href }) => (
-              <li key={value} className="flex items-start gap-3 text-sm">
+              <li key={value} className="flex items-start gap-3 text-[13px] sm:text-sm">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-orange-700 shadow-sm ring-1 ring-slate-200">
                   <Icon size={15} />
                 </span>
@@ -296,7 +296,7 @@ export function Footer() {
                   : <span className="mt-1.5 text-slate-600">{value}</span>}
               </li>
             ))}
-            <li className="flex items-start gap-3 text-sm">
+            <li className="flex items-start gap-3 text-[13px] sm:text-sm">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-emerald-600 shadow-sm ring-1 ring-slate-200">
                 <WhatsAppIcon size={15} />
               </span>
@@ -310,10 +310,10 @@ export function Footer() {
 
       {/* Extra bottom space on phones keeps the floating WhatsApp button off these links */}
       <div className="border-t border-slate-200">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 pb-24 pt-6 text-sm text-slate-500 sm:flex-row sm:px-6 sm:pb-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 pb-14 pt-6 text-[13px] sm:text-sm text-slate-500 sm:flex-row sm:px-6 sm:pb-6">
           {/* The year is written at build time, so a page built last year may differ from the visitor's clock */}
           <p className="text-center sm:text-left" suppressHydrationWarning>Copyright © {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3 sm:gap-5">
             <button type="button" onClick={() => setPolicy(POLICIES.privacy)} className="transition hover:text-orange-700 hover:underline">Privacy Policy</button>
             <span className="h-4 w-px bg-slate-300" aria-hidden="true" />
             <button type="button" onClick={() => setPolicy(POLICIES.terms)} className="transition hover:text-orange-700 hover:underline">Terms & Conditions</button>

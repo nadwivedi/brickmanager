@@ -142,16 +142,16 @@ function BatchEntry() {
       className="relative mx-auto w-full max-w-md lg:max-w-none"
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-slate-200/70 via-amber-100/50 to-orange-200/60 blur-2xl" />
-      <div className="relative rounded-2xl bg-white p-5 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200 sm:p-6">
+      <div className="relative rounded-2xl bg-white p-4 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200 sm:p-6">
         <div className="flex items-center justify-between">
           <p className="font-bold text-slate-900">New batch · Morning shift</p>
           <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">Fly ash brick</span>
         </div>
-        <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+        <div className="mt-3 sm:mt-4 grid grid-cols-3 gap-2 text-center">
           {[['Plates', '120'], ['Per plate', '105'], ['Bricks', '12,600']].map(([k, v]) => (
             <div key={k} className="rounded-xl bg-slate-50 p-2.5 ring-1 ring-slate-100">
               <p className="text-[10px] text-slate-500">{k}</p>
-              <p className="text-sm font-bold text-slate-900">{v}</p>
+              <p className="text-[13px] sm:text-sm font-bold text-slate-900">{v}</p>
             </div>
           ))}
         </div>
@@ -163,7 +163,7 @@ function BatchEntry() {
         </div>
         <div className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-sm font-bold text-slate-800">1 bag → 210 bricks</p>
+            <p className="text-[13px] sm:text-sm font-bold text-slate-800">1 bag → 210 bricks</p>
             <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-bold text-amber-800">More cement than usual</span>
           </div>
           <p className="mt-1 text-[11px] text-amber-800">30-day average: 214 bricks per bag</p>
@@ -195,31 +195,31 @@ export default function FlyAshBrickPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-slate-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 sm:pt-12 lg:pb-20">
+          <div className="relative mx-auto max-w-6xl px-4 pb-8 sm:pb-16 pt-6 sm:px-6 sm:pt-12 lg:pb-20">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Fly Ash Brick Management Software</span>
             </nav>
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm">
                   <Gauge size={14} /> Built for fly ash brick plants
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Fly Ash Brick Management Software to{' '}
                   <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Control Every Batch</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   Track the fly ash, cement and sand used in every batch, see how many bricks each bag of cement gives
                   you, and catch wasteful batches the same day. {site.name} is fly ash brick software that also runs your
                   stock, sales, dues and expenses in one place.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#cement" onClick={jumpTo('cement')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#cement" onClick={jumpTo('cement')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     See the Cement Check <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">Request a Demo</Link>
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">Request a Demo</Link>
                 </div>
               </div>
               <BatchEntry />
@@ -228,17 +228,17 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Built for every plant */}
-        <section className="bg-white py-16 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="For every plant"
               title="Fly Ash Brick Software Built for Every Plant"
               text={`Whether you run one fly ash brick unit or several plants across locations, ${site.name} is fly ash brick business software that grows with you. It is made for brick manufacturers, factory owners, plant managers and local retailers across India.`}
             />
-            <p className="mt-10 text-center text-sm font-semibold text-slate-700">One platform, every part of your business:</p>
-            <ul className="mx-auto mt-5 flex max-w-4xl flex-wrap justify-center gap-3">
+            <p className="mt-5 sm:mt-10 text-center text-[13px] sm:text-sm font-semibold text-slate-700">One platform, every part of your business:</p>
+            <ul className="mx-auto mt-4 sm:mt-5 flex max-w-4xl flex-wrap justify-center gap-3">
               {PLATFORM.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-2.5 rounded-full bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 ring-1 ring-slate-200">
+                <li key={label} className="flex items-center gap-2.5 rounded-full bg-slate-50 px-4 py-2.5 text-[13px] sm:text-sm font-semibold text-slate-800 ring-1 ring-slate-200">
                   <Icon size={17} className="text-orange-700" /> {label}
                 </li>
               ))}
@@ -247,18 +247,18 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* The mix */}
-        <section className="py-16 sm:py-20">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="py-8 sm:py-20">
+          <div className="mx-auto grid max-w-6xl items-center gap-4 sm:gap-10 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Your mix, batch by batch</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Fly Ash Brick Plant Raw Material Tracking, Batch by Batch</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Your mix, batch by batch</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Fly Ash Brick Plant Raw Material Tracking, Batch by Batch</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 A fly ash brick is only as cheap as its mix. This fly ash brick plant raw material tracking lets you add
                 the materials you use with their own units, such as tonnes of fly ash or bags of cement, and record what
                 each batch used. Stock goes down with every batch and up with every purchase, so you always know how many
                 days of material are left.
               </p>
-              <Link to={INVENTORY_PAGE} className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">
+              <Link to={INVENTORY_PAGE} className="mt-5 sm:mt-6 inline-flex items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">
                 Raw material inventory <ChevronRight size={16} />
               </Link>
             </div>
@@ -272,20 +272,20 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Pricing + related */}
-        <section id="pricing" className="scroll-mt-20 bg-white py-16 sm:py-20">
+        <section id="pricing" className="scroll-mt-20 bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Pricing" title="Fly Ash Brick Software Plans" text="Every feature, the mobile app and desktop software in both plans." />
-            <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+            <div className="mx-auto mt-6 sm:mt-14 grid max-w-4xl gap-4 sm:gap-8 md:grid-cols-2 md:items-start">
               {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
             </div>
-            <nav aria-label="Related pages" className="mt-10 flex flex-wrap justify-center gap-2">
+            <nav aria-label="Related pages" className="mt-5 sm:mt-10 flex flex-wrap justify-center gap-2">
               {[
                 { to: PRICE_PAGE, label: 'Compare plans' },
                 { to: FACTORY_PAGE, label: 'Bricks factory management' },
                 { to: PRODUCTION_PAGE, label: 'Production management' },
                 { to: COST_GUIDE_PAGE, label: 'How to calculate cost per brick' },
               ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-[13px] sm:text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
                   {l.label} <ChevronRight size={14} />
                 </Link>
               ))}
@@ -294,18 +294,18 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Features */}
-        <section className="py-16 sm:py-20">
+        <section className="py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Features" title="Everything a Fly Ash Brick Plant Needs in One Software" />
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-12 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {FEATURES.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                <article key={title} className="flex gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-slate-200">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-500 text-white shadow-md">
                     <Icon size={20} />
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </article>
               ))}
@@ -314,27 +314,27 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Why dedicated software */}
-        <section className="bg-white py-16 sm:py-20">
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+        <section className="bg-white py-8 sm:py-20">
+          <div className="mx-auto grid max-w-6xl gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">The need</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Why Do Manufacturers Need Dedicated Fly Ash Brick Manufacturing Software?</h2>
-              <p className="mt-5 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">The need</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Why Do Manufacturers Need Dedicated Fly Ash Brick Manufacturing Software?</h2>
+              <p className="mt-4 sm:mt-5 leading-relaxed text-slate-600">
                 There are many materials, production batches, inventory records and business transactions in the
                 process of making fly ash brick. Keeping track of the costs of production and recording these activities
                 by hand can be challenging. A dedicated fly ash brick manufacturing software, specially developed for fly
                 ash brick manufacturing, helps manufacturers organise these activities. Let&apos;s look at why it is helpful:
               </p>
             </div>
-            <ol className="space-y-4">
+            <ol className="space-y-3 sm:space-y-4">
               {NEEDS.map(({ title, text }, i) => (
-                <li key={title} className="flex gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-orange-200 text-sm font-bold text-orange-700">
+                <li key={title} className="flex gap-3 sm:gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 sm:p-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-orange-200 text-[13px] sm:text-sm font-bold text-orange-700">
                     {i + 1}
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </li>
               ))}
@@ -343,21 +343,21 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Why choose */}
-        <section className="py-16 sm:py-20">
+        <section className="py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow={`Why ${site.name}`}
               title={`Why Choose ${site.name} for Fly Ash Bricks Business?`}
               text={`Instead of using registers and spreadsheets to manage the day-to-day manufacturing processes, ${site.name} offers a convenient solution to do so. Our fly ash brick manufacturing software helps to manage production, raw material inventory, sales, billing and expenses all in one place for brick manufacturers.`}
             />
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-12 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {REASONS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-600/20">
+                <div key={title} className="rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-slate-200">
+                  <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-600/20">
                     <Icon size={20} />
                   </span>
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -365,25 +365,25 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Cement check */}
-        <section id="cement" className="scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50 via-amber-50/70 to-white px-5 py-10 ring-1 ring-orange-200/70 sm:px-10 sm:py-14">
+        <section id="cement" className="scroll-mt-20 px-4 py-8 sm:px-6 sm:py-20">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50 via-amber-50/70 to-white px-5 py-6 ring-1 ring-orange-200/70 sm:px-10 sm:py-14">
             <BrickPattern className="fill-orange-900/[0.06]" />
-            <div className="relative grid items-center gap-10 lg:grid-cols-2">
+            <div className="relative grid items-center gap-4 sm:gap-10 lg:grid-cols-2">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Cement check</p>
-                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Know Your Bricks Per Bag of Cement</h2>
-                <p className="mt-4 leading-relaxed text-slate-600">
+                <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Cement check</p>
+                <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Know Your Bricks Per Bag of Cement</h2>
+                <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                   Cement is the most expensive part of a fly ash brick. The moment a batch is entered, this fly ash brick
                   production software works out how many bricks each bag of cement produces and compares it with your own
                   averages for that brick type. A batch that used more cement than usual is flagged while the shift is
                   still fresh in everyone&apos;s mind.
                 </p>
               </div>
-              <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-orange-100">
-                <p className="text-sm font-bold text-slate-800">This batch: 1 bag → 210 bricks</p>
+              <div className="rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-orange-100">
+                <p className="text-[13px] sm:text-sm font-bold text-slate-800">This batch: 1 bag → 210 bricks</p>
                 <ul className="mt-3 divide-y divide-slate-100">
                   {AVERAGES.map(a => (
-                    <li key={a.label} className="flex items-center justify-between py-2.5 text-sm">
+                    <li key={a.label} className="flex items-center justify-between py-2.5 text-[13px] sm:text-sm">
                       <span className="text-slate-600">{a.label}</span>
                       <span className="font-semibold text-slate-900">{a.value} bricks/bag</span>
                     </li>
@@ -399,24 +399,24 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* How to get it */}
-        <section className="bg-white py-16 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Getting it"
               title="How to Get Your Fly Ash Brick Management Software with Us?"
               text={`${site.name} is easy to get started with. You can register for an account or request a demo to learn how the software meets your manufacturing needs.`}
             />
-            <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="mt-6 sm:mt-12 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {GET_STEPS.map(({ title, text }, i) => (
-                <li key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-5">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-700 text-sm font-bold text-white">{i + 1}</span>
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                <li key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-4 sm:p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-700 text-[13px] sm:text-sm font-bold text-white">{i + 1}</span>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
             </ol>
-            <div className="mt-10 text-center">
-              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+            <div className="mt-5 sm:mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                 Request a Demo <ArrowRight size={18} />
               </Link>
             </div>
@@ -424,24 +424,24 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* 3 steps */}
-        <section className="py-16 sm:py-20">
+        <section className="py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Workflow"
               title="Get Started in 3 Simple Steps"
               text={`${site.name} is easy to use and follows a simple three-step process to help manufacturers transition from manual plant record-keeping to digital plant management.`}
             />
-            <ol className="mt-12 grid gap-6 md:grid-cols-3">
+            <ol className="mt-6 sm:mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
               {START_STEPS.map(({ icon: Icon, title, text }, i) => (
-                <li key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <li key={title} className="rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-slate-200">
                   <div className="flex items-center gap-3">
                     <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-orange-700 shadow-md ring-4 ring-orange-100">
                       <Icon size={22} />
                     </span>
                     <p className="text-xs font-bold uppercase tracking-wider text-orange-700">Step {i + 1}</p>
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 text-base sm:text-lg font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
             </ol>
@@ -449,19 +449,19 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Who should use */}
-        <section className="bg-white py-16 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Who it's for"
               title={`Who Should Use ${site.name}?`}
               text={`${site.name} is aimed at helping companies engaged in the production of fly ash bricks and their users who are in charge of managing the daily processes of the business. As a fly ash brick plant management software, it is suitable for:`}
             />
-            <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <div className="mt-6 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
               {USERS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="w-full rounded-2xl border border-slate-200 bg-gradient-to-b from-amber-50/50 to-white p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]">
+                <div key={title} className="w-full rounded-2xl border border-slate-200 bg-gradient-to-b from-amber-50/50 to-white p-4 sm:p-6 sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]">
                   <Icon size={28} className="text-orange-700" />
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -469,17 +469,17 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 py-16 sm:py-20">
+        <section id="faq" className="scroll-mt-20 py-8 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Fly Ash Brick Management Software FAQs" />
-            <div className="mt-10 space-y-3">
+            <div className="mt-5 sm:mt-10 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-slate-50 ring-1 ring-slate-200 transition open:bg-white open:shadow-md open:ring-orange-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -487,13 +487,13 @@ export default function FlyAshBrickPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-16 sm:px-6 sm:py-20">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 via-slate-700 to-orange-700 px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-8 sm:px-6 sm:py-20">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 via-slate-700 to-orange-700 px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.05]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Stop guessing your cement use</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-200">See {site.name} on your own fly ash batches.</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <h2 className="text-xl font-bold sm:text-4xl">Stop guessing your cement use</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-200">See {site.name} on your own fly ash batches.</p>
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <a href={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-orange-50">
                   Get Started <ArrowRight size={18} />
                 </a>

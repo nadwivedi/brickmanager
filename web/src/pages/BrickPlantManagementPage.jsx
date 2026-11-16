@@ -175,28 +175,28 @@ function PlantDashboard() {
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-primary-200/60 via-sky-100/50 to-orange-200/60 blur-2xl" />
       <BrickStack className="absolute -top-[46px] left-8 w-24 drop-shadow-lg sm:-top-[58px] sm:w-[7.5rem]" />
-      <div className="relative rounded-2xl bg-white p-5 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200 sm:p-6">
+      <div className="relative rounded-2xl bg-white p-4 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-bold text-slate-900">Plant overview</p>
           <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
             <Building2 size={13} /> All plants <ChevronDown size={13} />
           </span>
         </div>
-        <div className="mt-4 flex gap-1.5 overflow-hidden text-[11px] font-semibold">
+        <div className="mt-3 sm:mt-4 flex gap-1.5 overflow-hidden text-[11px] font-semibold">
           {['Today', 'Yesterday', 'Last 7 Days', 'Last 30 Days'].map(r => (
             <span key={r} className={`shrink-0 rounded-full px-2.5 py-1 ${r === 'Last 7 Days' ? 'bg-primary-700 text-white' : 'bg-slate-100 text-slate-600'}`}>{r}</span>
           ))}
         </div>
-        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="mt-4 sm:mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {kpis.map(({ icon: Icon, label, value, tone }) => (
             <div key={label} className="rounded-xl border border-slate-100 bg-slate-50/70 p-3">
               <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${tone}`}><Icon size={16} /></span>
               <p className="mt-2 text-[11px] font-medium text-slate-500">{label}</p>
-              <p className="text-sm font-bold text-slate-900">{value}</p>
+              <p className="text-[13px] sm:text-sm font-bold text-slate-900">{value}</p>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-right text-[10px] font-medium uppercase tracking-wider text-slate-400">Sample view</p>
+        <p className="mt-3 sm:mt-4 text-right text-[10px] font-medium uppercase tracking-wider text-slate-400">Sample view</p>
       </div>
     </figure>
   );
@@ -205,7 +205,7 @@ function PlantDashboard() {
 function TrackTabs() {
   const [active, setActive] = useState(TRACK_TABS[0].key);
   return (
-    <div className="mt-12">
+    <div className="mt-6 sm:mt-12">
       <div role="tablist" aria-label="What you can track" className="flex flex-wrap justify-center gap-2">
         {TRACK_TABS.map(({ key, icon: Icon, label }) => (
           <button
@@ -233,11 +233,11 @@ function TrackTabs() {
           id={`panel-${key}`}
           aria-labelledby={`tab-${key}`}
           hidden={active !== key}
-          className="mt-8 gap-6 rounded-3xl [&:not([hidden])]:grid border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-5"
+          className="mt-5 sm:mt-8 gap-4 sm:gap-6 rounded-3xl [&:not([hidden])]:grid border border-slate-200 bg-white p-4 shadow-sm sm:p-8 lg:grid-cols-5"
         >
           <div className="lg:col-span-3">
-            <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">{title}</h3>
-            <ul className="mt-5 space-y-3">
+            <h3 className="text-lg font-bold text-slate-900 sm:text-2xl">{title}</h3>
+            <ul className="mt-4 sm:mt-5 space-y-3">
               {points.map(p => (
                 <li key={p} className="flex items-start gap-3 text-[15px] text-slate-700">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"><Check size={12} strokeWidth={3} /></span>
@@ -246,11 +246,11 @@ function TrackTabs() {
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl bg-gradient-to-br from-primary-50 to-sky-50/60 p-5 lg:col-span-2">
+          <div className="rounded-2xl bg-gradient-to-br from-primary-50 to-sky-50/60 p-4 sm:p-5 lg:col-span-2">
             <p className="text-xs font-bold uppercase tracking-wider text-primary-700">Questions it answers</p>
             <ul className="mt-3 space-y-2.5">
               {questions.map(q => (
-                <li key={q} className="rounded-xl bg-white px-4 py-3 text-sm font-medium text-slate-800 shadow-sm ring-1 ring-primary-100">“{q}”</li>
+                <li key={q} className="rounded-xl bg-white px-4 py-3 text-[13px] sm:text-sm font-medium text-slate-800 shadow-sm ring-1 ring-primary-100">“{q}”</li>
               ))}
             </ul>
           </div>
@@ -288,31 +288,31 @@ export default function BrickPlantManagementPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-slate-900/[0.03] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-24">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-24">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Brick Plant Management Software</span>
             </nav>
 
-            <div className="mt-12 grid items-center gap-16 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-6 sm:mt-12 grid items-center gap-10 sm:gap-16 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-primary-800 shadow-sm">
                   <Sparkles size={14} /> The best option to run your brick plant
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Brick Plant Management Software That Is{' '}
                   <span className="bg-gradient-to-r from-primary-700 to-sky-600 bg-clip-text text-transparent">Easy to Manage</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   {site.name} helps you track your whole brick business: what your plant produces, what is in stock,
                   what you sold, what you collected and what you spent. Simple daily entries, clear numbers, all in one place.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#track" onClick={jumpTo('track')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#track" onClick={jumpTo('track')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     See What You Can Track <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
@@ -323,25 +323,25 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* Definition */}
-        <section className="border-y border-slate-200 bg-white py-16 sm:py-20">
+        <section className="border-y border-slate-200 bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">What Is Brick Plant Management Software?</h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            <h2 className="text-xl font-bold text-slate-900 sm:text-4xl">What Is Brick Plant Management Software?</h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:mt-5 sm:text-lg">
               Brick plant management software brings the daily work of a brick plant into one system. Instead of
               keeping production, stock, sales and money in different places, you record each activity once, and the
               software keeps every related number in step. The result is a business that is easier to manage and much
               easier to track.
             </p>
-            <div className="mt-10 grid gap-4 text-left sm:grid-cols-3">
+            <div className="mt-5 sm:mt-10 grid gap-3 sm:gap-4 text-left sm:grid-cols-3">
               {[
                 { title: 'Manage', text: 'Record production, purchases, sales and expenses from one dashboard.' },
                 { title: 'Track', text: 'Follow stock, collections, dues and balances as they change.' },
                 { title: 'Decide', text: 'Use reports and profit figures to plan your next move.' },
               ].map(({ title, text }, i) => (
-                <div key={title} className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
-                  <p className="text-sm font-bold text-primary-700">0{i + 1}</p>
-                  <h3 className="mt-1 text-lg font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1 text-sm text-slate-600">{text}</p>
+                <div key={title} className="rounded-2xl bg-slate-50 p-4 sm:p-5 ring-1 ring-slate-200">
+                  <p className="text-[13px] sm:text-sm font-bold text-primary-700">0{i + 1}</p>
+                  <h3 className="mt-1 text-base sm:text-lg font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1 text-[13px] sm:text-sm text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -349,7 +349,7 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* Track tabs */}
-        <section id="track" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="track" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Track your business"
@@ -361,25 +361,25 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* Easy to manage */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Easy to manage"
               title="Made So Anyone at Your Plant Can Use It"
               text="Good software should save effort, not add to it. These are the details that keep daily work quick."
             />
-            <div className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-slate-200 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-px overflow-hidden rounded-3xl bg-slate-200 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-3">
               {EASE.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="bg-white p-7 transition hover:bg-sky-50/40">
+                <div key={title} className="bg-white p-4 sm:p-7 transition hover:bg-sky-50/40">
                   <Icon size={26} className="text-primary-700" />
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
-            <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-dashed border-primary-200 bg-primary-50/40 p-5">
+            <div className="mx-auto mt-5 sm:mt-10 max-w-3xl rounded-2xl border border-dashed border-primary-200 bg-primary-50/40 p-4 sm:p-5">
               <p className="text-center text-xs font-bold uppercase tracking-wider text-primary-700">Quick buttons on the dashboard</p>
-              <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+              <div className="mt-3 sm:mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {[
                   { icon: Hammer, label: 'New Production' },
                   { icon: FileText, label: 'New Sale' },
@@ -388,7 +388,7 @@ export default function BrickPlantManagementPage() {
                   { icon: HandCoins, label: 'Money Received' },
                   { icon: Send, label: 'Money Paid' },
                 ].map(({ icon: Icon, label }) => (
-                  <span key={label} className="flex items-center gap-2 rounded-xl bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
+                  <span key={label} className="flex items-center gap-2 rounded-xl bg-white px-3 py-2.5 text-[13px] sm:text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
                     <Icon size={16} className="shrink-0 text-primary-700" /> {label}
                   </span>
                 ))}
@@ -398,7 +398,7 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* Comparison */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Best option"
@@ -406,7 +406,7 @@ export default function BrickPlantManagementPage() {
               text="Most brick plants today run on paper registers or spreadsheets. Here is how they compare for everyday plant management."
             />
             {/* Phones: one card per row, so the BrickManager answer is never scrolled out of view */}
-            <ul className="mt-12 space-y-3 sm:hidden">
+            <ul className="mt-6 sm:mt-12 space-y-3 sm:hidden">
               {COMPARISON.map(({ label, values }) => (
                 <li key={label} className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
                   <p className="font-semibold text-slate-800">{label}</p>
@@ -421,8 +421,8 @@ export default function BrickPlantManagementPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-12 hidden overflow-x-auto rounded-3xl bg-white shadow-lg shadow-slate-200/60 ring-1 ring-slate-200 sm:block">
-              <table className="w-full min-w-[560px] text-sm">
+            <div className="mt-6 sm:mt-12 hidden overflow-x-auto rounded-3xl bg-white shadow-lg shadow-slate-200/60 ring-1 ring-slate-200 sm:block">
+              <table className="w-full min-w-[560px] text-[13px] sm:text-sm">
                 <caption className="sr-only">Comparison of paper registers, spreadsheets and BrickManager</caption>
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50">
@@ -444,7 +444,7 @@ export default function BrickPlantManagementPage() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-slate-500">
+            <p className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-slate-500">
               <span className="flex items-center gap-1.5"><Mark value="yes" /> Yes</span>
               <span className="flex items-center gap-1.5"><Mark value="partly" /> Possible, with manual work</span>
               <span className="flex items-center gap-1.5"><Mark value="no" /> No</span>
@@ -454,19 +454,19 @@ export default function BrickPlantManagementPage() {
 
         {/* One plant or many */}
         <section className="px-4 sm:px-6">
-          <div className="relative mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-3xl bg-gradient-to-br from-sky-50 via-white to-orange-50/70 p-8 ring-1 ring-slate-200 sm:p-12 lg:grid-cols-2 lg:items-center">
+          <div className="relative mx-auto grid max-w-6xl gap-4 sm:gap-10 overflow-hidden rounded-3xl bg-gradient-to-br from-sky-50 via-white to-orange-50/70 p-4 ring-1 ring-slate-200 sm:p-12 lg:grid-cols-2 lg:items-center">
             <BrickPattern className="fill-slate-900/[0.025]" />
             <div className="relative">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">One plant or many</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Manage Every Brick Plant from One Login</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">One plant or many</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Manage Every Brick Plant from One Login</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 Start with your first plant. When the business grows, add more plants to the same account and track
                 each one on its own or all of them together.
               </p>
             </div>
             <ul className="relative space-y-3">
               {PLANT_POINTS.map(p => (
-                <li key={p} className="flex items-start gap-3 rounded-xl bg-white/90 p-4 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-200">
+                <li key={p} className="flex items-start gap-3 rounded-xl bg-white/90 p-4 text-[13px] sm:text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-200">
                   <Building2 size={18} className="mt-0.5 shrink-0 text-orange-700" /> {p}
                 </li>
               ))}
@@ -475,34 +475,34 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* Getting started + related */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-3">
+        <section className="py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-4 sm:gap-10 px-4 sm:px-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Getting started</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Start Managing Your Plant in Three Steps</h2>
-              <ol className="mt-8 space-y-4">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Getting started</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Start Managing Your Plant in Three Steps</h2>
+              <ol className="mt-5 sm:mt-8 space-y-3 sm:space-y-4">
                 {START_STEPS.map(({ title, text }, i) => (
-                  <li key={title} className="flex gap-5">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary-700 text-lg font-bold text-white shadow-md shadow-primary-700/20">{i + 1}</span>
+                  <li key={title} className="flex gap-3 sm:gap-5">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary-700 text-base sm:text-lg font-bold text-white shadow-md shadow-primary-700/20">{i + 1}</span>
                     <div className="pt-1">
                       <h3 className="font-bold text-slate-900">{title}</h3>
-                      <p className="mt-1 text-sm text-slate-600">{text}</p>
+                      <p className="mt-1 text-[13px] sm:text-sm text-slate-600">{text}</p>
                     </div>
                   </li>
                 ))}
               </ol>
             </div>
-            <aside className="self-start rounded-3xl bg-white p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
+            <aside className="self-start rounded-3xl bg-white p-4 sm:p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
               <h3 className="font-bold text-slate-900">Plans</h3>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-3 sm:mt-4 space-y-2">
                 {PLANS.map(p => (
-                  <li key={p.name} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm">
+                  <li key={p.name} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3 text-[13px] sm:text-sm">
                     <span className="font-medium text-slate-700">{p.featured ? 'Multiple plants' : 'One plant'}</span>
                     <span className="font-bold text-slate-900">₹{p.price}/yr</span>
                   </li>
                 ))}
               </ul>
-              <nav aria-label="Related pages" className="mt-5 space-y-1 border-t border-slate-200 pt-4 text-sm">
+              <nav aria-label="Related pages" className="mt-4 sm:mt-5 space-y-1 border-t border-slate-200 pt-4 text-[13px] sm:text-sm">
                 {[
                   { to: PRICE_PAGE, label: 'Compare plans and pricing' },
                   { to: MANUFACTURING_PAGE, label: 'Bricks manufacturing software' },
@@ -518,19 +518,19 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Brick Plant Management Software FAQs" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-slate-50 ring-1 ring-slate-200 transition open:bg-white open:shadow-md">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-primary-700 ring-1 ring-slate-200 transition group-open:rotate-180">
                       <ChevronDown size={16} />
                     </span>
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -538,15 +538,15 @@ export default function BrickPlantManagementPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary-800 via-primary-700 to-sky-600 px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-primary-800 via-primary-700 to-sky-600 px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.05]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Make your brick plant easy to manage</h2>
-              <p className="mx-auto mt-4 max-w-xl text-primary-100">
+              <h2 className="text-xl font-bold sm:text-4xl">Make your brick plant easy to manage</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-primary-100">
                 See how {site.name} can track your production, stock, sales and money from day one.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-primary-800 shadow-lg transition hover:bg-sky-50">
                   Contact Us <ArrowRight size={18} />
                 </Link>

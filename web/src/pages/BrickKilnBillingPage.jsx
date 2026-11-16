@@ -141,19 +141,19 @@ function InvoiceMock() {
       className="relative mx-auto w-full max-w-md"
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-amber-100/80 via-orange-100/50 to-primary-100/60 blur-2xl" />
-      <div className="relative rounded-2xl bg-white p-6 text-sm shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
+      <div className="relative rounded-2xl bg-white p-4 sm:p-6 text-[13px] sm:text-sm shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
         <div className="flex items-start justify-between border-b border-dashed border-slate-200 pb-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Invoice</p>
-            <p className="flex items-center text-lg font-extrabold text-slate-900">INV-0042<Marker n={1} /></p>
+            <p className="flex items-center text-base sm:text-lg font-extrabold text-slate-900">INV-0042<Marker n={1} /></p>
           </div>
           <span className="badge-orange">Partial</span>
         </div>
-        <div className="mt-4 text-xs text-slate-600">
+        <div className="mt-3 sm:mt-4 text-xs text-slate-600">
           <p className="flex items-center font-semibold text-slate-900">Sharma Builders<Marker n={2} /></p>
           <p className="mt-0.5 flex items-center gap-1"><MapPin size={12} /> Site: Ring Road, Raipur</p>
         </div>
-        <table className="mt-4 w-full text-xs">
+        <table className="mt-3 sm:mt-4 w-full text-xs">
           <thead><tr className="text-left text-slate-400"><th className="pb-1.5 font-semibold">Item<Marker n={3} /></th><th className="pb-1.5 text-right font-semibold">Qty × Rate</th><th className="pb-1.5 text-right font-semibold">GST</th></tr></thead>
           <tbody>
             {lines.map(l => (
@@ -170,7 +170,7 @@ function InvoiceMock() {
           <div className="flex justify-between"><dt className="text-slate-500">GST</dt><dd className="font-medium">₹{num(gst)}</dd></div>
           <div className="flex justify-between"><dt className="flex items-center text-slate-500">Transport · 2 trips<Marker n={4} /></dt><dd className="font-medium">₹{num(transport)}</dd></div>
           <div className="flex justify-between"><dt className="flex items-center text-slate-500">Discount<Marker n={5} /></dt><dd className="font-medium text-emerald-600">−₹{num(discount)}</dd></div>
-          <div className="flex justify-between border-t border-slate-200 pt-2 text-sm"><dt className="font-bold text-slate-900">Total</dt><dd className="font-extrabold text-slate-900">₹{num(total)}</dd></div>
+          <div className="flex justify-between border-t border-slate-200 pt-2 text-[13px] sm:text-sm"><dt className="font-bold text-slate-900">Total</dt><dd className="font-extrabold text-slate-900">₹{num(total)}</dd></div>
           <div className="flex justify-between"><dt className="flex items-center text-slate-500">Received · UPI to Bank<Marker n={6} /></dt><dd className="font-semibold text-emerald-600">₹{num(paid)}</dd></div>
           <div className="flex justify-between"><dt className="font-semibold text-rose-600">Balance to ledger</dt><dd className="font-bold text-rose-600">₹{num(total - paid)}</dd></div>
         </dl>
@@ -202,31 +202,31 @@ export default function BrickKilnBillingPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-amber-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-24">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-24">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Brick Kiln Billing Software</span>
             </nav>
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-amber-800 shadow-sm">
                   <FileText size={14} /> GST billing software for brick kilns
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Brick Kiln Billing Software for{' '}
                   <span className="bg-gradient-to-r from-amber-600 to-orange-700 bg-clip-text text-transparent">Faster, Accurate Bills</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   Bill every truckload of bricks in seconds. {site.name} is brick kiln billing software with GST. It makes
                   invoices with brick lines, transport and trip charges and discounts, records what the customer paid,
                   and keeps the balance in their ledger automatically.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#invoice" onClick={jumpTo('invoice')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#invoice" onClick={jumpTo('invoice')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     See What a Bill Includes <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
@@ -237,20 +237,20 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Invoice anatomy */}
-        <section id="invoice" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="invoice" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Brick invoices"
               title="Brick Kiln Invoice: Everything a Bill Needs in One Place"
               text={`As brick kiln invoice software, ${site.name} puts everything on one bill. You do not calculate anything by hand. The numbers below match the markers on the sample invoice above.`}
             />
-            <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {INVOICE_PARTS.map(({ icon: Icon, title, text }, i) => (
-                <li key={title} className="relative rounded-2xl bg-gradient-to-br from-amber-50/60 to-white p-6 ring-1 ring-amber-100">
+                <li key={title} className="relative rounded-2xl bg-gradient-to-br from-amber-50/60 to-white p-4 sm:p-6 ring-1 ring-amber-100">
                   <span className="absolute right-5 top-5 flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 text-xs font-bold text-white">{i + 1}</span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-amber-700 shadow-sm ring-1 ring-amber-200"><Icon size={20} /></span>
-                  <h3 className="mt-4 pr-8 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white text-amber-700 shadow-sm ring-1 ring-amber-200"><Icon size={20} /></span>
+                  <h3 className="mt-3 sm:mt-4 pr-8 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-1.5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
             </ol>
@@ -258,23 +258,23 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Pricing + related */}
-        <section id="pricing" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="pricing" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Pricing"
               title="Available Brick Kiln Billing Software Plans"
               text="Explore our available brick kiln billing software packages and choose as per your projects."
             />
-            <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+            <div className="mx-auto mt-6 sm:mt-14 grid max-w-4xl gap-4 sm:gap-8 md:grid-cols-2 md:items-start">
               {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
             </div>
-            <nav aria-label="Related pages" className="mt-10 flex flex-wrap justify-center gap-2">
+            <nav aria-label="Related pages" className="mt-5 sm:mt-10 flex flex-wrap justify-center gap-2">
               {[
                 { to: PRICE_PAGE, label: 'Compare plans' },
                 { to: INVENTORY_PAGE, label: 'Brick kiln inventory management' },
                 { to: EXPENSE_PAGE, label: 'Brick kiln expense management' },
               ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-[13px] sm:text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
                   {l.label} <ChevronRight size={14} />
                 </Link>
               ))}
@@ -283,12 +283,12 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* One bill updates everything */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Connected records" title="One Bill Updates Everything" />
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {CONNECTED.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl bg-slate-50 p-5 text-center ring-1 ring-slate-200">
+                <div key={title} className="rounded-2xl bg-slate-50 p-4 sm:p-5 text-center ring-1 ring-slate-200">
                   <Icon size={24} className="mx-auto text-primary-700" />
                   <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
                   <p className="mt-1 text-xs leading-relaxed text-slate-600">{text}</p>
@@ -299,19 +299,19 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Who uses it */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Who it is for"
               title="Who Uses Brick Kiln Billing Software"
               text="Software for brick kiln billing is used by everyone from owners to accountants."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {AUDIENCE.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border-t-4 border-amber-500 bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <div key={title} className="rounded-2xl border-t-4 border-amber-500 bg-white p-4 sm:p-6 shadow-sm ring-1 ring-slate-200">
                   <Icon size={26} className="text-amber-700" />
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -319,24 +319,24 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* How to make an invoice */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Step by step"
               title={`How to Make a Brick Invoice in ${INVOICE_STEPS.length} Steps`}
               text={`With ${site.name}'s brick invoice software, creating an invoice takes a couple of minutes. You do not have to manually calculate anything.`}
             />
-            <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="mt-6 sm:mt-14 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {INVOICE_STEPS.map(({ title, text }, i) => (
-                <li key={title} className="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
-                  <span className="text-4xl font-extrabold leading-none text-amber-300">0{i + 1}</span>
+                <li key={title} className="rounded-2xl bg-slate-50 p-4 sm:p-6 ring-1 ring-slate-200">
+                  <span className="text-xl sm:text-4xl font-extrabold leading-none text-amber-300">0{i + 1}</span>
                   <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <p className="mt-1.5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
             </ol>
-            <div className="mt-10 text-center">
-              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+            <div className="mt-5 sm:mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                 Book a Free Demo <ArrowRight size={18} />
               </Link>
             </div>
@@ -344,12 +344,12 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* GST billing */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-amber-700"><Percent size={16} /> GST billing</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">GST Billing for Bricks: What Your Invoice Includes</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="flex items-center gap-2 text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-amber-700"><Percent size={16} /> GST billing</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">GST Billing for Bricks: What Your Invoice Includes</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 {site.name} is brick kiln billing software with GST for brick manufacturers. Each brick line on your
                 invoice can have a different GST percentage. If you create an invoice with multiple types of bricks,
                 {' '}{site.name} calculates each line&apos;s GST separately, then the total GST and your final amount due.
@@ -357,7 +357,7 @@ export default function BrickKilnBillingPage() {
             </div>
             <ul className="space-y-3">
               {GST_POINTS.map(t => (
-                <li key={t} className="flex items-start gap-3 rounded-2xl bg-white p-4 text-sm text-slate-700 shadow-sm ring-1 ring-slate-200">
+                <li key={t} className="flex items-start gap-3 rounded-2xl bg-white p-4 text-[13px] sm:text-sm text-slate-700 shadow-sm ring-1 ring-slate-200">
                   <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-emerald-600" /> {t}
                 </li>
               ))}
@@ -366,14 +366,14 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Transport billing */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Transport billing"
               title="Transport and Trip Billing for Brick Kilns"
               text="Transport charges invoice software for brick kilns. Brick deliveries are rarely simple. Pick how the bricks travel, and the bill handles the rest."
             />
-            <div className="mt-14 grid gap-5 md:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 md:grid-cols-3">
               {TRANSPORT_MODES.map(({ icon: Icon, title, text }, i) => (
                 <div key={title} className={`rounded-3xl p-7 ${i === 2 ? 'bg-gradient-to-br from-primary-700 to-primary-600 text-white shadow-xl shadow-primary-700/20' : 'bg-slate-50 ring-1 ring-slate-200'}`}>
                   <Icon size={30} className={i === 2 ? 'text-primary-100' : 'text-orange-600'} />
@@ -382,7 +382,7 @@ export default function BrickKilnBillingPage() {
                 </div>
               ))}
             </div>
-            <p className="mx-auto mt-8 flex max-w-2xl items-start justify-center gap-2 text-center text-sm text-slate-600">
+            <p className="mx-auto mt-5 sm:mt-8 flex max-w-2xl items-start justify-center gap-2 text-center text-[13px] sm:text-sm text-slate-600">
               <MapPin size={16} className="mt-0.5 shrink-0 text-orange-600" />
               Save each vehicle&apos;s per-trip routes, from a kiln to a location, with what you pay and what you charge per trip.
             </p>
@@ -390,12 +390,12 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Cash, partial or credit */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-amber-700">Payments on bills</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Cash, Partial or Credit: Every Sale Handled</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-amber-700">Payments on bills</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Cash, Partial or Credit: Every Sale Handled</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 Cash and credit sale software for brick kiln owners. Enter what the customer pays at the time of sale and choose the cash or bank account it goes into. Any
                 balance is added to the customer&apos;s ledger automatically. When they pay later, record it as money
                 received and the ledger updates.
@@ -407,7 +407,7 @@ export default function BrickKilnBillingPage() {
                   {label.startsWith('Cash') ? <Banknote size={22} /> : label.startsWith('Partial') ? <Clock size={22} /> : <CreditCard size={22} />}
                   <div>
                     <h3 className="font-bold">{label}</h3>
-                    <p className="text-sm text-slate-700">{text}</p>
+                    <p className="text-[13px] sm:text-sm text-slate-700">{text}</p>
                   </div>
                 </li>
               ))}
@@ -416,16 +416,16 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Sales overview */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-5">
+        <section className="bg-white py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-5">
             <div className="lg:col-span-2">
-              <p className="text-sm font-semibold uppercase tracking-wider text-amber-700">Sales overview</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Know Your Sales and Dues at a Glance</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-amber-700">Sales overview</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Know Your Sales and Dues at a Glance</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 Customer dues tracking software for brick kiln owners. This brick sale invoice software keeps four
                 numbers in front of you, with search and filters for the rest.
               </p>
-              <ul className="mt-6 space-y-2.5 text-sm text-slate-600">
+              <ul className="mt-5 sm:mt-6 space-y-2.5 text-[13px] sm:text-sm text-slate-600">
                 <li className="flex items-center gap-2"><Search size={15} className="text-amber-700" /> Search by party or invoice number</li>
                 <li className="flex items-center gap-2"><CreditCard size={15} className="text-amber-700" /> Filter cash, partial and credit sales</li>
                 <li className="flex items-center gap-2"><Building2 size={15} className="text-amber-700" /> Bill from any of your kilns</li>
@@ -434,9 +434,9 @@ export default function BrickKilnBillingPage() {
             <div className="rounded-3xl bg-gradient-to-br from-[#1f2a3c] to-[#3d3020] p-4 shadow-2xl shadow-slate-400/40 sm:p-6 lg:col-span-3">
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/10">
                 {SALES_STATS.map(({ label, text }, i) => (
-                  <div key={label} className="bg-[#26303f] p-5 sm:p-6">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-sm font-bold text-amber-300">{i + 1}</span>
-                    <h3 className="mt-4 font-bold text-white">{label}</h3>
+                  <div key={label} className="bg-[#26303f] p-4 sm:p-6">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-[13px] sm:text-sm font-bold text-amber-300">{i + 1}</span>
+                    <h3 className="mt-3 sm:mt-4 font-bold text-white">{label}</h3>
                     <p className="mt-1 text-xs leading-relaxed text-slate-300 sm:text-sm">{text}</p>
                   </div>
                 ))}
@@ -446,17 +446,17 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Brick Kiln Billing Software FAQs" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition open:ring-amber-300">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-amber-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -464,14 +464,14 @@ export default function BrickKilnBillingPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 pb-20 sm:px-6 sm:pb-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#3d3020] to-[#b45309] px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 pb-10 sm:px-6 sm:pb-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#3d3020] to-[#b45309] px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
               <Receipt size={34} className="mx-auto text-amber-200" />
-              <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Bill your next truckload in seconds</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-300">See how {site.name} handles GST, transport and credit on every brick invoice.</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <h2 className="mt-3 sm:mt-4 text-xl font-bold sm:text-4xl">Bill your next truckload in seconds</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-300">See how {site.name} handles GST, transport and credit on every brick invoice.</p>
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-amber-50">
                   Contact Us <ArrowRight size={18} />
                 </Link>

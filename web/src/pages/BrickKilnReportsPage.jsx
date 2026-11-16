@@ -92,7 +92,7 @@ function ReportViewer() {
       className="relative mx-auto w-full max-w-md lg:max-w-none"
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-violet-200/60 via-primary-100/50 to-emerald-100/60 blur-2xl" />
-      <div className="relative rounded-2xl bg-white p-5 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200 sm:p-6">
+      <div className="relative rounded-2xl bg-white p-4 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="font-bold text-slate-900">Reports</p>
           <div className="flex gap-1 text-[10px] font-semibold">
@@ -104,15 +104,15 @@ function ReportViewer() {
         <p className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600 ring-1 ring-slate-200">
           <CalendarRange size={12} /> This Month
         </p>
-        <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+        <div className="mt-3 sm:mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
           {[['Production', '3.4L pcs'], ['Sales', '₹10.4L'], ['Collection', '₹8.9L'], ['Expenses', '₹2.1L']].map(([l, v]) => (
             <div key={l} className="rounded-xl bg-slate-50 p-2.5 ring-1 ring-slate-100">
               <p className="text-[10px] text-slate-500">{l}</p>
-              <p className="text-sm font-bold text-slate-900">{v}</p>
+              <p className="text-[13px] sm:text-sm font-bold text-slate-900">{v}</p>
             </div>
           ))}
         </div>
-        <div className="mt-4 rounded-xl border border-slate-100 p-3">
+        <div className="mt-3 sm:mt-4 rounded-xl border border-slate-100 p-3">
           <p className="text-[11px] font-semibold text-slate-600">Daily Production Trend</p>
           <div className="mt-2 flex h-20 items-end gap-1.5">
             {bars.map((h, i) => <div key={i} className="flex-1 rounded-t bg-gradient-to-t from-violet-600 to-violet-400" style={{ height: `${h}%` }} />)}
@@ -120,7 +120,7 @@ function ReportViewer() {
         </div>
         <div className="mt-3 flex items-center justify-between rounded-xl bg-emerald-50 px-4 py-3 ring-1 ring-emerald-200">
           <span className="text-xs font-semibold text-emerald-800">Net Profit</span>
-          <span className="text-lg font-extrabold text-emerald-700">₹2.5L</span>
+          <span className="text-base sm:text-lg font-extrabold text-emerald-700">₹2.5L</span>
         </div>
         <p className="mt-3 text-right text-[10px] font-medium uppercase tracking-wider text-slate-400">Sample view</p>
       </div>
@@ -150,30 +150,30 @@ export default function BrickKilnReportsPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-violet-900/[0.03] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-24">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-24">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Brick Kiln Report Management Software</span>
             </nav>
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-violet-800 shadow-sm">
                   <PieChart size={14} /> Brick kiln reports & analytics
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Brick Kiln Report Management Software for{' '}
                   <span className="bg-gradient-to-r from-violet-600 to-primary-700 bg-clip-text text-transparent">Clear Decisions</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   Stop adding up registers at month end. {site.name} builds your kiln&apos;s reports automatically:
                   production, sales, collections, expenses, outstanding dues and profit & loss, for any period you pick.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#reports" onClick={jumpTo('reports')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#reports" onClick={jumpTo('reports')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     Explore the Reports <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
@@ -184,22 +184,22 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* Report catalogue */}
-        <section id="reports" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="reports" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Report library"
               title="Every Report Your Brick Kiln Needs"
               text="Each report answers a question owners ask every week. All of them are built from the entries you already make."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {REPORTS.map(({ icon: Icon, title, question, text }) => (
-                <article key={title} className="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-violet-100">
+                <article key={title} className="flex flex-col rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-violet-100">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-violet-100 text-violet-700"><Icon size={20} /></span>
+                    <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-violet-100 text-violet-700"><Icon size={20} /></span>
                     <h3 className="font-bold text-slate-900">{title}</h3>
                   </div>
-                  <p className="mt-4 rounded-xl bg-violet-50/70 px-3.5 py-2.5 text-sm font-medium italic text-violet-900">“{question}”</p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <p className="mt-3 sm:mt-4 rounded-xl bg-violet-50/70 px-3.5 py-2.5 text-[13px] sm:text-sm font-medium italic text-violet-900">“{question}”</p>
+                  <p className="mt-3 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </article>
               ))}
             </div>
@@ -207,30 +207,30 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* Any period */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-gradient-to-br from-violet-50 via-white to-primary-50 p-8 text-center ring-1 ring-violet-200 sm:p-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-gradient-to-br from-violet-50 via-white to-primary-50 p-4 text-center ring-1 ring-violet-200 sm:p-12">
             <BrickPattern className="fill-violet-900/[0.03]" />
             <div className="relative">
               <CalendarRange size={34} className="mx-auto text-violet-700" />
-              <h2 className="mt-4 text-3xl font-bold text-slate-900">Reports for Any Period, in One Click</h2>
+              <h2 className="mt-3 sm:mt-4 text-xl sm:text-3xl font-bold text-slate-900">Reports for Any Period, in One Click</h2>
               <p className="mx-auto mt-3 max-w-xl text-slate-600">Choose a preset or pick your own from and to dates. Every report on the page follows the period you choose.</p>
-              <div className="mt-8 flex flex-wrap justify-center gap-2">
+              <div className="mt-5 sm:mt-8 flex flex-wrap justify-center gap-2">
                 {PRESETS.map(p => (
-                  <span key={p} className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">{p}</span>
+                  <span key={p} className="rounded-full bg-white px-4 py-2 text-[13px] sm:text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">{p}</span>
                 ))}
-                <span className="rounded-full border border-dashed border-violet-300 px-4 py-2 text-sm font-semibold text-violet-700">Custom dates</span>
+                <span className="rounded-full border border-dashed border-violet-300 px-4 py-2 text-[13px] sm:text-sm font-semibold text-violet-700">Custom dates</span>
               </div>
             </div>
           </div>
         </section>
 
         {/* P&L statement */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="bg-white py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-violet-700">Profit & loss</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">A Profit & Loss Report Built for Brick Kilns</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-violet-700">Profit & loss</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">A Profit & Loss Report Built for Brick Kilns</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 Income from brick sales and transport is set against raw material, transport, hired vehicles and
                 other expenses. The report shows total income, total expense, net profit or loss and, most usefully,
                 your <strong>cost per brick</strong> for the period.
@@ -242,13 +242,13 @@ export default function BrickKilnReportsPage() {
               className="overflow-hidden rounded-2xl bg-white shadow-xl shadow-slate-200/70 ring-1 ring-slate-200"
             >
               <div className="grid sm:grid-cols-2">
-                <div className="p-5">
+                <div className="p-4 sm:p-5">
                   <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Income</p>
                   <dl className="mt-3 space-y-2 text-xs">
                     {PL_INCOME.map(([k, v]) => <div key={k} className="flex justify-between gap-3"><dt className="text-slate-600">{k}</dt><dd className="font-semibold text-slate-900">{v}</dd></div>)}
                   </dl>
                 </div>
-                <div className="border-t border-slate-100 p-5 sm:border-l sm:border-t-0">
+                <div className="border-t border-slate-100 p-4 sm:p-5 sm:border-l sm:border-t-0">
                   <p className="text-xs font-bold uppercase tracking-wider text-rose-700">Expense</p>
                   <dl className="mt-3 space-y-2 text-xs">
                     {PL_EXPENSE.map(([k, v]) => <div key={k} className="flex justify-between gap-3"><dt className="text-slate-600">{k}</dt><dd className="font-semibold text-slate-900">{v}</dd></div>)}
@@ -256,8 +256,8 @@ export default function BrickKilnReportsPage() {
                 </div>
               </div>
               <div className="grid grid-cols-2 border-t border-slate-200 bg-slate-50 text-center">
-                <div className="p-4"><p className="text-[11px] text-slate-500">Net Profit</p><p className="text-lg font-extrabold text-emerald-700">₹2,50,500</p></div>
-                <div className="border-l border-slate-200 p-4"><p className="text-[11px] text-slate-500">Cost per Brick</p><p className="text-lg font-extrabold text-slate-900">₹2.31</p></div>
+                <div className="p-4"><p className="text-[11px] text-slate-500">Net Profit</p><p className="text-base sm:text-lg font-extrabold text-emerald-700">₹2,50,500</p></div>
+                <div className="border-l border-slate-200 p-4"><p className="text-[11px] text-slate-500">Cost per Brick</p><p className="text-base sm:text-lg font-extrabold text-slate-900">₹2.31</p></div>
               </div>
               <p className="bg-slate-50 pb-2 text-center text-[10px] font-medium uppercase tracking-wider text-slate-400">Sample</p>
             </figure>
@@ -265,16 +265,16 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* Everyday views */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Day to day"
               title="Live Views Between Your Monthly Reports"
               text="Reports cover the big picture. These screens keep you informed every day."
             />
-            <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <ul className="mt-6 sm:mt-14 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {EVERYDAY.map(({ icon: Icon, title, text }) => (
-                <li key={title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                <li key={title} className="rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-slate-200">
                   <Icon size={24} className="text-primary-700" />
                   <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-slate-600">{text}</p>
@@ -285,15 +285,15 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* Benefits */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Benefits" title="Why Brick Kiln Report Management Matters" />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {BENEFITS.map(({ title, text }, i) => (
-                <div key={title} className="rounded-2xl bg-gradient-to-b from-violet-50/70 to-white p-6 ring-1 ring-violet-100">
+                <div key={title} className="rounded-2xl bg-gradient-to-b from-violet-50/70 to-white p-4 sm:p-6 ring-1 ring-violet-100">
                   <LineChart size={24} className={i % 2 ? 'text-primary-700' : 'text-violet-700'} />
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -301,19 +301,19 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* Pricing + related */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <Hammer size={30} className="mx-auto text-violet-700" />
-            <h2 className="mt-3 text-3xl font-bold text-slate-900">All Reports Included in Every Plan</h2>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <h2 className="mt-3 text-xl sm:text-3xl font-bold text-slate-900">All Reports Included in Every Plan</h2>
+            <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:gap-4 sm:flex-row">
               {PLANS.map(p => (
                 <div key={p.name} className="rounded-2xl bg-white px-8 py-5 shadow-sm ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/year</span></p>
+                  <p className="text-[13px] sm:text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
+                  <p className="mt-1 text-xl sm:text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-[13px] sm:text-sm font-semibold text-slate-500">/year</span></p>
                 </div>
               ))}
             </div>
-            <nav aria-label="Related pages" className="mt-8 flex flex-wrap justify-center gap-2">
+            <nav aria-label="Related pages" className="mt-5 sm:mt-8 flex flex-wrap justify-center gap-2">
               {[
                 { to: PRICE_PAGE, label: 'Compare plans' },
                 { to: BILLING_PAGE, label: 'Brick kiln billing software' },
@@ -321,7 +321,7 @@ export default function BrickKilnReportsPage() {
                 { to: EXPENSE_PAGE, label: 'Brick kiln expense management' },
                 { to: COST_GUIDE_PAGE, label: 'How to calculate cost per brick' },
               ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-[13px] sm:text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
                   {l.label} <ChevronRight size={14} />
                 </Link>
               ))}
@@ -330,17 +330,17 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Brick Kiln Report Management FAQs" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-slate-50 ring-1 ring-slate-200 transition open:bg-white open:shadow-md open:ring-violet-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-violet-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -348,14 +348,14 @@ export default function BrickKilnReportsPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-primary-700 px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-primary-700 px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
               <PieChart size={34} className="mx-auto text-violet-200" />
-              <h2 className="mt-4 text-3xl font-bold sm:text-4xl">See your kiln&apos;s numbers clearly</h2>
-              <p className="mx-auto mt-4 max-w-xl text-violet-100">Let us show you the reports {site.name} builds from your daily entries.</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <h2 className="mt-3 sm:mt-4 text-xl font-bold sm:text-4xl">See your kiln&apos;s numbers clearly</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-violet-100">Let us show you the reports {site.name} builds from your daily entries.</p>
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-violet-50">
                   Contact Us <ArrowRight size={18} />
                 </Link>

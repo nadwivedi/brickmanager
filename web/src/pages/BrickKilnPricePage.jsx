@@ -105,9 +105,9 @@ function PriceVisual() {
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-orange-200/70 via-amber-100/50 to-primary-200/60 blur-2xl" />
       <BrickStack className="absolute -top-[46px] right-6 w-24 drop-shadow-lg sm:-top-[58px] sm:right-10 sm:w-[7.5rem]" />
 
-      <div className="relative rounded-2xl bg-white p-6 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
+      <div className="relative rounded-2xl bg-white p-4 sm:p-6 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
         <div className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 text-white shadow-md shadow-orange-600/30">
+          <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 text-white shadow-md shadow-orange-600/30">
             <Wallet size={22} />
           </span>
           <div>
@@ -116,22 +116,22 @@ function PriceVisual() {
           </div>
         </div>
 
-        <div className="mt-6 space-y-3">
+        <div className="mt-5 sm:mt-6 space-y-3">
           {PLANS.map(p => (
             <div key={p.name} className={`flex items-center justify-between gap-3 rounded-xl border p-4 ${p.featured ? 'border-orange-200 bg-orange-50/60' : 'border-slate-200 bg-slate-50/60'}`}>
               <div className="min-w-0">
-                <p className="text-sm font-semibold text-slate-900">{p.featured ? 'Multiple kilns' : 'Single kiln'}</p>
+                <p className="text-[13px] sm:text-sm font-semibold text-slate-900">{p.featured ? 'Multiple kilns' : 'Single kiln'}</p>
                 <p className="truncate text-xs text-slate-500">{p.name}</p>
               </div>
               <p className="shrink-0 text-right">
-                <span className="block text-lg font-extrabold text-slate-900">₹{p.price}</span>
+                <span className="block text-base sm:text-lg font-extrabold text-slate-900">₹{p.price}</span>
                 <span className="block text-[11px] font-medium text-slate-500">per year</span>
               </p>
             </div>
           ))}
         </div>
 
-        <ul className="mt-5 space-y-2 text-xs font-medium text-slate-600">
+        <ul className="mt-4 sm:mt-5 space-y-2 text-xs font-medium text-slate-600">
           {['All core features in both plans', 'Works on phone, tablet & desktop'].map(t => (
             <li key={t} className="flex items-center gap-2"><CheckCircle2 size={15} className="text-emerald-600" /> {t}</li>
           ))}
@@ -163,45 +163,45 @@ export default function BrickKilnPricePage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-28">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-28">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Brick Kiln Software Price in India</span>
             </nav>
 
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-orange-800 shadow-sm">
                   <Sparkles size={14} /> Brick Kiln Management Software
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.2rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.2rem]">
                   Brick Kiln Software{' '}
                   <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Price in India</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   {site.name} is brick kiln management software that brings production, raw material stock, sales,
                   dues and expenses into one simple system. Get clear, affordable yearly pricing made for brick
                   manufacturers across India.
                 </p>
 
-                <div className="mx-auto mt-8 inline-flex items-center gap-4 rounded-2xl border border-orange-200 bg-white px-5 py-4 text-left shadow-lg shadow-orange-100/70 lg:mx-0">
+                <div className="mx-auto mt-5 sm:mt-8 inline-flex items-center gap-3 sm:gap-4 rounded-2xl border border-orange-200 bg-white px-5 py-4 text-left shadow-lg shadow-orange-100/70 lg:mx-0">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-700">
                     <BadgeIndianRupee size={26} />
                   </span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-slate-500">Starting at</span>
-                    <span className="block text-3xl font-extrabold text-slate-900">
-                      ₹7,999<span className="text-base font-semibold text-slate-500">/year</span>
+                    <span className="block text-xl sm:text-3xl font-extrabold text-slate-900">
+                      ₹7,999<span className="text-sm sm:text-base font-semibold text-slate-500">/year</span>
                     </span>
                   </span>
                 </div>
 
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#pricing" onClick={viewPricing} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#pricing" onClick={viewPricing} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     View Pricing <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
@@ -212,36 +212,36 @@ export default function BrickKilnPricePage() {
         </section>
 
         {/* Pricing */}
-        <section id="pricing" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="pricing" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Pricing"
               title="Brick Kiln Management Software Plans"
               text="Two straightforward yearly plans. Pick the one that matches the number of kilns you run."
             />
-            <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+            <div className="mx-auto mt-10 sm:mt-16 grid max-w-4xl gap-4 sm:gap-8 md:grid-cols-2 md:items-start">
               {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
             </div>
-            <p className="mt-8 text-center text-sm text-slate-500">Prices are per year, in Indian Rupees.</p>
+            <p className="mt-5 sm:mt-8 text-center text-[13px] sm:text-sm text-slate-500">Prices are per year, in Indian Rupees.</p>
           </div>
         </section>
 
         {/* Benefits */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Benefits"
               title="Why Use Brick Kiln Management Software?"
               text="Running a kiln on registers and memory costs you time and money. The right software pays for itself in better control."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {BENEFITS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60 transition group-hover:from-orange-600 group-hover:to-orange-500 group-hover:text-white">
+                <div key={title} className="group rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
+                  <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60 transition group-hover:from-orange-600 group-hover:to-orange-500 group-hover:text-white">
                     <Icon size={22} />
                   </span>
-                  <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-5 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -249,28 +249,28 @@ export default function BrickKilnPricePage() {
         </section>
 
         {/* Pricing factors */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Pricing factors"
               title="What Affects Brick Kiln Software Price in India?"
               text="When you compare brick kiln software, these are the things that usually change the price."
             />
-            <div className="mt-14 grid gap-x-10 gap-y-8 md:grid-cols-2">
+            <div className="mt-6 sm:mt-14 grid gap-x-10 gap-y-6 sm:gap-y-8 md:grid-cols-2">
               {PRICE_FACTORS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="flex gap-4">
+                <div key={title} className="flex gap-3 sm:gap-4">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700">
                     <Icon size={20} />
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-14 rounded-2xl border border-orange-200 bg-gradient-to-r from-orange-50 to-amber-50/60 p-6 sm:p-8">
-              <h3 className="text-lg font-bold text-slate-900">How {site.name} keeps it simple</h3>
+            <div className="mt-6 sm:mt-14 rounded-2xl border border-orange-200 bg-gradient-to-r from-orange-50 to-amber-50/60 p-4 sm:p-8">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900">How {site.name} keeps it simple</h3>
               <p className="mt-2 text-slate-700">
                 Both plans include the full set of features: production, stock, sales, purchases, ledgers, expenses and
                 reports. You only choose between one kiln at <strong>₹7,999/year</strong> or multiple kilns at <strong>₹9,999/year</strong>.
@@ -280,17 +280,17 @@ export default function BrickKilnPricePage() {
         </section>
 
         {/* Why choose */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow={`Why ${site.name}`} title={`Why Choose ${site.name}?`} />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {REASONS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-700">
+                <div key={title} className="rounded-2xl bg-white p-4 sm:p-7 shadow-sm ring-1 ring-slate-200">
+                  <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-700">
                     <Icon size={22} />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-5 text-base sm:text-lg font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -298,17 +298,17 @@ export default function BrickKilnPricePage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Brick Kiln Software Price: Frequently Asked Questions" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl border border-slate-200 bg-slate-50/50 transition open:bg-white open:shadow-md">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
                     {q}
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -316,15 +316,15 @@ export default function BrickKilnPricePage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Get the right plan for your brick kiln</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-300">
+              <h2 className="text-xl font-bold sm:text-4xl">Get the right plan for your brick kiln</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-300">
                 Talk to us about your kilns and we will help you choose between the ₹7,999 and ₹9,999 plans.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-orange-50">
                   Contact Us <ArrowRight size={18} />
                 </Link>

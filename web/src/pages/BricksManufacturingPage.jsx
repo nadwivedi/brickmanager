@@ -184,17 +184,17 @@ function FlowDiagram() {
       className="relative mx-auto w-full max-w-md"
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-amber-100/70 via-orange-100/50 to-primary-100/70 blur-2xl" />
-      <div className="relative rounded-3xl bg-white/90 p-6 shadow-2xl shadow-slate-300/60 ring-1 ring-slate-200 backdrop-blur">
+      <div className="relative rounded-3xl bg-white/90 p-4 sm:p-6 shadow-2xl shadow-slate-300/60 ring-1 ring-slate-200 backdrop-blur">
         <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">One entry, everything updated</p>
-        <ol className="mt-5">
+        <ol className="mt-4 sm:mt-5">
           {FLOW.map(({ icon: Icon, label, detail }, i) => (
-            <li key={label} className="relative flex gap-4 pb-5 last:pb-0">
+            <li key={label} className="relative flex gap-3 sm:gap-4 pb-5 last:pb-0">
               {i < FLOW.length - 1 && <span className="absolute left-5 top-11 h-[calc(100%-2.75rem)] w-px border-l-2 border-dashed border-orange-200" aria-hidden="true" />}
               <span className={`relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${i === FLOW.length - 1 ? 'bg-primary-700 text-white' : 'bg-orange-100 text-orange-700'}`}>
                 <Icon size={19} />
               </span>
               <span className="pt-0.5">
-                <span className="block text-sm font-semibold text-slate-900">{label}</span>
+                <span className="block text-[13px] sm:text-sm font-semibold text-slate-900">{label}</span>
                 <span className="block text-xs text-slate-500">{detail}</span>
               </span>
             </li>
@@ -209,14 +209,14 @@ function AreaRow({ area, index }) {
   const { icon: Icon, eyebrow, title, features, note, benefit } = area;
   const flip = index % 2 === 1;
   return (
-    <article className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-5 lg:gap-10">
+    <article className="grid gap-4 sm:gap-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-8 lg:grid-cols-5 lg:gap-10">
       <div className={`lg:col-span-2 ${flip ? 'lg:order-2' : ''}`}>
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-600/20">
+        <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-amber-500 text-white shadow-md shadow-orange-600/20">
           <Icon size={22} />
         </span>
-        <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-orange-700">{eyebrow}</p>
-        <h3 className="mt-1 text-xl font-bold text-slate-900">{title}</h3>
-        <div className="mt-4 flex gap-3 rounded-xl bg-primary-50/70 p-4 text-sm text-slate-700">
+        <p className="mt-4 sm:mt-5 text-xs font-semibold uppercase tracking-wider text-orange-700">{eyebrow}</p>
+        <h3 className="mt-1 text-lg sm:text-xl font-bold text-slate-900">{title}</h3>
+        <div className="mt-3 sm:mt-4 flex gap-3 rounded-xl bg-primary-50/70 p-4 text-[13px] sm:text-sm text-slate-700">
           <Lightbulb size={18} className="mt-0.5 shrink-0 text-primary-700" />
           <p><span className="font-semibold text-primary-800">Why it helps: </span>{benefit}</p>
         </div>
@@ -225,7 +225,7 @@ function AreaRow({ area, index }) {
         <p className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">
           <CheckCircle2 size={14} /> Available in {site.name}
         </p>
-        <ul className="mt-4 space-y-3">
+        <ul className="mt-3 sm:mt-4 space-y-3">
           {features.map(f => (
             <li key={f} className="flex items-start gap-3 text-[15px] text-slate-700">
               <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"><Check size={12} strokeWidth={3} /></span>
@@ -234,7 +234,7 @@ function AreaRow({ area, index }) {
           ))}
         </ul>
         {note && (
-          <p className="mt-5 flex gap-2 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-600">
+          <p className="mt-4 sm:mt-5 flex gap-2 rounded-lg border border-slate-200 bg-slate-50 p-3 text-[13px] sm:text-sm text-slate-600">
             <Info size={16} className="mt-0.5 shrink-0 text-slate-500" /> {note}
           </p>
         )}
@@ -260,32 +260,32 @@ export default function BricksManufacturingPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.03] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-24">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-24">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Bricks Manufacturing Software</span>
             </nav>
 
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-amber-800 shadow-sm">
                   <Sparkles size={14} /> Brick manufacturing software in India
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Brick Manufacturing Software to{' '}
                   <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Simplify Your Brick Business</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   {site.name} gives brick manufacturers one organised place for daily operations. Record production,
                   keep raw material and finished brick stock accurate, follow every sale and payment, and keep expenses
                   and reports together instead of across registers and loose bills.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     Request a Free Demo <ArrowRight size={18} />
                   </Link>
-                  <Link to={PRICE_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={PRICE_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     See Pricing
                   </Link>
                 </div>
@@ -296,27 +296,27 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* Why important */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+        <section className="bg-white py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">The challenge</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Why Brick Manufacturing Software Matters</h2>
-              <p className="mt-5 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">The challenge</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Why Brick Manufacturing Software Matters</h2>
+              <p className="mt-4 sm:mt-5 leading-relaxed text-slate-600">
                 A brick business handles raw material, production, stock, customers, vendors and money every single
                 day. When it is all managed by hand, small gaps add up into lost stock, missed payments and unclear
                 profit. Good brick manufacturing management software closes those gaps before they cost you. These are
                 the problems manufacturers meet most often.
               </p>
             </div>
-            <ol className="space-y-4">
+            <ol className="space-y-3 sm:space-y-4">
               {CHALLENGES.map(({ title, text }, i) => (
-                <li key={title} className="flex gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5 sm:p-6">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-orange-200 text-sm font-bold text-orange-700">
+                <li key={title} className="flex gap-3 sm:gap-5 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-orange-200 text-[13px] sm:text-sm font-bold text-orange-700">
                     {i + 1}
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1.5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </li>
               ))}
@@ -325,40 +325,40 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* Features by area */}
-        <section id="features" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="features" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Features"
               title="Manage Your Brick Manufacturing Operations"
               text={`Each area below lists what you can do in ${site.name} today, along with how it helps your business.`}
             />
-            <div className="mt-14 space-y-6">
+            <div className="mt-6 sm:mt-14 space-y-6">
               {AREAS.map((a, i) => <AreaRow key={a.title} area={a} index={i} />)}
             </div>
           </div>
         </section>
 
         {/* Benefits */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 via-white to-amber-50/60 p-8 ring-1 ring-slate-200 sm:p-12">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 via-white to-amber-50/60 p-4 ring-1 ring-slate-200 sm:p-12">
               <div className="max-w-2xl">
-                <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Benefits</p>
-                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Benefits for Brick Manufacturers</h2>
-                <p className="mt-4 text-slate-600">
+                <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Benefits</p>
+                <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Benefits for Brick Manufacturers</h2>
+                <p className="mt-3 sm:mt-4 text-slate-600">
                   Good brick manufacturing business software is about more than storing data. It changes how the
                   business runs day to day.
                 </p>
               </div>
-              <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
+              <div className="mt-5 sm:mt-10 grid gap-x-10 gap-y-6 sm:gap-y-8 md:grid-cols-2">
                 {BENEFITS.map(({ icon: Icon, title, text }) => (
-                  <div key={title} className="flex gap-4">
+                  <div key={title} className="flex gap-3 sm:gap-4">
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-orange-700 shadow-sm ring-1 ring-slate-200">
                       <Icon size={22} />
                     </span>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900">{title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900">{title}</h3>
+                      <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                     </div>
                   </div>
                 ))}
@@ -368,14 +368,14 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* How it works */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Workflow"
               title={`How ${site.name} Works`}
               text="A practical routine that keeps production, inventory, sales and accounts in step."
             />
-            <ol className="mt-14 grid gap-8 md:grid-cols-4 md:gap-4">
+            <ol className="mt-6 sm:mt-14 grid gap-4 sm:gap-8 md:grid-cols-4 md:gap-4">
               {WORKFLOW.map(({ icon: Icon, title, text }, i) => (
                 <li key={title} className="relative text-center">
                   {i < WORKFLOW.length - 1 && (
@@ -384,9 +384,9 @@ export default function BricksManufacturingPage() {
                   <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white text-orange-700 shadow-md ring-4 ring-orange-100">
                     <Icon size={24} />
                   </span>
-                  <p className="mt-4 text-xs font-bold uppercase tracking-wider text-orange-700">Step {i + 1}</p>
+                  <p className="mt-3 sm:mt-4 text-xs font-bold uppercase tracking-wider text-orange-700">Step {i + 1}</p>
                   <h3 className="mt-1 font-bold text-slate-900">{title}</h3>
-                  <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-slate-600">{text}</p>
+                  <p className="mx-auto mt-2 max-w-xs text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
             </ol>
@@ -394,19 +394,19 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* Who can use */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Who it's for"
               title="Who Can Use This Software?"
               text="From a single bhatta to a multi-plant operation, this is software for brick manufacturing businesses of every size."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {AUDIENCE.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-amber-50/50 to-white p-6">
+                <div key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-amber-50/50 to-white p-4 sm:p-6">
                   <Icon size={28} className="text-orange-700" />
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -414,31 +414,31 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* Why choose + related links */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-3">
+        <section className="py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-4 sm:gap-10 px-4 sm:px-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Why {site.name}</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Why Choose {site.name}?</h2>
-              <dl className="mt-8 grid gap-6 sm:grid-cols-2">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Why {site.name}</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Why Choose {site.name}?</h2>
+              <dl className="mt-5 sm:mt-8 grid gap-4 sm:gap-6 sm:grid-cols-2">
                 {REASONS.map(({ title, text }) => (
                   <div key={title} className="border-l-2 border-orange-300 pl-4">
                     <dt className="font-bold text-slate-900">{title}</dt>
-                    <dd className="mt-1 text-sm leading-relaxed text-slate-600">{text}</dd>
+                    <dd className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</dd>
                   </div>
                 ))}
               </dl>
             </div>
-            <aside className="self-start rounded-3xl bg-white p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200 sm:p-7">
+            <aside className="self-start rounded-3xl bg-white p-4 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200 sm:p-7">
               <h3 className="flex items-center gap-2 font-bold text-slate-900"><BadgeIndianRupee size={20} className="text-orange-700" /> Plans & next steps</h3>
-              <ul className="mt-5 space-y-2">
+              <ul className="mt-4 sm:mt-5 space-y-2">
                 {PLANS.map(p => (
-                  <li key={p.name} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm">
+                  <li key={p.name} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3 text-[13px] sm:text-sm">
                     <span className="font-medium text-slate-700">{p.featured ? 'Several plants' : 'One plant'}</span>
                     <span className="font-bold text-slate-900">₹{p.price}/yr</span>
                   </li>
                 ))}
               </ul>
-              <nav aria-label="Related pages" className="mt-6 space-y-1 border-t border-slate-200 pt-5 text-sm">
+              <nav aria-label="Related pages" className="mt-5 sm:mt-6 space-y-1 border-t border-slate-200 pt-5 text-[13px] sm:text-sm">
                 {[
                   { to: PRICE_PAGE, label: 'Compare plans and pricing' },
                   { to: BHATTA_PAGE, label: 'Bhatta software for brick kilns' },
@@ -457,17 +457,17 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Bricks Manufacturing Software FAQs" />
-            <div className="mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200">
+            <div className="mt-6 sm:mt-12 divide-y divide-slate-200 rounded-2xl border border-slate-200">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-semibold text-slate-900 transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 px-5 py-5 font-semibold text-slate-900 transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -475,20 +475,20 @@ export default function BricksManufacturingPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 px-6 py-14 text-center ring-1 ring-orange-200 sm:px-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 px-6 py-8 sm:py-14 text-center ring-1 ring-orange-200 sm:px-12">
             <BrickPattern className="fill-orange-900/[0.04]" />
             <div className="relative">
               <Users size={36} className="mx-auto text-orange-700" />
-              <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">Bring your brick business into one place</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-600">
+              <h2 className="mt-3 sm:mt-4 text-xl font-bold text-slate-900 sm:text-4xl">Bring your brick business into one place</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-600">
                 Tell us how your manufacturing runs today, and we will show you how {site.name} can organise it.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                   Contact Us <ArrowRight size={18} />
                 </Link>
-                <a href={whatsappLink(`Hi, I'd like to know more about ${site.name} bricks manufacturing software.`)} target="_blank" rel="noopener noreferrer" className="btn-secondary px-7 py-3.5 text-base">
+                <a href={whatsappLink(`Hi, I'd like to know more about ${site.name} bricks manufacturing software.`)} target="_blank" rel="noopener noreferrer" className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                   <WhatsAppIcon size={18} /> Chat on WhatsApp
                 </a>
               </div>

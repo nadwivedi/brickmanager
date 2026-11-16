@@ -151,7 +151,7 @@ function HeroPreview() {
                 <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-md lg:h-6 lg:w-6 ${chip}`}><Icon size={14} /></span>
                 <p className="text-[11px] font-semibold leading-tight text-slate-600">{label}</p>
               </div>
-              <p className="mt-[0.3rem] text-xl font-extrabold leading-tight tracking-tight text-slate-900 lg:mt-[0.2rem] lg:text-lg">{value}</p>
+              <p className="mt-[0.3rem] text-lg sm:text-xl font-extrabold leading-tight tracking-tight text-slate-900 lg:mt-[0.2rem] lg:text-lg">{value}</p>
               <p className={`text-[10.5px] font-medium leading-tight ${noteCls}`}>{note}</p>
             </div>
           ))}
@@ -194,29 +194,29 @@ export default function HomePage() {
         {/* Hero */}
         <section id="home" className="relative scroll-mt-20 overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-[3.15rem] px-4 pb-[1.35rem] pt-[1.35rem] sm:px-6 sm:pt-[1.8rem] lg:grid-cols-[1.1fr_1fr] lg:gap-[2.25rem] lg:pb-[1.575rem] lg:pt-[3.6rem]">
+          <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-6 pt-6 sm:gap-[3.15rem] sm:px-6 sm:pt-[1.8rem] lg:grid-cols-[1.1fr_1fr] lg:gap-[2.25rem] lg:pb-[1.575rem] lg:pt-[3.6rem]">
             <div className="text-center lg:text-left">
               <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-orange-800 shadow-sm">
                 <Sparkles size={14} /> Run your brick plant digitally, no paperwork
               </span>
-              <h1 className="mt-[1.35rem] text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:mt-[0.9rem] lg:text-[2.6rem]">
+              <h1 className="mt-3 text-2xl sm:mt-[1.35rem] font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:mt-[0.9rem] lg:text-[2.6rem]">
                 <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Brick Kiln Management Software</span>{' '}
                 for Indian Bhattas, No Paperwork
               </h1>
-              <p className="mx-auto mt-[1.35rem] max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0 lg:mt-[0.9rem] lg:text-base">
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed sm:mt-[1.35rem] sm:text-lg text-slate-600 lg:mx-0 lg:mt-[0.9rem] lg:text-base">
                 {site.name} tracks production, raw material stock, GST billing, dues, and expenses for your brick kiln
                 or bhatta, so you always know what was made, what was sold, and who still has to pay. Use online brick
                 kiln management software anywhere, anytime.
               </p>
-              <div className="mt-[1.8rem] flex flex-col justify-center gap-[0.675rem] sm:flex-row lg:mt-[1.125rem] lg:justify-start">
-                <a href={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+              <div className="mt-5 sm:mt-[1.8rem] flex flex-col justify-center gap-[0.675rem] sm:flex-row lg:mt-[1.125rem] lg:justify-start">
+                <a href={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                   Get Started <ArrowRight size={18} />
                 </a>
-                <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                   Request a Demo
                 </Link>
               </div>
-              <ul className="mt-[1.8rem] flex flex-wrap items-center justify-center gap-x-3 gap-y-[0.45rem] text-[11px] font-medium text-slate-600 sm:gap-x-[1.35rem] sm:text-sm lg:mt-[0.9rem] lg:justify-start">
+              <ul className="mt-4 sm:mt-[1.8rem] flex flex-wrap items-center justify-center gap-x-3 gap-y-[0.45rem] text-xs font-medium text-slate-600 sm:gap-x-[1.35rem] sm:text-sm lg:mt-[0.9rem] lg:justify-start">
                 {['Works on any device', 'Multiple plants', 'Secure login'].map(t => (
                   <li key={t} className="flex items-center gap-1 whitespace-nowrap sm:gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600 sm:h-4 sm:w-4" /> {t}</li>
                 ))}
@@ -227,27 +227,27 @@ export default function HomePage() {
         </section>
 
         {/* Features */}
-        <section id="features" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="features" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Features"
               title="Everything Your Plant Tracks, in One Place"
               text="From the first batch of the morning to the last truck out, every entry lands in the right register automatically. That’s what makes this brick kiln management system different from a notebook."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {FEATURES.map(({ icon: Icon, title, text, to }) => (
-                <div key={title} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60 transition group-hover:from-orange-600 group-hover:to-orange-500 group-hover:text-white">
+                <div key={title} className="group rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
+                  <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60 transition group-hover:from-orange-600 group-hover:to-orange-500 group-hover:text-white">
                     <Icon size={22} />
                   </span>
-                  <h3 className="mt-5 font-bold text-slate-900">
+                  <h3 className="mt-3 sm:mt-5 font-bold text-slate-900">
                     {to ? <Link to={to} className="transition hover:text-orange-700 hover:underline">{title}</Link> : title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-10 text-center">
+            <div className="mt-5 sm:mt-10 text-center">
               <Link to={FEATURES_PAGE} className="btn-secondary px-6 py-3">
                 See all features <ArrowRight size={18} />
               </Link>
@@ -256,35 +256,35 @@ export default function HomePage() {
         </section>
 
         {/* Benefits + how it works */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="bg-white py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Why {site.name}</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Less Paperwork. More Control</h2>
-              <p className="mt-4 text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Why {site.name}</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Less Paperwork. More Control</h2>
+              <p className="mt-3 sm:mt-4 text-slate-600">
                 Most brick plants run on registers, phone calls, and memory. {site.name}, a complete brick kiln business
                 software, turns that into clear numbers you can trust.
               </p>
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-5 sm:mt-8 grid gap-3 sm:grid-cols-2">
                 {BENEFITS.map(b => (
-                  <li key={b} className="flex items-start gap-2.5 text-sm font-medium text-slate-700">
+                  <li key={b} className="flex items-start gap-2.5 text-[13px] sm:text-sm font-medium text-slate-700">
                     <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-emerald-600" /> {b}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">How It Works</h2>
-              <ol className="mt-5 space-y-4">
+              <h2 className="text-lg sm:text-2xl font-bold text-slate-900">How It Works</h2>
+              <ol className="mt-4 sm:mt-5 space-y-3 sm:space-y-4">
                 {STEPS.map(({ icon: Icon, title, text }, i) => (
-                  <li key={title} className="flex gap-4 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5">
+                  <li key={title} className="flex gap-3 sm:gap-4 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 sm:p-5">
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20">
                       <Icon size={22} />
                     </span>
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wider text-primary-700">Step {i + 1}</p>
                       <h3 className="font-bold text-slate-900">{title}</h3>
-                      <p className="mt-1 text-sm text-slate-600">{text}</p>
+                      <p className="mt-1 text-[13px] sm:text-sm text-slate-600">{text}</p>
                     </div>
                   </li>
                 ))}
@@ -294,26 +294,26 @@ export default function HomePage() {
         </section>
 
         {/* Built for India */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Made for India"
               title="Built for Brick Plants in India"
               text={`${site.name} is a brick kiln software in India, specially designed around how an Indian bhatta actually works. Every Indian brick plant works in its own way. Customers buy on credit, deliveries go out regularly, GST invoices are required, dues are collected across weeks and many more. Hence, our software is specially designed for the Indian market.`}
             />
-            <div className="mt-14 grid gap-5 md:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 md:grid-cols-3">
               {INDIA_POINTS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50/70 to-white p-6 shadow-sm">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 text-white shadow-md shadow-orange-200">
+                <div key={title} className="rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50/70 to-white p-4 sm:p-6 shadow-sm">
+                  <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 text-white shadow-md shadow-orange-200">
                     <Icon size={22} />
                   </span>
-                  <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-5 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-10 text-center">
-              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+            <div className="mt-5 sm:mt-10 text-center">
+              <Link to={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                 Request a Demo <ArrowRight size={18} />
               </Link>
             </div>
@@ -321,21 +321,21 @@ export default function HomePage() {
         </section>
 
         {/* Plant types */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Plant types"
               title="Software for Every Type of Brick Plant"
               text="Every plant is set up differently, with different firing methods, scales and ways of selling. Whether you run a traditional bhatta or a modern mechanised unit, this is software for brick kiln owners of every kind."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {PLANT_TYPES.map(({ icon: Icon, title, text, link }) => (
-                <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20">
+                <div key={title} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-6">
+                  <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20">
                     <Icon size={20} />
                   </span>
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">
                     {text}
                     {link && (
                       <>
@@ -351,13 +351,13 @@ export default function HomePage() {
         </section>
 
         {/* Pricing */}
-        <section id="pricing" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="pricing" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Our Pricing Plans" title="Simple Plans for Every Size of Brick Plant/Bhatta" />
-            <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-2 md:items-start">
+            <div className="mx-auto mt-10 sm:mt-16 grid max-w-4xl gap-4 sm:gap-8 md:grid-cols-2 md:items-start">
               {PLANS.map(p => <PricingCard key={p.name} plan={p} />)}
             </div>
-            <div className="mt-10 text-center">
+            <div className="mt-5 sm:mt-10 text-center">
               <Link to={PRICE_PAGE} className="btn-secondary px-6 py-3">
                 Know More About Plan <ArrowRight size={18} />
               </Link>
@@ -366,14 +366,14 @@ export default function HomePage() {
         </section>
 
         {/* Who uses it */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Who it's for"
               title={`Who Uses ${site.name}`}
               text="As a leading brick kiln software company in India, we offer our software to everyone. It is built for real roles, not job titles. You can use our software as:"
             />
-            <ul className="mt-12 flex flex-wrap justify-center gap-4">
+            <ul className="mt-6 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
               {USERS.map(({ icon: Icon, label }) => (
                 <li key={label} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white px-5 py-4 font-semibold text-slate-800 shadow-sm">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60">
@@ -387,22 +387,22 @@ export default function HomePage() {
         </section>
 
         {/* Why choose */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Benefits"
               title={`Why Brick Plants Choose ${site.name}`}
               text="By choosing software to manage your brick kiln, you can transform your plant into a digital one that is easy to track. Here is the reason why you should ask for brick kiln record-keeping software and what benefits you get:"
             />
-            <div className="mt-14 grid gap-4 md:grid-cols-2">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-4 md:grid-cols-2">
               {REASONS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div key={title} className="flex gap-3 sm:gap-4 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100">
                     <Icon size={20} />
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </div>
               ))}
@@ -411,17 +411,17 @@ export default function HomePage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Frequently Asked Questions" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl border-l-4 border-orange-200 bg-slate-50 transition open:border-orange-500 open:bg-white open:shadow-md">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -429,15 +429,15 @@ export default function HomePage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 pt-20 sm:px-6 sm:pt-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 pt-10 sm:px-6 sm:pt-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Ready to run your plant digitally?</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-300">
+              <h2 className="text-xl font-bold sm:text-4xl">Ready to run your plant digitally?</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-300">
                 Create your account and record your first production entry in minutes.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <a href={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-orange-50">
                   Create Your Account <ArrowRight size={18} />
                 </a>
@@ -449,7 +449,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="pt-20 sm:pt-24" />
+        <div className="pt-10 sm:pt-24" />
       </main>
 
       <Footer />

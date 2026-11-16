@@ -102,27 +102,27 @@ export default function ContactPage() {
         {/* Hero + contact details */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pt-12 lg:pb-20">
+          <div className="relative mx-auto max-w-6xl px-4 pb-8 sm:pb-14 pt-6 sm:px-6 sm:pt-12 lg:pb-20">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Contact Us</span>
             </nav>
-            <div className="mx-auto mt-10 max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Contact Us</p>
-              <h1 className="mt-3 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+            <div className="mx-auto mt-5 sm:mt-10 max-w-3xl text-center">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Contact Us</p>
+              <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
                 Talk to {site.name} About Your{' '}
                 <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Brick Kiln</span>
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
                 Want a demo of our brick kiln management software, a price for your plant, or help with your account?
                 Call, WhatsApp or email us and we&apos;ll get back to you.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-12 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {CONTACTS.map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                <div key={label} className="flex items-start gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-slate-200">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-700">
                     <Icon size={20} />
                   </span>
@@ -138,14 +138,14 @@ export default function ContactPage() {
                 href={whatsappLink(`Hi, I'd like to know more about ${site.name}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 p-5 text-white shadow-md shadow-emerald-700/20 transition hover:from-emerald-700 hover:to-emerald-600"
+                className="flex items-center gap-3 sm:gap-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 p-4 sm:p-5 text-white shadow-md shadow-emerald-700/20 transition hover:from-emerald-700 hover:to-emerald-600"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15">
                   <WhatsAppIcon size={22} />
                 </span>
                 <span>
                   <span className="block font-semibold">Chat on WhatsApp</span>
-                  <span className="block text-sm text-emerald-50">Quickest way to reach us</span>
+                  <span className="block text-[13px] sm:text-sm text-emerald-50">Quickest way to reach us</span>
                 </span>
               </a>
             </div>
@@ -153,17 +153,17 @@ export default function ContactPage() {
         </section>
 
         {/* How we can help */}
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="How we can help" title="Questions We Can Help With" />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-5 sm:mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {HELP.map(({ icon: Icon, title, text, to, href, link }) => (
-                <div key={title} className="flex flex-col rounded-2xl bg-gradient-to-b from-orange-50/70 to-white p-6 ring-1 ring-orange-100">
+                <div key={title} className="flex flex-col rounded-2xl bg-gradient-to-b from-orange-50/70 to-white p-4 sm:p-6 ring-1 ring-orange-100">
                   <Icon size={26} className="text-orange-700" />
                   <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1.5 flex-1 text-sm leading-relaxed text-slate-600">{text}</p>
-                  {to && <Link to={to} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">{link} <ChevronRight size={16} /></Link>}
-                  {href && <a href={href} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">{link} <ChevronRight size={16} /></a>}
+                  <p className="mt-1.5 flex-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
+                  {to && <Link to={to} className="mt-3 sm:mt-4 inline-flex items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">{link} <ChevronRight size={16} /></Link>}
+                  {href && <a href={href} className="mt-3 sm:mt-4 inline-flex items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">{link} <ChevronRight size={16} /></a>}
                 </div>
               ))}
             </div>
@@ -171,10 +171,10 @@ export default function ContactPage() {
         </section>
 
         {/* Map */}
-        <section className="py-14 sm:py-20">
+        <section className="py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Find us" title="Our Office in Raipur, Chhattisgarh" text={site.address} />
-            <div className="mt-10 overflow-hidden rounded-2xl shadow-sm ring-1 ring-slate-200">
+            <div className="mt-5 sm:mt-10 overflow-hidden rounded-2xl shadow-sm ring-1 ring-slate-200">
               <iframe
                 title={`${site.name} location: ${site.address}`}
                 src={`https://www.google.com/maps?q=${encodeURIComponent(site.address)}&output=embed`}
@@ -187,17 +187,17 @@ export default function ContactPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-14 sm:py-20">
+        <section id="faq" className="scroll-mt-20 bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Contact FAQs" />
-            <div className="mt-10 space-y-3">
+            <div className="mt-5 sm:mt-10 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-slate-50 ring-1 ring-slate-200 transition open:bg-white open:shadow-md open:ring-orange-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>

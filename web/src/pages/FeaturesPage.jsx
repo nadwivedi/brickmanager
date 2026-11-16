@@ -209,21 +209,21 @@ export default function FeaturesPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pt-12 lg:pb-16">
+          <div className="relative mx-auto max-w-6xl px-4 pb-8 sm:pb-14 pt-6 sm:px-6 sm:pt-12 lg:pb-16">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Features</span>
             </nav>
-            <div className="mx-auto mt-10 max-w-3xl text-center">
+            <div className="mx-auto mt-5 sm:mt-10 max-w-3xl text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-orange-800 shadow-sm">
                 <Sparkles size={14} /> Run your brick plant digitally, no paperwork
               </span>
-              <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl">
                 Brick Kiln Management Software{' '}
                 <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Features</span>
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
                 Replace paper registers with one app. {site.name} records your production, stock, sales, purchases,
                 payments and expenses, reminds parties of their dues on WhatsApp and warns you about low stock,
                 quality and efficiency, from the first batch of the morning to the last payment collected.
@@ -231,7 +231,7 @@ export default function FeaturesPage() {
             </div>
 
             {/* Jump links to each group */}
-            <nav aria-label="Feature groups" className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-1.5 sm:mt-10 sm:gap-2">
+            <nav aria-label="Feature groups" className="mx-auto mt-5 flex max-w-4xl flex-wrap justify-center gap-1.5 sm:mt-10 sm:gap-2">
               {GROUPS.map(g => (
                 <a
                   key={g.id}
@@ -249,23 +249,23 @@ export default function FeaturesPage() {
         </section>
 
         {/* Smart features */}
-        <section id="smart" aria-labelledby="smart-heading" className="scroll-mt-20 px-4 pb-14 sm:px-6 sm:pb-20">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50 via-amber-50/70 to-white px-5 py-10 shadow-xl shadow-orange-100/60 ring-1 ring-orange-200/70 sm:px-10 sm:py-14">
+        <section id="smart" aria-labelledby="smart-heading" className="scroll-mt-20 px-4 pb-8 sm:px-6 sm:pb-20">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-50 via-amber-50/70 to-white px-5 py-6 shadow-xl shadow-orange-100/60 ring-1 ring-orange-200/70 sm:px-10 sm:py-14">
             <BrickPattern className="fill-orange-900/[0.06]" />
             <div className="relative">
               <div className="mx-auto max-w-2xl text-center">
-                <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">Smart features</p>
-                <h2 id="smart-heading" className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Automation That Saves Hours Every Day</h2>
+                <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">Smart features</p>
+                <h2 id="smart-heading" className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Automation That Saves Hours Every Day</h2>
                 <p className="mt-3 text-slate-600">Less typing, fewer follow-up calls and early warnings before small problems get expensive.</p>
               </div>
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-5 sm:mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {SMART.map(({ icon: Icon, title, text, tone }) => (
-                  <article key={title} className="rounded-2xl bg-white/90 p-5 shadow-sm ring-1 ring-orange-100 backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-md hover:shadow-orange-100">
+                  <article key={title} className="rounded-2xl bg-white/90 p-4 sm:p-5 shadow-sm ring-1 ring-orange-100 backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-md hover:shadow-orange-100">
                     <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-lg ${tone}`}>
                       <Icon size={20} />
                     </span>
-                    <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                    <p className="mt-1.5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </article>
                 ))}
               </div>
@@ -277,28 +277,28 @@ export default function FeaturesPage() {
         {GROUPS.map((g, i) => (
           <section key={g.id} id={g.id} className={`scroll-mt-20 py-14 sm:py-20 ${i % 2 ? '' : 'bg-white'}`}>
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className={`inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${g.soft}`}>
                     {String(i + 1).padStart(2, '0')}
                   </p>
-                  <h2 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">{g.title}</h2>
+                  <h2 className="mt-3 text-lg font-bold text-slate-900 sm:text-3xl">{g.title}</h2>
                   <p className="mt-2 text-slate-600">{g.text}</p>
                 </div>
-                <Link to={g.more.to} className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">
+                <Link to={g.more.to} className="inline-flex shrink-0 items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">
                   {g.more.label} in detail <ChevronRight size={16} />
                 </Link>
               </div>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-5 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {g.features.map(({ icon: Icon, title, text }) => (
-                  <article key={title} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md">
+                  <article key={title} className="flex gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-md">
                     <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-md ${g.tone}`}>
                       <Icon size={20} />
                     </span>
                     <div>
                       <h3 className="font-bold text-slate-900">{title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                      <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                     </div>
                   </article>
                 ))}
@@ -308,28 +308,28 @@ export default function FeaturesPage() {
         ))}
 
         {/* Works everywhere */}
-        <section className="py-14 sm:py-20">
+        <section className="py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Mobile app & desktop software"
               title="Brick Kiln Software on Every Device"
               text="After you buy a plan, you get a dedicated mobile app and desktop software to install, all working from one account."
             />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-5 sm:mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {EVERYWHERE.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl bg-gradient-to-b from-orange-50/70 to-white p-6 text-center ring-1 ring-orange-100">
+                <div key={title} className="rounded-2xl bg-gradient-to-b from-orange-50/70 to-white p-4 sm:p-6 text-center ring-1 ring-orange-100">
                   <Icon size={26} className="mx-auto text-orange-700" />
                   <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1.5 text-sm text-slate-600">{text}</p>
+                  <p className="mt-1.5 text-[13px] sm:text-sm text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
-            <ol className="mx-auto mt-8 grid max-w-4xl gap-3 sm:grid-cols-3">
+            <ol className="mx-auto mt-5 sm:mt-8 grid max-w-4xl gap-3 sm:grid-cols-3">
               {INSTALL_STEPS.map(({ title, text }, i) => (
                 <li key={title} className="flex gap-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">{i + 1}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-600 text-[13px] sm:text-sm font-bold text-white">{i + 1}</span>
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900">{title}</h3>
+                    <h3 className="text-[13px] sm:text-sm font-bold text-slate-900">{title}</h3>
                     <p className="mt-0.5 text-xs leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </li>
@@ -339,41 +339,41 @@ export default function FeaturesPage() {
         </section>
 
         {/* Pricing */}
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-slate-900">Every Feature, in Every Plan</h2>
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900">Every Feature, in Every Plan</h2>
             <p className="mx-auto mt-3 max-w-xl text-slate-600">No add-ons to buy. Pick a plan by how many kilns or plants you run.</p>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:gap-4 sm:flex-row">
               {PLANS.map(p => (
                 <div key={p.name} className="rounded-2xl bg-white px-8 py-5 shadow-sm ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/year</span></p>
+                  <p className="text-[13px] sm:text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
+                  <p className="mt-1 text-xl sm:text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-[13px] sm:text-sm font-semibold text-slate-500">/year</span></p>
                 </div>
               ))}
             </div>
-            <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-medium text-slate-600">
+            <ul className="mt-5 sm:mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[13px] sm:text-sm font-medium text-slate-600">
               {['All features included', 'Mobile app & desktop software', 'Billed yearly'].map(t => (
                 <li key={t} className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-emerald-600" /> {t}</li>
               ))}
             </ul>
-            <Link to={PRICE_PAGE} className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">
+            <Link to={PRICE_PAGE} className="mt-5 sm:mt-6 inline-flex items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">
               Compare plans <ChevronRight size={16} />
             </Link>
           </div>
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 py-14 sm:py-20">
+        <section id="faq" className="scroll-mt-20 py-8 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Brick Kiln Software Features: FAQs" />
-            <div className="mt-10 space-y-3">
+            <div className="mt-5 sm:mt-10 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-white ring-1 ring-slate-200 transition open:shadow-md open:ring-orange-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -381,13 +381,13 @@ export default function FeaturesPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-14 sm:px-6 sm:py-20">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-8 sm:px-6 sm:py-20">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.06]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Ready to run your kiln on {site.name}?</h2>
-              <p className="mx-auto mt-4 max-w-xl text-orange-50">Start today, or talk to us and we&apos;ll show you how it fits your plant.</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <h2 className="text-xl font-bold sm:text-4xl">Ready to run your kiln on {site.name}?</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-orange-50">Start today, or talk to us and we&apos;ll show you how it fits your plant.</p>
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <a href={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-orange-50">
                   Get Started <ArrowRight size={18} />
                 </a>

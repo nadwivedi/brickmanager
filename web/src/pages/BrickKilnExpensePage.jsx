@@ -119,17 +119,17 @@ function SpendingCard() {
       className="relative mx-auto w-full max-w-md"
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-rose-100/70 via-amber-100/60 to-emerald-100/60 blur-2xl" />
-      <div className="relative rounded-2xl bg-white p-6 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
+      <div className="relative rounded-2xl bg-white p-4 sm:p-6 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs font-medium text-slate-500">Expenses · This month</p>
-            <p className="text-2xl font-extrabold text-slate-900">₹3,16,500</p>
+            <p className="text-lg sm:text-2xl font-extrabold text-slate-900">₹3,16,500</p>
           </div>
           <span className="badge-gray">Sample view</span>
         </div>
-        <ul className="mt-5 space-y-3.5">
+        <ul className="mt-4 sm:mt-5 space-y-3.5">
           {cats.map(c => (
-            <li key={c.name} className="text-sm">
+            <li key={c.name} className="text-[13px] sm:text-sm">
               <div className="flex items-center justify-between">
                 <span className="font-medium text-slate-700">{c.name}</span>
                 <span className="font-bold text-slate-900">{c.amount}</span>
@@ -138,13 +138,13 @@ function SpendingCard() {
             </li>
           ))}
         </ul>
-        <div className="mt-5 flex items-center gap-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
+        <div className="mt-4 sm:mt-5 flex items-center gap-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-700"><Fuel size={18} /></span>
           <span className="min-w-0 flex-1 text-xs">
             <span className="block font-semibold text-slate-900">Diesel for generator</span>
             <span className="block text-slate-500">UPI · Paid from Bank account</span>
           </span>
-          <span className="text-sm font-bold text-rose-600">−₹4,500</span>
+          <span className="text-[13px] sm:text-sm font-bold text-rose-600">−₹4,500</span>
         </div>
       </div>
     </figure>
@@ -173,31 +173,31 @@ export default function BrickKilnExpensePage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-rose-900/[0.03] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-24">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-24">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Brick Kiln Expense Management Software</span>
             </nav>
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-rose-800 shadow-sm">
                   <BadgeIndianRupee size={14} /> Brick kiln expense tracking
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Brick Kiln Expense Management Software to{' '}
                   <span className="bg-gradient-to-r from-rose-600 to-amber-600 bg-clip-text text-transparent">Control Every Rupee</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   Labour, diesel, repairs and daily costs add up fast at a kiln. {site.name} records each expense by
                   category, links it to the cash or bank account that paid it, and shows what every kiln really
                   costs to run.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#record-expense" onClick={jumpTo('record-expense')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#record-expense" onClick={jumpTo('record-expense')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     See How It Works <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
@@ -208,19 +208,19 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Where money leaks */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="The problem"
               title="Where Brick Kiln Money Quietly Leaks"
               text="Most kilns do not lose money in one big mistake. They lose it in many small expenses nobody tracked."
             />
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {LEAKS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl bg-rose-50/50 p-5 ring-1 ring-rose-100">
+                <div key={title} className="rounded-2xl bg-rose-50/50 p-4 sm:p-5 ring-1 ring-rose-100">
                   <Icon size={24} className="text-rose-600" />
                   <h3 className="mt-3 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <p className="mt-1.5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -228,23 +228,23 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Record an expense */}
-        <section id="record-expense" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="record-expense" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Daily expenses"
               title="Record a Kiln Expense in Under a Minute"
               text={`Tap New Expense on the dashboard and fill in six simple details. ${site.name} does the rest.`}
             />
-            <ol className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-slate-200 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="mt-6 sm:mt-14 grid gap-px overflow-hidden rounded-3xl bg-slate-200 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-3">
               {ENTRY_STEPS.map(({ icon: Icon, title, text }, i) => (
-                <li key={title} className="flex gap-4 bg-white p-6">
+                <li key={title} className="flex gap-3 sm:gap-4 bg-white p-4 sm:p-6">
                   <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-rose-100 text-rose-700">
                     <Icon size={20} />
                     <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-[10px] font-bold text-white">{i + 1}</span>
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm text-slate-600">{text}</p>
                   </div>
                 </li>
               ))}
@@ -253,12 +253,12 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Categories */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="bg-white py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-rose-700">Expense categories</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Categories That Fit Your Kiln</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-rose-700">Expense categories</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Categories That Fit Your Kiln</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 Four categories that every brick kiln uses come built in. Add your own for anything else your
                 business spends on, and every expense lands in the right group for reporting.
               </p>
@@ -278,7 +278,7 @@ export default function BrickKilnExpensePage() {
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Add your own, for example</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {CUSTOM_EXAMPLES.map(c => (
-                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-slate-300 px-3.5 py-1.5 text-sm font-medium text-slate-600">
+                    <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-slate-300 px-3.5 py-1.5 text-[13px] sm:text-sm font-medium text-slate-600">
                       <Plus size={14} /> {c}
                     </span>
                   ))}
@@ -289,14 +289,14 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Linked to cash & bank */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-sky-50 p-8 ring-1 ring-emerald-200 sm:p-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-sky-50 p-4 ring-1 ring-emerald-200 sm:p-12">
             <BrickPattern className="fill-emerald-900/[0.03]" />
-            <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div className="relative grid gap-4 sm:gap-10 lg:grid-cols-2 lg:items-center">
               <div>
-                <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-emerald-700"><Landmark size={16} /> Cash & bank</p>
-                <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Every Expense Linked to Cash or Bank</h2>
-                <p className="mt-4 leading-relaxed text-slate-600">
+                <p className="flex items-center gap-2 text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-emerald-700"><Landmark size={16} /> Cash & bank</p>
+                <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Every Expense Linked to Cash or Bank</h2>
+                <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                   Choose which account paid for each expense. Its balance goes down straight away, so the cash in hand
                   and your bank balances in {site.name} always match what you really have. Each account has its own
                   ledger showing every rupee in and out.
@@ -318,23 +318,23 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Views */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Expense reports"
               title="See Your Kiln's Spending Clearly"
               text="Recording expenses is only half the job. Here is how you review them."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {VIEWS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-6">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-700 text-white"><Icon size={22} /></span>
-                  <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                <div key={title} className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-4 sm:p-6">
+                  <span className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary-700 text-white"><Icon size={22} /></span>
+                  <h3 className="mt-3 sm:mt-5 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
-            <div className="mx-auto mt-10 flex max-w-3xl gap-3 rounded-2xl bg-slate-50 p-5 text-sm text-slate-600 ring-1 ring-slate-200">
+            <div className="mx-auto mt-5 sm:mt-10 flex max-w-3xl gap-3 rounded-2xl bg-slate-50 p-4 sm:p-5 text-[13px] sm:text-sm text-slate-600 ring-1 ring-slate-200">
               <Info size={20} className="mt-0.5 shrink-0 text-slate-500" />
               <p>
                 <span className="font-semibold text-slate-800">Expenses and purchases are kept apart. </span>
@@ -346,16 +346,16 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Benefits */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Benefits" title="Benefits of Brick Kiln Expense Management Software" />
-            <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <div className="mt-6 sm:mt-14 grid gap-4 sm:gap-6 md:grid-cols-2">
               {BENEFITS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="flex gap-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+                <div key={title} className="flex gap-3 sm:gap-5 rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-slate-200">
                   <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 to-amber-500 text-white shadow-md shadow-rose-500/20"><Icon size={24} /></span>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900">{title}</h3>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </div>
               ))}
@@ -364,25 +364,25 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Pricing + related */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="text-3xl font-bold text-slate-900">Expense Management Included in Every Plan</h2>
+            <h2 className="text-xl sm:text-3xl font-bold text-slate-900">Expense Management Included in Every Plan</h2>
             <p className="mx-auto mt-3 max-w-xl text-slate-600">Track expenses, cash and bank in both plans at no extra cost.</p>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:gap-4 sm:flex-row">
               {PLANS.map(p => (
                 <div key={p.name} className="rounded-2xl bg-slate-50 px-8 py-5 ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/year</span></p>
+                  <p className="text-[13px] sm:text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
+                  <p className="mt-1 text-xl sm:text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-[13px] sm:text-sm font-semibold text-slate-500">/year</span></p>
                 </div>
               ))}
             </div>
-            <nav aria-label="Related pages" className="mt-8 flex flex-wrap justify-center gap-2">
+            <nav aria-label="Related pages" className="mt-5 sm:mt-8 flex flex-wrap justify-center gap-2">
               {[
                 { to: PRICE_PAGE, label: 'Compare plans' },
                 { to: PRODUCTION_PAGE, label: 'Brick kiln production management' },
                 { to: INVENTORY_PAGE, label: 'Brick kiln inventory management' },
               ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-[13px] sm:text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50">
                   {l.label} <ChevronRight size={14} />
                 </Link>
               ))}
@@ -391,17 +391,17 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Brick Kiln Expense Management FAQs" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition open:ring-rose-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-rose-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -409,14 +409,14 @@ export default function BrickKilnExpensePage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 pb-20 sm:px-6 sm:pb-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#3a2433] to-[#9f1239] px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 pb-10 sm:px-6 sm:pb-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#3a2433] to-[#9f1239] px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
               <Filter size={34} className="mx-auto text-rose-200" />
-              <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Stop the small leaks in your kiln&apos;s spending</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-300">See how {site.name} keeps every expense recorded and every balance right.</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <h2 className="mt-3 sm:mt-4 text-xl font-bold sm:text-4xl">Stop the small leaks in your kiln&apos;s spending</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-300">See how {site.name} keeps every expense recorded and every balance right.</p>
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-rose-50">
                   Contact Us <ArrowRight size={18} />
                 </Link>

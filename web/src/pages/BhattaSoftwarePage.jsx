@@ -139,7 +139,7 @@ function TodayCard() {
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-orange-200/70 via-amber-100/50 to-primary-200/60 blur-2xl" />
       <BrickStack className="absolute -top-[46px] right-6 w-24 drop-shadow-lg sm:-top-[58px] sm:right-10 sm:w-[7.5rem]" />
 
-      <div className="relative rounded-2xl bg-white p-6 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
+      <div className="relative rounded-2xl bg-white p-4 sm:p-6 shadow-2xl shadow-slate-300/70 ring-1 ring-slate-200">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs font-medium text-slate-500">Your bhatta today</p>
@@ -147,12 +147,12 @@ function TodayCard() {
           </div>
           <span className="badge-gray">Sample view</span>
         </div>
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-4 sm:mt-5 space-y-3">
           {tasks.map(({ icon: Icon, label, detail }) => (
             <li key={label} className="flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-700"><Icon size={18} /></span>
               <span className="min-w-0 flex-1">
-                <span className="block text-sm font-semibold text-slate-900">{label}</span>
+                <span className="block text-[13px] sm:text-sm font-semibold text-slate-900">{label}</span>
                 <span className="block truncate text-xs text-slate-500">{detail}</span>
               </span>
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"><Check size={14} strokeWidth={3} /></span>
@@ -177,10 +177,10 @@ function IconCard({ icon: Icon, title, text, tone = 'orange' }) {
     ? 'bg-gradient-to-br from-orange-100 to-amber-50 text-orange-700 ring-1 ring-orange-200/60 group-hover:from-orange-600 group-hover:to-orange-500 group-hover:text-white'
     : 'bg-primary-50 text-primary-700';
   return (
-    <div className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
+    <div className="group rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/60">
       <span className={`flex h-12 w-12 items-center justify-center rounded-xl transition ${iconCls}`}><Icon size={22} /></span>
-      <h3 className="mt-5 font-bold text-slate-900">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+      <h3 className="mt-3 sm:mt-5 font-bold text-slate-900">{title}</h3>
+      <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
     </div>
   );
 }
@@ -207,35 +207,35 @@ export default function BhattaSoftwarePage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-28">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-28">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Bhatta Software</span>
             </nav>
 
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-12">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-orange-800 shadow-sm">
                   <Sparkles size={14} /> Best bhatta software for brick businesses
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.2rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.2rem]">
                   Bhatta Software That Makes{' '}
                   <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">Your Work Easy</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   {site.name} is bhatta software built for brick kiln owners. Manage production, raw material, sales,
                   labour, dues and accounts of your bhatta from one simple app, on your mobile or computer.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#how-it-works" onClick={jumpTo('how-it-works')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#how-it-works" onClick={jumpTo('how-it-works')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     See How It Works <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
-                <ul className="mt-8 flex flex-col items-center gap-x-6 gap-y-2 text-sm font-medium text-slate-600 sm:flex-row sm:justify-center lg:justify-start">
+                <ul className="mt-5 sm:mt-8 flex flex-col items-center gap-x-6 gap-y-2 text-[13px] sm:text-sm font-medium text-slate-600 sm:flex-row sm:justify-center lg:justify-start">
                   {['Made for bhattas', 'Works on mobile', 'From ₹7,999/year'].map(t => (
                     <li key={t} className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-emerald-600" /> {t}</li>
                   ))}
@@ -247,23 +247,23 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* What is bhatta software */}
-        <section className="bg-white py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2">
+        <section className="bg-white py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-orange-700">About bhatta software</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">What Is Bhatta Software?</h2>
-              <p className="mt-5 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-orange-700">About bhatta software</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">What Is Bhatta Software?</h2>
+              <p className="mt-4 sm:mt-5 leading-relaxed text-slate-600">
                 Bhatta software is a digital register for your brick kiln, or bhatta. Instead of writing production,
                 stock, sales and payments in different notebooks, you record them once in the software, and it keeps
                 everything connected and up to date.
               </p>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 {site.name} is bhatta software made only for brick businesses. When you record a sale, brick stock
                 goes down and the customer&apos;s ledger is updated. When you buy cement or fly ash, raw material stock
                 goes up. That is how it saves time and stops mistakes.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { icon: Hammer, label: 'Production' },
                 { icon: Boxes, label: 'Stock' },
@@ -282,25 +282,25 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* Before / after */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Make work easy"
               title="From Registers to Bhatta Software"
               text="Common problems every bhatta owner faces, and how the right bhatta software solves them."
             />
-            <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-              <div className="hidden grid-cols-2 border-b border-slate-200 bg-slate-50 text-sm font-bold uppercase tracking-wider md:grid">
+            <div className="mt-6 sm:mt-14 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+              <div className="hidden grid-cols-2 border-b border-slate-200 bg-slate-50 text-[13px] sm:text-sm font-bold uppercase tracking-wider md:grid">
                 <p className="px-6 py-4 text-rose-700">Without bhatta software</p>
                 <p className="border-l border-slate-200 px-6 py-4 text-emerald-700">With {site.name}</p>
               </div>
               {PROBLEMS.map(({ before, after }) => (
                 <div key={before} className="grid border-b border-slate-100 last:border-b-0 md:grid-cols-2">
-                  <p className="flex items-start gap-3 px-6 py-5 text-sm text-slate-600">
+                  <p className="flex items-start gap-3 px-6 py-5 text-[13px] sm:text-sm text-slate-600">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-600"><X size={12} strokeWidth={3} /></span>
                     {before}
                   </p>
-                  <p className="flex items-start gap-3 bg-emerald-50/40 px-6 py-5 text-sm font-medium text-slate-800 md:border-l md:border-slate-100">
+                  <p className="flex items-start gap-3 bg-emerald-50/40 px-6 py-5 text-[13px] sm:text-sm font-medium text-slate-800 md:border-l md:border-slate-100">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"><Check size={12} strokeWidth={3} /></span>
                     {after}
                   </p>
@@ -311,21 +311,21 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* How to manage work */}
-        <section id="how-it-works" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="how-it-works" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="How it works"
               title="How to Manage Your Bhatta Work with Bhatta Software"
               text="A simple daily routine that keeps your whole bhatta organised."
             />
-            <ol className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <ol className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
               {STEPS.map(({ icon: Icon, title, text }, i) => (
-                <li key={title} className="relative rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6">
-                  <span className="absolute right-5 top-4 text-4xl font-extrabold text-slate-100">{String(i + 1).padStart(2, '0')}</span>
+                <li key={title} className="relative rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6">
+                  <span className="absolute right-5 top-4 text-xl sm:text-4xl font-extrabold text-slate-100">{String(i + 1).padStart(2, '0')}</span>
                   <span className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-primary-700 text-white shadow-md shadow-primary-700/20"><Icon size={22} /></span>
-                  <p className="relative mt-5 text-xs font-bold uppercase tracking-wider text-primary-700">Step {i + 1}</p>
+                  <p className="relative mt-4 sm:mt-5 text-xs font-bold uppercase tracking-wider text-primary-700">Step {i + 1}</p>
                   <h3 className="relative font-bold text-slate-900">{title}</h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <p className="relative mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </li>
               ))}
             </ol>
@@ -333,42 +333,42 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* Features */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Features"
               title="Features of Our Bhatta Software"
               text="Everything you need to run a brick bhatta, in one place."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {FEATURES.map(f => <IconCard key={f.title} {...f} />)}
             </div>
           </div>
         </section>
 
         {/* Why best */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow={`Why ${site.name}`}
               title="Why We Are the Best Bhatta Software for Your Business"
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {REASONS.map(r => <IconCard key={r.title} {...r} tone="blue" />)}
             </div>
           </div>
         </section>
 
         {/* Who it's for */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Who it's for" title="Bhatta Software for Everyone at Your Kiln" />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {AUDIENCE.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-2xl bg-white p-6 text-center shadow-sm ring-1 ring-slate-200">
+                <div key={title} className="rounded-2xl bg-white p-4 sm:p-6 text-center shadow-sm ring-1 ring-slate-200">
                   <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-700"><Icon size={26} /></span>
-                  <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                  <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -377,13 +377,13 @@ export default function BhattaSoftwarePage() {
 
         {/* Make work easier */}
         <section className="px-4 sm:px-6">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50/60 to-white p-8 sm:p-12">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50/60 to-white p-4 sm:p-12">
             <BrickPattern className="fill-orange-900/[0.03]" />
-            <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div className="relative grid gap-4 sm:gap-8 lg:grid-cols-2 lg:items-center">
               <div>
-                <p className="text-sm font-semibold text-orange-700">Brick kiln software</p>
-                <h2 className="mt-2 text-3xl font-bold leading-snug text-slate-900">Make Your Work Easier with Bhatta Software</h2>
-                <p className="mt-4 leading-relaxed text-slate-700">
+                <p className="text-[13px] sm:text-sm font-semibold text-orange-700">Brick kiln software</p>
+                <h2 className="mt-2 text-xl sm:text-3xl font-bold leading-snug text-slate-900">Make Your Work Easier with Bhatta Software</h2>
+                <p className="mt-3 sm:mt-4 leading-relaxed text-slate-700">
                   {site.name} is bhatta software built for brick kiln owners. Instead of keeping registers, maintain a
                   complete record of production, stock, sales, labour, dues and expenses in one place.
                 </p>
@@ -400,26 +400,26 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* Pricing teaser */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Pricing"
               title="Bhatta Software Price"
               text="Simple yearly plans, with the full set of features in both."
             />
-            <div className="mx-auto mt-12 grid max-w-3xl gap-5 sm:grid-cols-2">
+            <div className="mx-auto mt-6 sm:mt-12 grid max-w-3xl gap-3 sm:gap-5 sm:grid-cols-2">
               {PLANS.map(p => (
                 <div key={p.name} className={`rounded-2xl p-6 ${p.featured ? 'bg-gradient-to-b from-white to-orange-50/70 ring-2 ring-orange-500' : 'bg-white ring-1 ring-slate-200'} shadow-lg shadow-slate-200/50`}>
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple bhattas' : 'One bhatta'}</p>
+                  <p className="text-[13px] sm:text-sm font-semibold text-slate-500">{p.featured ? 'Multiple bhattas' : 'One bhatta'}</p>
                   <h3 className="mt-1 font-bold text-slate-900">{p.name}</h3>
-                  <p className="mt-4 flex items-end gap-1">
-                    <span className="text-4xl font-extrabold tracking-tight text-slate-900">₹{p.price}</span>
-                    <span className="mb-1 text-sm font-semibold text-slate-500">/year</span>
+                  <p className="mt-3 sm:mt-4 flex items-end gap-1">
+                    <span className="text-xl sm:text-4xl font-extrabold tracking-tight text-slate-900">₹{p.price}</span>
+                    <span className="mb-1 text-[13px] sm:text-sm font-semibold text-slate-500">/year</span>
                   </p>
                 </div>
               ))}
             </div>
-            <div className="mt-8 text-center">
+            <div className="mt-5 sm:mt-8 text-center">
               <Link to={PRICE_PAGE} className="inline-flex items-center gap-2 font-semibold text-primary-700 transition hover:text-primary-900 hover:underline">
                 Compare plans and features <ArrowRight size={16} />
               </Link>
@@ -428,17 +428,17 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Bhatta Software: Frequently Asked Questions" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl border border-slate-200 bg-slate-50/50 transition open:bg-white open:shadow-md">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
                     {q}
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -446,15 +446,15 @@ export default function BhattaSoftwarePage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2a3c] via-[#27374f] to-[#7c2d12] px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Make your bhatta work easy, starting today</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-300">
+              <h2 className="text-xl font-bold sm:text-4xl">Make your bhatta work easy, starting today</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-300">
                 Talk to us and see how {site.name} can manage your brick bhatta for you.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-orange-50">
                   <MessageCircle size={18} /> Contact Us
                 </Link>

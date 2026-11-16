@@ -18,11 +18,11 @@ export default function PricingCard({ plan }) {
         </span>
       )}
       {/* Room for two lines keeps both cards' prices level when one name wraps */}
-      <h3 className="text-xl font-bold text-slate-900 md:min-h-[3.5rem]">{plan.name}</h3>
-      <p className="mt-1 text-sm text-slate-500">{plan.audience}</p>
-      <p className="mt-6 flex items-end gap-1">
-        <span className="text-5xl font-extrabold tracking-tight text-slate-900">₹{plan.price}</span>
-        <span className="mb-1.5 text-base font-semibold text-slate-500">/year</span>
+      <h3 className="text-lg sm:text-xl font-bold text-slate-900 md:min-h-[3.5rem]">{plan.name}</h3>
+      <p className="mt-1 text-[13px] sm:text-sm text-slate-500">{plan.audience}</p>
+      <p className="mt-5 sm:mt-6 flex items-end gap-1">
+        <span className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">₹{plan.price}</span>
+        <span className="mb-1.5 text-sm sm:text-base font-semibold text-slate-500">/year</span>
       </p>
       <a
         href={planEnquiry(plan)}
@@ -34,7 +34,7 @@ export default function PricingCard({ plan }) {
       </a>
       <ul className="mt-7 space-y-3 border-t border-slate-200 pt-6">
         {plan.features.map(f => (
-          <li key={f} className="flex items-start gap-3 text-sm text-slate-700">
+          <li key={f} className="flex items-start gap-3 text-[13px] sm:text-sm text-slate-700">
             <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? 'bg-orange-600 text-white' : 'bg-emerald-100 text-emerald-700'}`}>
               <Check size={13} strokeWidth={3} />
             </span>

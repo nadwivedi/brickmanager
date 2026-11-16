@@ -100,58 +100,58 @@ export default function HindiBhattaPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-orange-900/[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pt-12 lg:pb-20">
+          <div className="relative mx-auto max-w-6xl px-4 pb-8 sm:pb-14 pt-6 sm:px-6 sm:pt-12 lg:pb-20">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">ईंट भट्ठा सॉफ्टवेयर</span>
             </nav>
-            <div className="mx-auto mt-10 max-w-3xl text-center">
+            <div className="mx-auto mt-5 sm:mt-10 max-w-3xl text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-orange-800 shadow-sm">
                 भट्ठा चलाएं डिजिटल तरीके से, बिना कागज़ के
               </span>
-              <h1 className="mt-6 text-4xl font-extrabold leading-[1.3] tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="mt-3 text-2xl font-extrabold leading-[1.3] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl">
                 ईंट भट्ठा सॉफ्टवेयर:{' '}
                 <span className="bg-gradient-to-r from-orange-700 to-amber-600 bg-clip-text text-transparent">भट्ठे का पूरा हिसाब</span>{' '}
                 एक ऐप में
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
                 {site.name} से ईंट उत्पादन, कच्चा माल, स्टॉक, बिक्री, बकाया और खर्च का हिसाब मोबाइल और कंप्यूटर पर रखें।
                 हमेशा पता रहे कितनी ईंट बनी, कितनी बिकी और किसका पैसा बाकी है।
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <a href={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-base">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <a href={CONTACT_PAGE} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                   शुरू करें <ArrowRight size={18} />
                 </a>
-                <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">डेमो देखें</Link>
+                <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">डेमो देखें</Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* Features */}
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="फ़ीचर"
               title="भट्ठा हिसाब ऐप में क्या-क्या है"
               text="सुबह के पहले उत्पादन से लेकर आख़िरी भुगतान तक, हर एंट्री सही खाते में अपने आप पहुंचती है।"
             />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-5 sm:mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {FEATURES.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+                <article key={title} className="flex gap-3 sm:gap-4 rounded-2xl bg-white p-4 sm:p-5 shadow-sm ring-1 ring-slate-200">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-orange-600 to-orange-500 text-white shadow-md">
                     <Icon size={20} />
                   </span>
                   <div>
                     <h3 className="font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </article>
               ))}
             </div>
-            <p className="mt-8 text-center">
-              <Link to={FEATURES_PAGE} className="inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">
+            <p className="mt-5 sm:mt-8 text-center">
+              <Link to={FEATURES_PAGE} className="inline-flex items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">
                 सभी फ़ीचर देखें (English) <ChevronRight size={16} />
               </Link>
             </p>
@@ -159,10 +159,10 @@ export default function HindiBhattaPage() {
         </section>
 
         {/* Benefits */}
-        <section className="py-14 sm:py-20">
+        <section className="py-8 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <SectionHeading eyebrow="फ़ायदे" title={`भट्ठा मालिक ${site.name} क्यों चुनते हैं`} />
-            <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 sm:mt-10 grid gap-3 sm:grid-cols-2">
               {BENEFITS.map(b => (
                 <li key={b} className="flex items-start gap-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
                   <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-emerald-600" />
@@ -174,37 +174,37 @@ export default function HindiBhattaPage() {
         </section>
 
         {/* Pricing */}
-        <section className="bg-white py-14 sm:py-20">
+        <section className="bg-white py-8 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <Smartphone size={30} className="mx-auto text-orange-700" />
-            <h2 className="mt-3 text-3xl font-bold text-slate-900">ईंट भट्ठा सॉफ्टवेयर की क़ीमत</h2>
+            <h2 className="mt-3 text-xl sm:text-3xl font-bold text-slate-900">ईंट भट्ठा सॉफ्टवेयर की क़ीमत</h2>
             <p className="mx-auto mt-3 max-w-xl text-slate-600">दोनों प्लान में सभी फ़ीचर, मोबाइल ऐप और डेस्कटॉप सॉफ्टवेयर शामिल।</p>
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:gap-4 sm:flex-row">
               {PLANS.map(p => (
                 <div key={p.name} className="rounded-2xl bg-white px-8 py-5 shadow-sm ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'एक से ज़्यादा भट्ठे' : 'एक भट्ठा'}</p>
-                  <p className="mt-1 text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-sm font-semibold text-slate-500">/साल</span></p>
+                  <p className="text-[13px] sm:text-sm font-semibold text-slate-500">{p.featured ? 'एक से ज़्यादा भट्ठे' : 'एक भट्ठा'}</p>
+                  <p className="mt-1 text-xl sm:text-3xl font-extrabold text-slate-900">₹{p.price}<span className="text-[13px] sm:text-sm font-semibold text-slate-500">/साल</span></p>
                 </div>
               ))}
             </div>
-            <Link to={BHATTA_PAGE} className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800">
+            <Link to={BHATTA_PAGE} className="mt-5 sm:mt-6 inline-flex items-center gap-1 text-[13px] sm:text-sm font-semibold text-primary-700 hover:text-primary-800">
               Bhatta Software (English) <ChevronRight size={16} />
             </Link>
           </div>
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 py-14 sm:py-20">
+        <section id="faq" className="scroll-mt-20 py-8 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="सवाल-जवाब" title="ईंट भट्ठा सॉफ्टवेयर: अक्सर पूछे जाने वाले सवाल" />
-            <div className="mt-10 space-y-3">
+            <div className="mt-5 sm:mt-10 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl bg-white ring-1 ring-slate-200 transition open:shadow-md open:ring-orange-200">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-orange-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -212,13 +212,13 @@ export default function HindiBhattaPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 pb-14 sm:px-6 sm:pb-20">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 pb-8 sm:px-6 sm:pb-20">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.06]" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">आज ही अपना भट्ठा डिजिटल बनाएं</h2>
-              <p className="mx-auto mt-4 max-w-xl text-orange-50">कॉल या WhatsApp करें: {site.phone}</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <h2 className="text-xl font-bold sm:text-4xl">आज ही अपना भट्ठा डिजिटल बनाएं</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-orange-50">कॉल या WhatsApp करें: {site.phone}</p>
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <a href={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-orange-50">
                   शुरू करें <ArrowRight size={18} />
                 </a>

@@ -108,7 +108,7 @@ function DevicesVisual() {
     <figure
       role="img"
       aria-label="A laptop and a mobile phone showing the same brick kiln records in BrickManager, synced online"
-      className="relative mx-auto w-full max-w-lg pb-10"
+      className="relative mx-auto w-full max-w-lg pb-6 sm:pb-10"
     >
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-sky-200/60 via-primary-100/50 to-orange-200/50 blur-2xl" />
 
@@ -146,7 +146,7 @@ function DevicesVisual() {
         <div className="mx-auto mt-1.5 h-1.5 w-10 rounded-full bg-slate-200" />
         <div className="p-3">
           <p className="text-[9px] font-semibold text-slate-500">New Production</p>
-          <p className="mt-1 text-sm font-bold text-slate-900">12,500</p>
+          <p className="mt-1 text-[13px] sm:text-sm font-bold text-slate-900">12,500</p>
           <p className="text-[9px] text-slate-500">bricks · Red brick</p>
           <span className="mt-2 flex items-center justify-center gap-1 rounded-md bg-emerald-500 py-1 text-[9px] font-bold text-white">
             <Check size={10} strokeWidth={3} /> Saved
@@ -188,36 +188,36 @@ export default function OnlineBrickKilnPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <BrickPattern className="fill-sky-900/[0.03] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:pb-24">
+          <div className="relative mx-auto max-w-6xl px-4 pb-10 sm:pb-20 pt-6 sm:px-6 sm:pt-12 lg:pb-24">
             <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
               <Link to="/" className="transition hover:text-orange-700">Home</Link>
               <ChevronRight size={14} />
               <span className="text-slate-700" aria-current="page">Online Brick Kiln Management Software</span>
             </nav>
 
-            <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
+            <div className="mt-5 sm:mt-10 grid items-center gap-6 sm:gap-14 lg:grid-cols-2 lg:gap-10">
               <div className="text-center lg:text-left">
                 <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-sky-800 shadow-sm">
                   <Cloud size={14} /> Cloud-based brick kiln software
                 </span>
-                <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
+                <h1 className="mt-3 text-2xl font-extrabold leading-[1.15] sm:mt-6 tracking-tight text-slate-900 sm:text-5xl lg:text-[3.1rem]">
                   Online Brick Kiln Management Software,{' '}
                   <span className="bg-gradient-to-r from-sky-600 to-primary-700 bg-clip-text text-transparent">Anywhere You Are</span>
                 </h1>
-                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0">
+                <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg lg:mx-0">
                   {site.name} puts your whole brick kiln online. Record production at the kiln on your phone, make
                   invoices from the office, and check stock, sales and dues from home. Use it in the browser or
                   in our mobile and desktop apps, and every device shows the same up-to-date records.
                 </p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                  <a href="#online" onClick={jumpTo('online')} className="btn-primary px-7 py-3.5 text-base">
+                <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                  <a href="#online" onClick={jumpTo('online')} className="btn-primary px-7 py-3.5 text-sm sm:text-base">
                     Why Go Online <ArrowRight size={18} />
                   </a>
-                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-base">
+                  <Link to={CONTACT_PAGE} className="btn-secondary px-7 py-3.5 text-sm sm:text-base">
                     Contact Us
                   </Link>
                 </div>
-                <ul className="mt-8 flex flex-col items-center gap-x-6 gap-y-2 text-sm font-medium text-slate-600 sm:flex-row sm:justify-center lg:justify-start">
+                <ul className="mt-5 sm:mt-8 flex flex-col items-center gap-x-6 gap-y-2 text-[13px] sm:text-sm font-medium text-slate-600 sm:flex-row sm:justify-center lg:justify-start">
                   {['Browser, mobile & desktop apps', 'Every device in sync', 'Secure login'].map(t => (
                     <li key={t} className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-emerald-600" /> {t}</li>
                   ))}
@@ -229,34 +229,34 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* What is it + installed vs online */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-sky-700">The basics</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">What Is Online Brick Kiln Management Software?</h2>
-              <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-sky-700">The basics</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">What Is Online Brick Kiln Management Software?</h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:mt-5 sm:text-lg">
                 It is software for running a brick kiln that lives on the internet instead of on a single computer.
                 You open it in a web browser, log in, and work with the same records wherever you are. Web-based brick
                 kiln software removes the biggest limit of installed software: being tied to one machine in one place.
               </p>
             </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
-              <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 sm:p-8">
-                <h3 className="flex items-center gap-2 text-lg font-bold text-slate-500"><Laptop size={20} /> Installed software</h3>
-                <ul className="mt-5 space-y-3">
+            <div className="mt-6 sm:mt-12 grid gap-3 sm:gap-5 md:grid-cols-2">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50/70 p-4 sm:p-8">
+                <h3 className="flex items-center gap-2 text-base sm:text-lg font-bold text-slate-500"><Laptop size={20} /> Installed software</h3>
+                <ul className="mt-4 sm:mt-5 space-y-3">
                   {INSTALLED_VS_ONLINE.map(r => (
-                    <li key={r.installed} className="flex items-start gap-3 text-sm text-slate-600">
+                    <li key={r.installed} className="flex items-start gap-3 text-[13px] sm:text-sm text-slate-600">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-200 text-slate-500"><X size={12} strokeWidth={3} /></span>
                       {r.installed}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="rounded-3xl bg-gradient-to-br from-sky-50 to-primary-50/60 p-6 ring-2 ring-sky-400 sm:p-8">
-                <h3 className="flex items-center gap-2 text-lg font-bold text-sky-800"><Cloud size={20} /> Online software, like {site.name}</h3>
-                <ul className="mt-5 space-y-3">
+              <div className="rounded-3xl bg-gradient-to-br from-sky-50 to-primary-50/60 p-4 ring-2 ring-sky-400 sm:p-8">
+                <h3 className="flex items-center gap-2 text-base sm:text-lg font-bold text-sky-800"><Cloud size={20} /> Online software, like {site.name}</h3>
+                <ul className="mt-4 sm:mt-5 space-y-3">
                   {INSTALLED_VS_ONLINE.map(r => (
-                    <li key={r.online} className="flex items-start gap-3 text-sm font-medium text-slate-800">
+                    <li key={r.online} className="flex items-start gap-3 text-[13px] sm:text-sm font-medium text-slate-800">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"><Check size={12} strokeWidth={3} /></span>
                       {r.online}
                     </li>
@@ -268,22 +268,22 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* Benefits of online */}
-        <section id="online" className="scroll-mt-20 py-20 sm:py-24">
+        <section id="online" className="scroll-mt-20 py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="Why go online"
               title="Benefits of Managing Your Brick Kiln Online"
               text="Running your kiln on online software changes where, when and how you can work."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 sm:mt-14 grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {BENEFITS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="group relative overflow-hidden rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-100">
+                <div key={title} className="group relative overflow-hidden rounded-2xl bg-white p-4 sm:p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-100">
                   <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-sky-50 transition group-hover:bg-sky-100" />
                   <span className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-primary-600 text-white shadow-md shadow-sky-600/20">
                     <Icon size={22} />
                   </span>
-                  <h3 className="relative mt-5 font-bold text-slate-900">{title}</h3>
-                  <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                  <h3 className="relative mt-4 sm:mt-5 font-bold text-slate-900">{title}</h3>
+                  <p className="relative mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                 </div>
               ))}
             </div>
@@ -291,23 +291,23 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* A day at the kiln */}
-        <section className="bg-white py-20 sm:py-24">
+        <section className="bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <SectionHeading
               eyebrow="A day online"
               title="A Day at Your Brick Kiln, Managed Online"
               text="Different places, different devices, one set of records."
             />
-            <ol className="relative mt-14 space-y-8 before:absolute before:bottom-2 before:left-6 before:top-2 before:w-0.5 before:bg-gradient-to-b before:from-amber-300 before:via-orange-300 before:to-indigo-300 sm:before:left-1/2">
+            <ol className="relative mt-6 sm:mt-14 space-y-6 sm:space-y-8 before:absolute before:bottom-2 before:left-6 before:top-2 before:w-0.5 before:bg-gradient-to-b before:from-amber-300 before:via-orange-300 before:to-indigo-300 sm:before:left-1/2">
               {DAY.map(({ icon: Icon, time, device, title, text }, i) => (
                 <li key={time} className={`relative flex gap-5 sm:w-1/2 ${i % 2 ? 'sm:ml-auto sm:pl-10' : 'sm:flex-row-reverse sm:pr-10 sm:text-right'}`}>
                   <span className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-orange-600 shadow-md ring-4 ring-orange-50 sm:absolute sm:top-0 ${i % 2 ? 'sm:-left-6' : 'sm:-right-6'}`}>
                     <Icon size={22} />
                   </span>
-                  <div className="flex-1 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                  <div className="flex-1 rounded-2xl bg-slate-50 p-4 sm:p-5 ring-1 ring-slate-200">
                     <p className="text-xs font-bold uppercase tracking-wider text-orange-700">{time} · <span className="text-slate-500">{device}</span></p>
                     <h3 className="mt-1 font-bold text-slate-900">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <p className="mt-1 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 </li>
               ))}
@@ -316,19 +316,19 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* Modules */}
-        <section className="py-20 sm:py-24">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-5">
+        <section className="py-10 sm:py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 sm:gap-12 px-4 sm:px-6 lg:grid-cols-5">
             <div className="lg:col-span-2">
-              <p className="text-sm font-semibold uppercase tracking-wider text-sky-700">Features</p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">Your Whole Brick Kiln, Online</h2>
-              <p className="mt-4 leading-relaxed text-slate-600">
+              <p className="text-[13px] sm:text-sm font-semibold uppercase tracking-wider text-sky-700">Features</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-900 sm:text-4xl">Your Whole Brick Kiln, Online</h2>
+              <p className="mt-3 sm:mt-4 leading-relaxed text-slate-600">
                 Going online does not mean giving anything up. {site.name} covers the full daily work of a brick kiln,
                 and every part of it is available from any device you log in from.
               </p>
             </div>
             <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-3 lg:grid-cols-3">
               {MODULES.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-3 rounded-xl bg-white p-4 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200">
+                <li key={label} className="flex items-center gap-3 rounded-xl bg-white p-4 text-[13px] sm:text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-700"><Icon size={18} /></span>
                   {label}
                 </li>
@@ -339,17 +339,17 @@ export default function OnlineBrickKilnPage() {
 
         {/* What you need */}
         <section className="px-4 sm:px-6">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-sky-50 via-white to-primary-50/60 p-8 ring-1 ring-sky-200 sm:p-12">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-sky-50 via-white to-primary-50/60 p-4 ring-1 ring-sky-200 sm:p-12">
             <BrickPattern className="fill-sky-900/[0.03]" />
             <div className="relative">
-              <h2 className="text-center text-3xl font-bold text-slate-900">What You Need to Get Started</h2>
+              <h2 className="text-center text-xl sm:text-3xl font-bold text-slate-900">What You Need to Get Started</h2>
               <p className="mx-auto mt-3 max-w-xl text-center text-slate-600">No special hardware. Just the things you already have.</p>
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
+              <div className="mt-5 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-3">
                 {NEEDS.map(({ icon: Icon, title, text }) => (
-                  <div key={title} className="rounded-2xl bg-white/90 p-6 text-center shadow-sm ring-1 ring-slate-200">
+                  <div key={title} className="rounded-2xl bg-white/90 p-4 sm:p-6 text-center shadow-sm ring-1 ring-slate-200">
                     <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-sky-700"><Icon size={26} /></span>
-                    <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                    <h3 className="mt-3 sm:mt-4 font-bold text-slate-900">{title}</h3>
+                    <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-slate-600">{text}</p>
                   </div>
                 ))}
               </div>
@@ -358,29 +358,29 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* Pricing + related */}
-        <section className="py-20 sm:py-24">
+        <section className="py-10 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <SectionHeading eyebrow="Pricing" title="Online Brick Kiln Software Plans" text="Yearly plans with every feature, the mobile app and desktop software included." />
-            <div className="mx-auto mt-12 grid max-w-3xl gap-5 sm:grid-cols-2">
+            <div className="mx-auto mt-6 sm:mt-12 grid max-w-3xl gap-3 sm:gap-5 sm:grid-cols-2">
               {PLANS.map(p => (
                 <div key={p.name} className={`rounded-2xl p-6 shadow-lg shadow-slate-200/50 ${p.featured ? 'bg-gradient-to-b from-white to-sky-50 ring-2 ring-sky-500' : 'bg-white ring-1 ring-slate-200'}`}>
-                  <p className="text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
+                  <p className="text-[13px] sm:text-sm font-semibold text-slate-500">{p.featured ? 'Multiple kilns' : 'One kiln'}</p>
                   <h3 className="mt-1 font-bold text-slate-900">{p.name}</h3>
-                  <p className="mt-4 flex items-end gap-1">
-                    <span className="text-4xl font-extrabold tracking-tight text-slate-900">₹{p.price}</span>
-                    <span className="mb-1 text-sm font-semibold text-slate-500">/year</span>
+                  <p className="mt-3 sm:mt-4 flex items-end gap-1">
+                    <span className="text-xl sm:text-4xl font-extrabold tracking-tight text-slate-900">₹{p.price}</span>
+                    <span className="mb-1 text-[13px] sm:text-sm font-semibold text-slate-500">/year</span>
                   </p>
                 </div>
               ))}
             </div>
-            <nav aria-label="Related pages" className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
+            <nav aria-label="Related pages" className="mx-auto mt-5 sm:mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
               {[
                 { to: PRICE_PAGE, label: 'Compare plans' },
                 { to: PLANT_PAGE, label: 'Brick plant management software' },
                 { to: MANUFACTURING_PAGE, label: 'Bricks manufacturing software' },
                 { to: BHATTA_PAGE, label: 'Bhatta software' },
               ].map(l => (
-                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50 hover:ring-primary-200">
+                <Link key={l.to} to={l.to} className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-2 text-[13px] sm:text-sm font-semibold text-primary-700 ring-1 ring-slate-200 transition hover:bg-primary-50 hover:ring-primary-200">
                   {l.label} <ChevronRight size={14} />
                 </Link>
               ))}
@@ -389,17 +389,17 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* FAQs */}
-        <section id="faq" className="scroll-mt-20 bg-white py-20 sm:py-24">
+        <section id="faq" className="scroll-mt-20 bg-white py-10 sm:py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <SectionHeading eyebrow="FAQs" title="Online Brick Kiln Management Software FAQs" />
-            <div className="mt-12 space-y-3">
+            <div className="mt-6 sm:mt-12 space-y-3">
               {FAQS.map(({ q, a }) => (
                 <details key={q} className="group rounded-2xl border-l-4 border-sky-200 bg-slate-50 transition open:border-sky-500 open:bg-white open:shadow-md">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base">{q}</h3>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 sm:gap-4 p-4 sm:p-5 font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm sm:text-base">{q}</h3>
                     <ChevronDown size={20} className="shrink-0 text-sky-600 transition group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="px-5 pb-5 text-[13px] sm:text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
@@ -407,16 +407,16 @@ export default function OnlineBrickKilnPage() {
         </section>
 
         {/* Call to action */}
-        <section className="px-4 py-20 sm:px-6 sm:py-24">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-[#1e3a5f] to-sky-800 px-6 py-14 text-center text-white shadow-2xl sm:px-12">
+        <section className="px-4 py-10 sm:px-6 sm:py-24">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-[#1e3a5f] to-sky-800 px-6 py-8 sm:py-14 text-center text-white shadow-2xl sm:px-12">
             <BrickPattern className="fill-white/[0.04]" />
             <div className="relative">
               <Cloud size={36} className="mx-auto text-sky-300" />
-              <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Take your brick kiln online today</h2>
-              <p className="mx-auto mt-4 max-w-xl text-slate-300">
+              <h2 className="mt-3 sm:mt-4 text-xl font-bold sm:text-4xl">Take your brick kiln online today</h2>
+              <p className="mx-auto mt-3 sm:mt-4 max-w-xl text-slate-300">
                 Talk to us and see {site.name} running on your own phone.
               </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <div className="mt-5 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link to={CONTACT_PAGE} className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 font-semibold text-slate-900 shadow-lg transition hover:bg-sky-50">
                   Contact Us <ArrowRight size={18} />
                 </Link>
